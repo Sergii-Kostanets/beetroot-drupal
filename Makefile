@@ -1,10 +1,26 @@
 include .env
 
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
-.PHONY: hello up down start stop del fullrestart zero one reup pull
+.PHONY: install cli build hello up down start stop reup del delv fullreup zero one pull
+
+install: up
+	sleep 5
+	docker-compose exec php bash -c "drush site:install --db-url=mysql://$(MYSQL_USER):$(MYSQL_PASS)@$(MYSQL_HOST):$(MYSQL_PORT)/$(MYSQL_DB_NAME) standard -y"
+	@mkdir -p "drush"
+	@echo "options:\n uri: 'http://$(PROJECT_BASE_URL)'" > drush/drush.yml
+	docker-compose exec php bash -c "drush user:create --mail=test@mail.com --password=test test"
+	docker-compose exec php bash -c "drush user:role:add administrator test"
+	docker-compose exec php bash -c "drush uli"
+
+cli:
+	docker-compose exec php bash
+
+build:
+	docker-compose up -d --build php
 
 hello:
 	@echo "Testing"
+	@echo "Project $(PROJECT_NAME)!"
 	echo "hello world"
 
 up:
@@ -28,12 +44,17 @@ reup:
 	docker-compose up -d --build --remove-orphans
 
 del:
-	@echo "Deleting $(PROJECT_NAME)!"
+	@echo "Deleting all containers $(PROJECT_NAME)!"
 	docker system prune -a
+
+delv:
+	@echo "Deleting volumes $(PROJECT_NAME)!"
+	docker system prune --volumes
 
 fullreup:
 	docker-compose down
 	docker system prune -a
+	docker system prune --volumes
 	docker-compose pull
 	docker-compose up -d --build --remove-orphans
 
@@ -46,8 +67,8 @@ one:
 	export COMPOSE_DOCKER_CLI_BUILD=1
 
 pull:
-	@echo "Pulling php:7.4-apache:"
-	docker pull php:7.4-apache
-	@echo "___________________________________________"
+	@echo "Pulling php:8.1-apache:"
+	docker pull php:8.1-apache
+	@echo "________________________________________________________"
 	@echo "Pulling traefik:v2.6"
 	docker pull traefik:v2.6
