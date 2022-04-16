@@ -3,9 +3,11 @@ include .env
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 .PHONY: install cli build hello up down start stop reup del delv fullreup zero one pull
 
+default: install
+
 install: up
-	sleep 5
-	docker-compose exec php bash -c "drush site:install --db-url=mysql://$(MYSQL_USER):$(MYSQL_PASS)@$(MYSQL_HOST):$(MYSQL_PORT)/$(MYSQL_DB_NAME) standard -y"
+	sleep 10
+	docker-compose exec php bash -c "drush site:install --existing-config --db-url=mysql://$(MYSQL_USER):$(MYSQL_PASS)@$(MYSQL_HOST):$(MYSQL_PORT)/$(MYSQL_DB_NAME) -y"
 	@mkdir -p "drush"
 	@echo "options:\n uri: 'http://$(PROJECT_BASE_URL)'" > drush/drush.yml
 	docker-compose exec php bash -c "drush user:create --mail=test@mail.com --password=test test"
