@@ -783,7 +783,7 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }$databases['default']['default'] = array (
   'database' => 'test',
-  'username' => 'user',
+  'username' => 'usera',
   'password' => 'pass',
   'prefix' => '',
   'host' => 'database',
@@ -791,4 +791,4 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
-$settings['hash_salt'] = 'FZg5w9mfyykxhCa-otM8REUfFgqMK3v-vmW0wtqLQrcSxi9N8q2JX1C1HPs1Nm3FnPVgkMa-kA';
+$settings['hash_salt'] = 'eU_TAR2dAAfGI97nVO-msY5cQlORNXiNLU4jgIlyKx7LwZgKinHV0_F7L8wH7PwWVR-CUsa8cw';
