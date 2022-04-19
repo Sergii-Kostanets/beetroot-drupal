@@ -6,4 +6,14 @@ services:
 build:
   stage: build
   script:
-    - docker-compose up -d
+    - cp .env.dist .env
+    - make up
+pre-install:
+  stage: pre-install
+  script: docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
+install:
+  stage: install
+  script: make install
+test:
+  stage: test
+  script: make test
