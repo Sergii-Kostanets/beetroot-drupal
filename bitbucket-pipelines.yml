@@ -1,0 +1,7 @@
+image: ubuntu:latest
+
+pipelines:
+  default:
+    - step:
+        script:
+          - echo "Hello"
