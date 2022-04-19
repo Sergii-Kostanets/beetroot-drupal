@@ -1,20 +1,13 @@
-image: docker:19.03.12
+image: tmaier/docker-compose:latest
 
 services:
-  - docker:19.03.12-dind
+  - docker:dind
 
-stages:
-  - build
-  - test
+before_script:
+  - docker info
+  - docker-compose --version
 
-build:
+build image:
   stage: build
   script:
-    - cp .env.dist .env
-    - docker-compose pull
-    - docker-compose up -d --build --remove-orphans
-
-test:
-  stage: test
-  script:
-    - docker ps
+    - docker-compose build
