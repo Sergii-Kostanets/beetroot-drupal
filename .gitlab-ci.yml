@@ -1,22 +1,3 @@
-image: docker:19.03.12
-
-services:
-  - docker:19.03.12-dind
-
-stages:
-  - build
-  - install
-  - test
-
 build:
-  stage: build
   script:
-    - cp .env.dist .env
-    - make up
-    - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
-install:
-  stage: install
-  script: make install
-test:
-  stage: test
-  script: make test
+    - echo "Hello World"
