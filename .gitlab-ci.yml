@@ -13,3 +13,8 @@ build image:
     - cp .env.dist .env
     - docker-compose pull
     - docker-compose up -d --build --remove-orphans
+
+test:
+  stage: test
+  script:
+    - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
