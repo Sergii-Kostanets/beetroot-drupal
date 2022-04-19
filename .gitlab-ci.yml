@@ -1,22 +1,13 @@
 stages:
   - build
-  - test
+  - install
 
 build-code-job:
   stage: build
   script:
-    - echo "Check the php version, then build some php project files:"
-    - php -v
-    - make
+    - make up
 
-test-code-job1:
-  stage: test
+install-code-job:
+  stage: install
   script:
-    - echo "If the files are built successfully, test some files with one command:"
-    - make hello
-
-test-code-job2:
-  stage: test
-  script:
-    - echo "If the files are built successfully, test other files with a different command:"
-    - make test
+    - make install
