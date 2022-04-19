@@ -11,4 +11,5 @@ build image:
   stage: build
   script:
     - cp .env.dist .env
-    - make up
+    - docker-compose pull
+    -	docker-compose up -d --build --remove-orphans
