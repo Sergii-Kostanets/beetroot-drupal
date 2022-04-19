@@ -1,13 +1,31 @@
 stages:
+  - begin
   - build
+  - pre-install
   - install
+  - test
 
-build-code-job:
+begin:
+  stage: begin
+  script:
+    - cp .env.dist .env
+
+build:
   stage: build
   script:
     - make up
 
-install-code-job:
+pre-install:
+  stage: pre-install
+  script:
+    - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
+
+install:
   stage: install
   script:
     - make install
+
+test:
+  stage: test
+  script:
+    - make test
