@@ -1,9 +1,22 @@
-image: docker:19.03.12
+stages:
+  - build
+  - test
 
-services:
-  - docker:19.03.12-dind
-
-build:
+build-code-job:
   stage: build
   script:
-    - docker-compose up -d
+    - echo "Check the php version, then build some php project files:"
+    - php -v
+    - make
+
+test-code-job1:
+  stage: test
+  script:
+    - echo "If the files are built successfully, test some files with one command:"
+    - make hello
+
+test-code-job2:
+  stage: test
+  script:
+    - echo "If the files are built successfully, test other files with a different command:"
+    - make test
