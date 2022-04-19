@@ -26,6 +26,7 @@ hello:
 
 up:
 	@echo "Up $(PROJECT_NAME)!"
+	docker-compose pull
 	docker-compose up -d --build --remove-orphans
 
 down:
