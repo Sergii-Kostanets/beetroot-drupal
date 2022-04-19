@@ -13,7 +13,8 @@ begin:
 build:
   stage: build
   script:
-    - make up
+    - docker-compose pull
+    - docker-compose up -d --build --remove-orphans
 
 pre-install:
   stage: pre-install
