@@ -4,35 +4,17 @@ services:
   - docker:19.03.12-dind
 
 stages:
-  - begin
   - build
-  - pre-install
-  - install
   - test
-
-begin:
-  stage: begin
-  script:
-    - cp .env.dist .env
-    - install docker-compose
 
 build:
   stage: build
   script:
+    - cp .env.dist .env
     - docker-compose pull
     - docker-compose up -d --build --remove-orphans
-
-pre-install:
-  stage: pre-install
-  script:
-    - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
-
-install:
-  stage: install
-  script:
-    - make install
 
 test:
   stage: test
   script:
-    - make test
+    - docker ps
