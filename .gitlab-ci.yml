@@ -1,7 +1,9 @@
-include:
-  remote: 'https://example.com/remote.yaml'
+image: docker:19.03.12
 
-test:
-  stage: test
+services:
+  - docker:19.03.12-dind
+
+build:
+  stage: build
   script:
-    - echo 1
+    - docker-compose up -d
