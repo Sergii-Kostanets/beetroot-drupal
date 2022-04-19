@@ -3,9 +3,6 @@ image: docker:19.03.12
 services:
   - docker:19.03.12-dind
 
-before_script:
-  - install docker-compose
-
 stages:
   - begin
   - build
@@ -17,6 +14,7 @@ begin:
   stage: begin
   script:
     - cp .env.dist .env
+    - install docker-compose
 
 build:
   stage: build
