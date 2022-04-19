@@ -3,18 +3,23 @@ image: tmaier/docker-compose:latest
 services:
   - docker:dind
 
-before_script:
-  - docker info
-  - docker-compose --version
+.pre:
+  stage: .pre
+  script:
+    - cp .env.dist .env
 
 build image:
   stage: build
   script:
-    - cp .env.dist .env
     - docker-compose pull
     - docker-compose up -d --build --remove-orphans
 
 test:
   stage: test
   script:
-    - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
+    - docker-compose exec -T php composer install --no-interaction
+
+
+
+
+# , , , deploy, .post
