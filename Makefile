@@ -6,7 +6,7 @@ THIS_FILE := $(lastword $(MAKEFILE_LIST))
 default: install
 
 test:
-	docker-compose exec -T php curl 0.0.0.0:80 -H "Host: $(PROJECT_BASE_URL)" --write-out %{http_code} --silent --output /dev/null
+	docker-compose exec -T php curl 0.0.0.0:80 -H "Host: $(PROJECT_BASE_URL)"
 
 install: up
 	docker-compose exec -T php composer install --no-interaction
