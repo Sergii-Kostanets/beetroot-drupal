@@ -10,4 +10,5 @@ before_script:
 build image:
   stage: build
   script:
+    - cp .env.dist .env
     - docker-compose build
