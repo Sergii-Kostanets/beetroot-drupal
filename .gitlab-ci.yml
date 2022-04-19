@@ -20,7 +20,4 @@ test:
   script:
     - docker-compose exec -T php composer install --no-interaction
 
-
-
-
 #deploy, .post
