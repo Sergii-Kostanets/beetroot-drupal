@@ -16,9 +16,9 @@ services:
     entrypoint: ["/bin/bash"]
     command: ["-c", "env discovery.type=single-node ES_JAVA_OPTS='-Xms64m -Xmx64m' xpack.security.enabled=false es-docker"]
 
-before_script:
-  - docker info
-  - docker-compose --version
+# before_script:
+#   - docker info
+#   - docker-compose --version
 
 .pre:
   stage: .pre
