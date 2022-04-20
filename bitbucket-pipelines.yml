@@ -4,6 +4,9 @@ pipelines:
   default:
     - step:
         script:
+          - pip install docker-compose
+    - step:
+        script:
           - echo "Hello"
     - step:
         script:
