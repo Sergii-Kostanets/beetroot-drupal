@@ -1,31 +1,44 @@
 image: tmaier/docker-compose:latest
 
+stages:
+  - .pre
+  - build
+  - test
+  - deploy
+  - .post
+
 services:
   - docker:dind
+
+before_script:
+  - docker info
+  - docker-compose --version
 
 .pre:
   stage: .pre
   script:
-    - cp .env.dist .env
+    - echo ".pre"
+    # - cp .env.dist .env
 
-build image:
+build:
   stage: build
   script:
-    - docker-compose pull
-    - docker-compose up -d --build --remove-orphans
+    - docker-compose build
+    # - docker-compose pull
+    # - docker-compose up -d --build --remove-orphans
 
 test:
   stage: test
   script:
-    - echo 'test'
+    - echo "test"
     # - docker-compose exec -T php composer install --no-interaction
 
 deploy:
   stage: deploy
   script:
-    - echo 'deploy'
+    - echo "deploy"
 
 .post:
   stage: .post
   script:
-    - echo '.post'
+    - echo ".post"
