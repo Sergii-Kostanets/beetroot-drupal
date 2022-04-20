@@ -1,37 +1,32 @@
-image:
-  name: docker:latest
-  entrypoint: ["/bin/sh", "-c"]
+image: docker:latest
 
 services:
   - docker:dind
 
-# .pre:
-#   stage: .pre
-#   script:
-#     - cp .env.dist .env
+.pre:
+  stage: .pre
+  script:
+    - cp .env.dist .env
 
-before_script:
-  - service docker restart
-  - docker version
-  - docker-compose version
-
-build:
+build image:
   stage: build
   script:
-    - docker-compose down
-    - docker-compose build
-    - docker-compose up -d
+    - cp .env.dist .env
+    - docker-compose pull
+    - docker-compose up -d --build --remove-orphans
 
-# build image:
-#   stage: build
-#   script:
-#     - cp .env.dist .env
-#     - docker-compose pull
-#     - docker-compose up -d --build --remove-orphans
+test:
+  stage: test
+  script:
+    - echo 'test'
+    # - docker-compose exec -T php composer install --no-interaction
 
-# test:
-#   stage: test
-#   script:
-#     - docker-compose exec -T php composer install --no-interaction
+deploy:
+  stage: deploy
+  script:
+    - echo 'deploy'
 
-#deploy, .post
+.post:
+  stage: .post
+  script:
+    - echo '.post'
