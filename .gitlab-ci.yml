@@ -3,10 +3,10 @@ image: tmaier/docker-compose:latest
 services:
   - docker:dind
 
-.pre:
-  stage: .pre
-  script:
-    - cp .env.dist .env
+# .pre:
+#   stage: .pre
+#   script:
+#     - cp .env.dist .env
 
 build:
   stage: build
