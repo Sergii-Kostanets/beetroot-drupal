@@ -20,9 +20,8 @@ build:
   script:
     - echo "build"
     - cp .env.dist .env
-    # - docker-compose pull
-    # - docker-compose build
-    # - docker-compose up -d --build --remove-orphans
+    - docker-compose version
+    - docker-compose up -d
 
 test:
   stage: test
