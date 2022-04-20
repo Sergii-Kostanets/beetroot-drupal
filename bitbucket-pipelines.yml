@@ -5,4 +5,6 @@ pipelines:
     - step:
         script:
           - echo "Hello"
-          - make up
+    - step:
+        script:
+        - docker-compose up -d
