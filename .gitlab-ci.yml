@@ -1,28 +1,24 @@
-image: docker:19.03.12-dind
+image:
+  name: docker/compose:latest
 
 services:
-  - docker:19.03.12-dind
+  - docker:dind
 
 # .pre:
 #   stage: .pre
 #   script:
 #     - cp .env.dist .env
 
+before_script:
+  - docker version
+  - docker-compose version
+
 build:
   stage: build
   script:
-    - docker-compose up -d
-    - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
-    - docker-compose exec -T php composer install --no-interaction
-    - docker-compose exec -T php bash -c "drush site:install --existing-config --db-url=mysql://user:password@database:3306/test -y"
-    - docker-compose exec -T php bash -c "drush user:create yevhen --mail=\"drupal@example.com\" --password=\"dbrf23\""
-    - docker-compose exec -T php bash -c "drush user:role:add administrator yevhen"
-    - docker-compose exec -T php bash -c "drush user:block admin"
-
-test-code:
-  stage: test
-  script:
-    - echo "TEST OK"
+    - docker-compose down
+    - docker-compose build
+    - docker-compose up tester-image
 
 # build image:
 #   stage: build
