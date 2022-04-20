@@ -1,4 +1,4 @@
-image: tmaier/docker-compose:latest
+image: docker/compose:latest
 
 services:
   - docker:dind
@@ -9,20 +9,6 @@ stages:
   - test
   - deploy
   - .post
-
-# services:
-#   - name: docker.elastic.co/elasticsearch/elasticsearch:5.5.2
-#     alias: elasticsearch
-#     entrypoint: ["/bin/bash"]
-#     command: ["-c", "env discovery.type=single-node ES_JAVA_OPTS='-Xms64m -Xmx64m' xpack.security.enabled=false es-docker"]
-
-# before_script:
-#   - docker info
-#   - docker-compose --version
-
-# variables:
-#   - environmentFile: ".env"
-
 
 .pre:
   stage: .pre
