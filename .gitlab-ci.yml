@@ -14,13 +14,13 @@ stages:
   stage: .pre
   script:
     - echo ".pre"
-    - cp .env.dist .env
 
 build:
   stage: build
   script:
     - echo "build"
-    - docker-compose pull
+    - cp .env.dist .env
+    # - docker-compose pull
     # - docker-compose build
     # - docker-compose up -d --build --remove-orphans
 
