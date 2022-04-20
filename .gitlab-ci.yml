@@ -7,8 +7,14 @@ stages:
   - deploy
   - .post
 
+# services:
+#   - docker:dind
+
 services:
-  - docker:dind
+  - name: docker.elastic.co/elasticsearch/elasticsearch:5.5.2
+    alias: elasticsearch
+    entrypoint: ["/bin/bash"]
+    command: ["-c", "env discovery.type=single-node ES_JAVA_OPTS='-Xms64m -Xmx64m' xpack.security.enabled=false es-docker"]
 
 before_script:
   - docker info
@@ -18,7 +24,7 @@ before_script:
   stage: .pre
   script:
     - echo ".pre"
-    # - cp .env.dist .env
+    - cp .env.dist .env
 
 build:
   stage: build
