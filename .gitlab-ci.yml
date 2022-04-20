@@ -14,7 +14,7 @@ stages:
   stage: .pre
   script:
     - echo ".pre"
-    # - cp .env.dist .env
+    - cp .env.dist .env
 
 build:
   stage: build
