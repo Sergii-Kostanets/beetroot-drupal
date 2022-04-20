@@ -1,4 +1,4 @@
-image: docker:latest
+image: tmaier/docker-compose:latest
 
 services:
   - docker:dind
@@ -11,7 +11,6 @@ services:
 build image:
   stage: build
   script:
-    - cp .env.dist .env
     - docker-compose pull
     - docker-compose up -d --build --remove-orphans
 
