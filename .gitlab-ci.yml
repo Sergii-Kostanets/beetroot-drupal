@@ -11,8 +11,8 @@ services:
 #     - cp .env.dist .env
 
 before_script:
-  - docker version
   - service docker restart
+  - docker version
   - docker-compose version
 
 build:
