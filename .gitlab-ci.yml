@@ -12,6 +12,7 @@ services:
 
 before_script:
   - docker version
+  - service docker restart
   - docker-compose version
 
 build:
