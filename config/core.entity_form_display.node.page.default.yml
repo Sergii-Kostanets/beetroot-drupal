@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_another_user_reference
+    - field.field.node.page.field_bool
     - field.field.node.page.field_variant
     - node.type.page
   module:
@@ -35,13 +36,25 @@ content:
     third_party_settings: {  }
   field_another_user_reference:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_bool:
+    type: options_buttons
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_variant:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
@@ -88,5 +101,4 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden:
-  field_variant: true
+hidden: {  }

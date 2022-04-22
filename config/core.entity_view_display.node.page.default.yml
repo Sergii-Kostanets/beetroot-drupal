@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_another_user_reference
+    - field.field.node.page.field_bool
     - field.field.node.page.field_variant
     - node.type.page
   module:
@@ -33,6 +34,16 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
+  field_bool:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
   field_variant:
     type: list_default
     label: above
@@ -41,6 +52,8 @@ content:
     weight: 102
     region: content
   links:
+    settings: {  }
+    third_party_settings: {  }
     weight: 101
     region: content
 hidden: {  }

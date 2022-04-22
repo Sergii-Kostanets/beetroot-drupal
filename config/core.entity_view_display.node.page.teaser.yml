@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
     - field.field.node.page.field_another_user_reference
+    - field.field.node.page.field_bool
     - field.field.node.page.field_variant
     - node.type.page
   module:
@@ -31,4 +32,5 @@ content:
     region: content
 hidden:
   field_another_user_reference: true
+  field_bool: true
   field_variant: true

@@ -7,12 +7,15 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_news
+    - field.field.node.article.field_status
     - field.field.node.article.field_tags
     - image.style.large
     - node.type.article
   module:
     - comment
     - image
+    - options
     - text
     - user
 _core:
@@ -46,6 +49,22 @@ content:
       image_style: large
     third_party_settings: {  }
     weight: -1
+    region: content
+  field_news:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: preview
+      link: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
     region: content
   field_tags:
     type: entity_reference_label

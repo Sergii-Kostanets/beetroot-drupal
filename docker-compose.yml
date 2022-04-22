@@ -15,13 +15,15 @@ services:
 
   database:
     image: mariadb
+    # container_name: database
+    # volumes:
+      # - "/mysql:/var/lib/mysql"
+    restart: always
     environment:
       - MARIADB_ROOT_PASSWORD=admin
       - MARIADB_DATABASE=${MYSQL_DB_NAME}
       - MARIADB_USER=${MYSQL_USER}
       - MARIADB_PASSWORD=${MYSQL_PASS}
-    volumes:
-      - "./mysql:/var/lib/mysql"
 
   phpmyadmin:
     image: phpmyadmin
