@@ -1,17 +1,17 @@
 include .env
 
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
-.PHONY: test install cli build hello up down start stop reup del delv fullreup zero one pull
+.PHONY: install cli build hello test up down start stop reup del delv fullreup zero one pull
 
 default: install
 
-test:
-	docker-compose exec -T php curl 0.0.0.0:80 -H "Host: $(PROJECT_BASE_URL)"
-
 install: up
+	sleep 10
 	docker-compose exec -T php composer install --no-interaction
 	docker-compose exec -T php bash -c "drush site:install --existing-config --db-url=mysql://$(MYSQL_USER):$(MYSQL_PASS)@$(MYSQL_HOST):$(MYSQL_PORT)/$(MYSQL_DB_NAME) -y"
 	docker-compose exec -T php bash -c 'mkdir -p "drush" && echo -e "options:\n  uri: http://$(PROJECT_BASE_URL)" > drush/drush.yml'
+	docker-compose exec -T php bash -c 'drush sql:query --file=../db.sql'
+	docker-compose exec -T php bash -c 'drush uli'
 
 cli:
 	docker-compose exec php bash
@@ -24,6 +24,9 @@ hello:
 	@echo "Project $(PROJECT_NAME)!"
 	echo "hello world"
 
+test:
+	docker-compose exec -T php curl 0.0.0.0:80 -H "Host: $(PROJECT_BASE_URL)"
+
 up:
 	@echo "Up $(PROJECT_NAME)!"
 	docker-compose pull
@@ -31,6 +34,8 @@ up:
 
 down:
 	@echo "Down $(PROJECT_NAME)."
+	docker-compose exec -T php bash -c 'drush cex -y'
+	docker-compose exec -T php bash -c 'drush sql:dump --result-file=../db.sql'
 	docker-compose down
 
 start:

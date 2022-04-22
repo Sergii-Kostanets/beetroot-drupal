@@ -1,0 +1,23 @@
+uuid: 107f4546-b1e9-4c1e-9010-eb0c7b42ab84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_feature
+    - taxonomy.vocabulary.tags
+id: taxonomy_term.tags.field_feature
+field_name: field_feature
+entity_type: taxonomy_term
+bundle: tags
+label: Feature
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

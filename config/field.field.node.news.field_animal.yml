@@ -1,0 +1,29 @@
+uuid: fefb7282-35de-4d0b-b040-3ba94eafc4d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_animal
+    - node.type.news
+    - taxonomy.vocabulary.category
+id: node.news.field_animal
+field_name: field_animal
+entity_type: node
+bundle: news
+label: Pet
+description: 'Choose the type of animal'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      category: category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
