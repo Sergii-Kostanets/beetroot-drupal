@@ -16,8 +16,8 @@ services:
   database:
     image: mariadb
     # container_name: database
-    # volumes:
-      # - "/mysql:/var/lib/mysql"
+    volumes:
+      - my-datavolume:/var/lib/mysql
     restart: always
     environment:
       - MARIADB_ROOT_PASSWORD=admin
@@ -44,3 +44,6 @@ services:
       - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+volumes:
+  my-datavolume:

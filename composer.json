@@ -20,9 +20,12 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/bootstrap5": "^1.0",
+        "drupal/context": "^4.1",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
+        "drupal/ds": "^3.13",
         "drupal/select2": "^1.13",
         "drush/drush": "^11.0",
         "npm-asset/select2": "^4.0",

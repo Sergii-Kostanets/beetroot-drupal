@@ -1,0 +1,21 @@
+uuid: ad1a2d01-a8de-411c-836e-528ce72efe65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_text_block
+    - node.type.news
+  module:
+    - text
+id: node.news.field_news_text_block
+field_name: field_news_text_block
+entity_type: node
+bundle: news
+label: 'News text block'
+description: 'some test block for news'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -7,13 +7,16 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_media
     - field.field.node.article.field_news
+    - field.field.node.article.field_some_file
     - field.field.node.article.field_status
     - field.field.node.article.field_tags
     - image.style.large
     - node.type.article
   module:
     - comment
+    - file
     - image
     - options
     - text
@@ -50,6 +53,15 @@ content:
     third_party_settings: {  }
     weight: -1
     region: content
+  field_media:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 113
+    region: content
   field_news:
     type: entity_reference_entity_view
     label: above
@@ -58,6 +70,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 112
+    region: content
+  field_some_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 114
     region: content
   field_status:
     type: list_default

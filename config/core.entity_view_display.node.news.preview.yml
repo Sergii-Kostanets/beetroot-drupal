@@ -6,6 +6,11 @@ dependencies:
     - core.entity_view_mode.node.preview
     - field.field.node.news.body
     - field.field.node.news.field_animal
+    - field.field.node.news.field_category
+    - field.field.node.news.field_commentaries
+    - field.field.node.news.field_date
+    - field.field.node.news.field_news_text_block
+    - field.field.node.news.field_pet_type
     - field.field.node.news.field_poster
     - field.field.node.news.field_title
     - node.type.news
@@ -45,4 +50,9 @@ content:
     region: content
 hidden:
   body: true
+  field_category: true
+  field_commentaries: true
+  field_date: true
+  field_news_text_block: true
+  field_pet_type: true
   links: true

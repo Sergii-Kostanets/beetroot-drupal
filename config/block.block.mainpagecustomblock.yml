@@ -1,0 +1,50 @@
+uuid: 2874cbce-034c-402c-9480-6d7ca60d7360
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:7fcefff6-79a7-46a4-89cc-9874891c3c57'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap5
+id: mainpagecustomblock
+theme: bootstrap5
+region: content
+weight: -6
+provider: null
+plugin: 'block_content:7fcefff6-79a7-46a4-89cc-9874891c3c57'
+settings:
+  id: 'block_content:7fcefff6-79a7-46a4-89cc-9874891c3c57'
+  label: 'Main page custom block'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

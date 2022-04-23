@@ -20,8 +20,8 @@ build:
   script:
     - echo "build"
     - cp .env.dist .env
-    - docker-compose version
-    - docker-compose up -d
+    # - docker-compose version
+    # - docker-compose up -d
 
 test:
   stage: test
