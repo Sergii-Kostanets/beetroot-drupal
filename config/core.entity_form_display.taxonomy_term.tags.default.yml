@@ -1,9 +1,9 @@
-uuid: d6794f91-0788-433f-8808-4b4c2603e97d
+uuid: 7b87df22-01d4-4c33-a80d-51441757229d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.tags.field_feature
+    - field.field.taxonomy_term.tags.field_show_on_home
     - taxonomy.vocabulary.tags
   module:
     - path
@@ -21,9 +21,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_feature:
+  field_show_on_home:
     type: boolean_checkbox
-    weight: 101
+    weight: 102
     region: content
     settings:
       display_label: true

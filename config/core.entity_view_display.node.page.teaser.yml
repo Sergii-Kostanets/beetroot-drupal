@@ -1,13 +1,10 @@
-uuid: 96705ff0-6147-4d06-8cd3-49bd851c1267
+uuid: 1675ed85-5112-4dcd-b7d7-00a33c396207
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
-    - field.field.node.page.field_another_user_reference
-    - field.field.node.page.field_bool
-    - field.field.node.page.field_variant
     - node.type.page
   module:
     - text
@@ -30,7 +27,4 @@ content:
   links:
     weight: 101
     region: content
-hidden:
-  field_another_user_reference: true
-  field_bool: true
-  field_variant: true
+hidden: {  }

@@ -1,10 +1,10 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
-uuid: 30f203c3-c592-49ef-ad89-a000c8b106a1
-name: 'Sergii''s Site'
-mail: admin@example.com
-slogan: 'Sergii''s First Drupal Site'
+uuid: f96a6a42-0705-4bc8-98e5-0bf663821f9c
+name: Beetroot
+mail: admin@example.org
+slogan: ''
 page:
   403: ''
   404: ''

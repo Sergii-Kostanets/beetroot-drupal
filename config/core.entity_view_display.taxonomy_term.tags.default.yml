@@ -1,9 +1,9 @@
-uuid: 900db289-af4a-4a0f-97db-d52314c1ffaa
+uuid: 131ab1a3-8648-4027-8cfc-e06f22d2ca39
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.tags.field_feature
+    - field.field.taxonomy_term.tags.field_show_on_home
     - taxonomy.vocabulary.tags
   module:
     - text
@@ -19,7 +19,7 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_feature:
+  field_show_on_home:
     type: boolean
     label: above
     settings:
@@ -27,6 +27,6 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden: {  }

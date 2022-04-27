@@ -1,14 +1,7 @@
-uuid: 627b4dc8-36e9-4467-afff-5e99ffd5fb68
+uuid: f2c19995-b3b3-4955-bd9a-601fc9f8168e
 langcode: en
 status: true
-dependencies:
-  module:
-    - menu_ui
-third_party_settings:
-  menu_ui:
-    available_menus:
-      - main
-    parent: 'main:'
+dependencies: {  }
 _core:
   default_config_hash: AeW1SEDgb1OTQACAWGhzvMknMYAJlcZu0jljfeU3oso
 name: Article
@@ -17,4 +10,4 @@ description: 'Use <em>articles</em> for time-sensitive content like news, press 
 help: ''
 new_revision: true
 preview_mode: 1
-display_submitted: false
+display_submitted: true
