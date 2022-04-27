@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 5e9863d1-a4f2-443d-91f8-f7d68ab44e3c
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: generateImage_dWtFKA.gif
+  uri:
+    -
+      value: 'public://2022-04/generateImage_dWtFKA.gif'
+  filemime:
+    -
+      value: image/gif
+  filesize:
+    -
+      value: 2304
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1651035631
