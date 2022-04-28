@@ -1,0 +1,33 @@
+uuid: e27591ca-adbe-44bf-9f96-9197c3e78a13
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news_from_that_category
+  module:
+    - node
+    - views
+  theme:
+    - olivero
+id: views_block__news_from_that_category_block_1
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'views_block:news_from_that_category-block_1'
+settings:
+  id: 'views_block:news_from_that_category-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      news: news
