@@ -1,4 +1,4 @@
-uuid: ab2eedd7-8ea4-437a-b625-62684e83190c
+uuid: 0a3d7e63-76ff-41f6-b10c-996ba922b2ac
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,13 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_pivate
     - field.field.node.article.field_tags
     - image.style.medium
     - node.type.article
   module:
     - image
+    - text
     - user
 _core:
   default_config_hash: 0ur5-yZyR8pJ3lugC_Micbr6V_tpMWz-yHFhtuLcZo8
@@ -20,6 +22,14 @@ targetEntityType: node
 bundle: article
 mode: teaser
 content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 400
+    third_party_settings: {  }
+    weight: 0
+    region: content
   field_image:
     type: image
     label: hidden
@@ -27,7 +37,7 @@ content:
       image_link: content
       image_style: medium
     third_party_settings: {  }
-    weight: 0
+    weight: -1
     region: content
   field_tags:
     type: entity_reference_label
@@ -35,13 +45,13 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 10
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 100
     region: content
 hidden:
-  body: true
   comment: true
+  field_pivate: true

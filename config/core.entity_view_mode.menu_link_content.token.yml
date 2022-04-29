@@ -1,0 +1,10 @@
+uuid: 733af6f8-0d0a-4a58-ac79-77018e90930b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_link_content
+id: menu_link_content.token
+label: Token
+targetEntityType: menu_link_content
+cache: true

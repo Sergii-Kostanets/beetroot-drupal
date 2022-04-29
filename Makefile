@@ -1,8 +1,6 @@
 include .env
-
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
-.PHONY: install cli build hello test up down start stop reup del delv fullreup zero one pull
-
+.PHONY: install up down cli build hello test start stop reup del delv fullreup zero one pull
 default: install
 
 install: up
@@ -10,13 +8,29 @@ install: up
 	docker-compose exec -T php composer install --no-interaction
 #	docker-compose exec -T php bash -c 'drush updb -y'
 #	docker-compose exec -T php bash -c 'drush cim -y'
-# or	docker-compose exec -T php bash -c 'drush deploy'
+#	docker-compose exec -T php bash -c 'drush deploy'
 	docker-compose exec -T php bash -c "drush site:install --existing-config --db-url=mysql://$(MYSQL_USER):$(MYSQL_PASS)@$(MYSQL_HOST):$(MYSQL_PORT)/$(MYSQL_DB_NAME) -y"
 	docker-compose exec -T php bash -c 'mkdir -p "drush" && echo -e "options:\n  uri: http://$(PROJECT_BASE_URL)" > drush/drush.yml'
-	docker-compose exec -T php bash -c 'drush en beetroot_content -y'
-	docker-compose exec -T php bash -c 'drush pmu beetroot_content default_content hal -y'
-#	docker-compose exec -T php bash -c 'drush sql:query --file=../db2.sql'
+#	docker-compose exec -T php bash -c 'drush en beetroot_content -y'
+#	docker-compose exec -T php bash -c 'drush pmu beetroot_content default_content hal -y'
+	docker-compose exec -T php bash -c 'drush en devel'
+	docker-compose exec -T php bash -c 'drush en devel_generate'
+	docker-compose exec -T php bash -c 'drush en realistic_dummy_content -y'
+	docker-compose exec -T php bash -c 'drush en better_exposed_filters -y'
+	docker-compose exec -T php bash -c 'drush sql:query --file=../db.sql'
 #	docker-compose exec -T php bash -c 'drush uli'
+
+up:
+	@echo "Up $(PROJECT_NAME)!"
+	docker-compose pull
+	docker-compose up -d --build --remove-orphans
+
+down:
+	@echo "Down $(PROJECT_NAME)."
+	docker-compose exec -T php bash -c 'drush updb -y'
+	docker-compose exec -T php bash -c 'drush cex -y'
+	docker-compose exec -T php bash -c 'drush sql:dump --result-file=../db.sql'
+	docker-compose down
 
 cli:
 	docker-compose exec php bash
@@ -31,18 +45,6 @@ hello:
 
 test:
 	docker-compose exec -T php curl 0.0.0.0:80 -H "Host: $(PROJECT_BASE_URL)"
-
-up:
-	@echo "Up $(PROJECT_NAME)!"
-	docker-compose pull
-	docker-compose up -d --build --remove-orphans
-
-down:
-	@echo "Down $(PROJECT_NAME)."
-	docker-compose exec -T php bash -c 'drush updb -y'
-	docker-compose exec -T php bash -c 'drush cex -y'
-	docker-compose exec -T php bash -c 'drush sql:dump --result-file=../db2.sql'
-	docker-compose down
 
 start:
 	@echo "Starting $(PROJECT_NAME)!"

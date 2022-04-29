@@ -1,4 +1,4 @@
-uuid: 6a8817aa-4afe-43e1-af58-00168aeeecfd
+uuid: 022cb0a4-d223-4409-8bd5-280c3f941e4e
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: News
 type: news
-description: ''
+description: 'Some news'
 help: ''
 new_revision: true
 preview_mode: 1

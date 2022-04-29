@@ -1,8 +1,0 @@
-uuid: 46221634-dec2-442f-9cc2-2eb80df4844d
-langcode: en
-status: true
-dependencies: {  }
-name: Category
-vid: category
-description: ''
-weight: 0

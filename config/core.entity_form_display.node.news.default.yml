@@ -1,17 +1,13 @@
-uuid: 8be2c11a-e3ee-44d1-add6-dee130461584
+uuid: 93123ebf-2fd2-4bff-b5c4-87ddd6c29fb5
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.news.body
-    - field.field.node.news.field_category
-    - field.field.node.news.field_news_type
-    - field.field.node.news.field_poster
-    - field.field.node.news.field_title
-    - image.style.thumbnail
+    - field.field.node.news.field_commentaries
     - node.type.news
   module:
-    - image
+    - comment
     - path
     - text
 id: node.news.default
@@ -35,37 +31,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_category:
-    type: entity_reference_autocomplete
-    weight: 124
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_news_type:
-    type: options_select
-    weight: 125
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_poster:
-    type: image_image
-    weight: 123
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_title:
-    type: text_textfield
+  field_commentaries:
+    type: comment_default
     weight: 122
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path

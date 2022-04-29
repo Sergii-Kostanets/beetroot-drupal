@@ -1,9 +1,9 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
-uuid: f96a6a42-0705-4bc8-98e5-0bf663821f9c
+uuid: 64a5243c-0fba-4c71-8365-dd54b5e03a91
 name: Beetroot
-mail: admin@example.org
+mail: admin@example.com
 slogan: ''
 page:
   403: ''

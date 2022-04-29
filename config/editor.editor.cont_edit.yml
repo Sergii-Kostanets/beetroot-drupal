@@ -1,0 +1,61 @@
+uuid: cf41b62f-fd9b-429b-8180-e87935c89640
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.cont_edit
+  module:
+    - ckeditor
+format: cont_edit
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+            - Strike
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+        -
+          name: Tools
+          items:
+            - Source
+        -
+          name: Styles
+          items:
+            - Styles
+        -
+          name: Format
+          items:
+            - Format
+  plugins:
+    stylescombo:
+      styles: "h1.title|Title\r\nlarge.large-text|Large\r\nred.text-danger|Red\r\nblue.text-primary|Blue"
+    language:
+      language_list: un
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

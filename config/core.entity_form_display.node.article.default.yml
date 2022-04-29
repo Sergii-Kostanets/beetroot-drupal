@@ -1,4 +1,4 @@
-uuid: 82518e47-2884-404f-b482-3517c7d40f58
+uuid: 229d4716-ff1d-4d0b-b83f-c09349b57e28
 langcode: en
 status: true
 dependencies:
@@ -6,11 +6,13 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_pivate
     - field.field.node.article.field_tags
     - image.style.thumbnail
     - node.type.article
   module:
     - comment
+    - file
     - image
     - path
     - text
@@ -50,6 +52,13 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_pivate:
+    type: file_generic
+    weight: 121
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   field_tags:
     type: entity_reference_autocomplete_tags

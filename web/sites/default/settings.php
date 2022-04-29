@@ -502,7 +502,7 @@ $settings['update_free_access'] = FALSE;
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-# $settings['file_private_path'] = '';
+$settings['file_private_path'] = '../private';
 
 /**
  * Temporary file path:
@@ -781,6 +781,7 @@ $settings['skip_permissions_hardening'] = TRUE;
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
+
 }$databases['default']['default'] = array (
   'database' => 'test',
   'username' => 'usera',
@@ -792,3 +793,7 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   'driver' => 'mysql',
 );
 $settings['hash_salt'] = 'eU_TAR2dAAfGI97nVO-msY5cQlORNXiNLU4jgIlyKx7LwZgKinHV0_F7L8wH7PwWVR-CUsa8cw';
+
+$config['system.logging']['error_level'] = 'verbose';
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;

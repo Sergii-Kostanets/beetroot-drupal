@@ -1,8 +1,9 @@
-uuid: 914f503e-b6b3-425f-90b3-3c4d720db31b
+uuid: e81470e4-4bf7-4a97-923e-cc28067535c2
 langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.anon
     - filter.format.restricted_html
   module:
     - comment
@@ -21,4 +22,5 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'search content'
+  - 'use text format anon'
   - 'use text format restricted_html'
