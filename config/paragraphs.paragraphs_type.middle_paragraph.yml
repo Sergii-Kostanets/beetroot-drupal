@@ -1,0 +1,10 @@
+uuid: 464ab953-4c51-45cd-811a-e0588b0518f5
+langcode: en
+status: true
+dependencies: {  }
+id: middle_paragraph
+label: 'Middle paragraph'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

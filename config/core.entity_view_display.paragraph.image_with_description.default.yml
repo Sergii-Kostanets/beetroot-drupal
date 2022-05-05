@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.image_with_description.field_description
     - field.field.paragraph.image_with_description.field_media_image
+    - field.field.paragraph.image_with_description.field_title
     - paragraphs.paragraphs_type.image_with_description
   module:
     - ds
@@ -30,6 +31,7 @@ third_party_settings:
         label: ''
     regions:
       left:
+        - field_title
         - field_media_image
       right:
         - field_description
@@ -43,7 +45,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: right
   field_media_image:
     type: media_thumbnail
@@ -51,6 +53,14 @@ content:
     settings:
       image_link: ''
       image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: left
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
     region: left

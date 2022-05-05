@@ -1,0 +1,94 @@
+uuid: efa193dd-4fa7-450c-b37b-7f393c291cd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_product_item_4
+    - paragraphs.paragraphs_type.middle_paragraph
+    - paragraphs.paragraphs_type.product_item
+  module:
+    - entity_reference_revisions
+id: paragraph.middle_paragraph.field_product_item_4
+field_name: field_product_item_4
+entity_type: paragraph
+bundle: middle_paragraph
+label: 'Product item 4'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      product_item: product_item
+    negate: 0
+    target_bundles_drag_drop:
+      bp_accordion:
+        weight: 23
+        enabled: false
+      bp_accordion_section:
+        weight: 24
+        enabled: false
+      bp_blank:
+        weight: 25
+        enabled: false
+      bp_block:
+        weight: 26
+        enabled: false
+      bp_carousel:
+        weight: 27
+        enabled: false
+      bp_column_wrapper:
+        weight: 31
+        enabled: false
+      bp_columns:
+        weight: 28
+        enabled: false
+      bp_columns_three_uneven:
+        weight: 29
+        enabled: false
+      bp_columns_two_uneven:
+        weight: 30
+        enabled: false
+      bp_image:
+        weight: 32
+        enabled: false
+      bp_modal:
+        weight: 33
+        enabled: false
+      bp_simple:
+        weight: 34
+        enabled: false
+      bp_tab_section:
+        weight: 36
+        enabled: false
+      bp_tabs:
+        weight: 35
+        enabled: false
+      bp_view:
+        weight: 37
+        enabled: false
+      image_banner:
+        weight: 39
+        enabled: false
+      image_with_description:
+        weight: 40
+        enabled: false
+      images:
+        weight: 38
+        enabled: false
+      middle_paragraph:
+        weight: 41
+        enabled: false
+      product_item:
+        weight: 43
+        enabled: true
+      products_list:
+        weight: 42
+        enabled: false
+      text:
+        weight: 44
+        enabled: false
+field_type: entity_reference_revisions

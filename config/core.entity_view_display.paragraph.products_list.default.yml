@@ -1,0 +1,65 @@
+uuid: 482522b3-44af-43fc-a5f8-5bc0ee0bbf5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.products_list.field_mi
+    - field.field.paragraph.products_list.field_text
+    - field.field.paragraph.products_list.field_title
+    - paragraphs.paragraphs_type.products_list
+  module:
+    - ds
+    - entity_reference_revisions
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      ds_content:
+        - field_title
+        - field_text
+        - field_mi
+id: paragraph.products_list.default
+targetEntityType: paragraph
+bundle: products_list
+mode: default
+content:
+  field_mi:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: ds_content
+  field_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: ds_content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+hidden: {  }

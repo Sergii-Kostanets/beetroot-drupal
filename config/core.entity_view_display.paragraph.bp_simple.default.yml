@@ -1,0 +1,72 @@
+uuid: e2f14b93-89f5-4d30-a739-cff2f498ff4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.bp_simple.bp_background
+    - field.field.paragraph.bp_simple.bp_header
+    - field.field.paragraph.bp_simple.bp_text
+    - field.field.paragraph.bp_simple.bp_width
+    - paragraphs.paragraphs_type.bp_simple
+  module:
+    - field_group
+    - options
+    - text
+third_party_settings:
+  field_group:
+    group_main:
+      children:
+        - bp_header
+        - bp_text
+        - bp_width
+        - bp_background
+      label: Main
+      parent_name: ''
+      region: content
+      weight: 4
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: vertical
+        width_breakpoint: 640
+_core:
+  default_config_hash: NjU__Fe4dm-0rncPPd_5ZwHxyMZZa4jqQn1bWlS35pY
+id: paragraph.bp_simple.default
+targetEntityType: paragraph
+bundle: bp_simple
+mode: default
+content:
+  bp_background:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  bp_header:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  bp_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  bp_width:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  created: true
+  uid: true

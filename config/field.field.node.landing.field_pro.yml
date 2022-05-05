@@ -1,0 +1,91 @@
+uuid: 66e35ce6-bb01-4fb4-b68c-9b93bcf947d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pro
+    - node.type.landing
+    - paragraphs.paragraphs_type.products_list
+  module:
+    - entity_reference_revisions
+id: node.landing.field_pro
+field_name: field_pro
+entity_type: node
+bundle: landing
+label: 'Products list'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      products_list: products_list
+    negate: 0
+    target_bundles_drag_drop:
+      bp_accordion:
+        weight: 22
+        enabled: false
+      bp_accordion_section:
+        weight: 23
+        enabled: false
+      bp_blank:
+        weight: 24
+        enabled: false
+      bp_block:
+        weight: 25
+        enabled: false
+      bp_carousel:
+        weight: 26
+        enabled: false
+      bp_column_wrapper:
+        weight: 30
+        enabled: false
+      bp_columns:
+        weight: 27
+        enabled: false
+      bp_columns_three_uneven:
+        weight: 28
+        enabled: false
+      bp_columns_two_uneven:
+        weight: 29
+        enabled: false
+      bp_image:
+        weight: 31
+        enabled: false
+      bp_modal:
+        weight: 32
+        enabled: false
+      bp_simple:
+        weight: 33
+        enabled: false
+      bp_tab_section:
+        weight: 35
+        enabled: false
+      bp_tabs:
+        weight: 34
+        enabled: false
+      bp_view:
+        weight: 36
+        enabled: false
+      image_banner:
+        weight: 38
+        enabled: false
+      image_with_description:
+        weight: 39
+        enabled: false
+      images:
+        weight: 37
+        enabled: false
+      product_item:
+        weight: 41
+        enabled: false
+      products_list:
+        weight: 40
+        enabled: true
+      text:
+        weight: 42
+        enabled: false
+field_type: entity_reference_revisions

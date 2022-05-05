@@ -1,0 +1,84 @@
+uuid: 47f9650b-2be9-4902-a111-690ab97f74f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.middle_paragraph.field_product_item_1
+    - field.field.paragraph.middle_paragraph.field_product_item_2
+    - field.field.paragraph.middle_paragraph.field_product_item_3
+    - field.field.paragraph.middle_paragraph.field_product_item_4
+    - paragraphs.paragraphs_type.middle_paragraph
+  module:
+    - ds
+    - entity_reference_revisions
+third_party_settings:
+  ds:
+    layout:
+      id: ds_4col
+      library: ds/ds_4col
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          first: div
+          second: div
+          third: div
+          fourth: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      second:
+        - field_product_item_2
+      third:
+        - field_product_item_3
+      fourth:
+        - field_product_item_4
+      first:
+        - field_product_item_1
+id: paragraph.middle_paragraph.default
+targetEntityType: paragraph
+bundle: middle_paragraph
+mode: default
+content:
+  field_product_item_1:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: first
+  field_product_item_2:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: second
+  field_product_item_3:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: third
+  field_product_item_4:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: fourth
+hidden: {  }

@@ -5,9 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.complex_page
-    - paragraphs.paragraphs_type.image_with_description
-    - paragraphs.paragraphs_type.images
-    - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
 id: node.complex_page.field_paragraphs
@@ -23,19 +20,61 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles:
-      images: images
-      image_with_description: image_with_description
-      text: text
-    negate: 0
+    target_bundles: null
+    negate: 1
     target_bundles_drag_drop:
+      bp_accordion:
+        weight: 19
+        enabled: false
+      bp_accordion_section:
+        weight: 20
+        enabled: false
+      bp_blank:
+        weight: 21
+        enabled: false
+      bp_block:
+        weight: 22
+        enabled: false
+      bp_carousel:
+        weight: 23
+        enabled: false
+      bp_column_wrapper:
+        weight: 27
+        enabled: false
+      bp_columns:
+        weight: 24
+        enabled: false
+      bp_columns_three_uneven:
+        weight: 25
+        enabled: false
+      bp_columns_two_uneven:
+        weight: 26
+        enabled: false
+      bp_image:
+        weight: 28
+        enabled: false
+      bp_modal:
+        weight: 29
+        enabled: false
+      bp_simple:
+        weight: 30
+        enabled: false
+      bp_tab_section:
+        weight: 32
+        enabled: false
+      bp_tabs:
+        weight: 31
+        enabled: false
+      bp_view:
+        weight: 33
+        enabled: false
       image_with_description:
         weight: 5
-        enabled: true
+        enabled: false
       images:
         weight: 4
-        enabled: true
+        enabled: false
       text:
         weight: 6
-        enabled: true
+        enabled: false
 field_type: entity_reference_revisions
