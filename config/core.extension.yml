@@ -69,7 +69,7 @@ module:
   pathauto: 1
   views: 10
   paragraphs: 11
-  standard: 1000
+  minimal: 1000
 theme:
   bartik: 0
   seven: 0
@@ -78,4 +78,4 @@ theme:
   stable: 0
   classy: 0
   bootstrap5: 0
-profile: standard
+profile: minimal
