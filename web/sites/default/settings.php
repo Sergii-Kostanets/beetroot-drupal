@@ -794,6 +794,6 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 );
 $settings['hash_salt'] = 'eU_TAR2dAAfGI97nVO-msY5cQlORNXiNLU4jgIlyKx7LwZgKinHV0_F7L8wH7PwWVR-CUsa8cw';
 
-$config['system.logging']['error_level'] = 'verbose';
+$config['system.logging']['error_level'] = ERROR_REPORTING_HIDE;
 $config['system.performance']['css']['preprocess'] = FALSE;
 $config['system.performance']['js']['preprocess'] = FALSE;
