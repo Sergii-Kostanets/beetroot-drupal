@@ -1,0 +1,38 @@
+uuid: fb0ce0e8-45f3-4e7e-887f-fba7eb39044c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+    - taxonomy.vocabulary.tags
+  module:
+    - comment
+    - contextual
+    - file
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
+    - tour
+id: news_publisher
+label: 'News publisher'
+weight: 4
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access toolbar'
+  - 'access tour'
+  - 'administer url aliases'
+  - 'create news content'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete own news content'
+  - 'edit own comments'
+  - 'edit own news content'
+  - 'edit terms in tags'
+  - 'view own unpublished content'
+  - 'view the administration theme'

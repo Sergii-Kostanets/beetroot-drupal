@@ -1,13 +1,12 @@
-uuid: 93123ebf-2fd2-4bff-b5c4-87ddd6c29fb5
+uuid: e0125d0e-4923-4d20-9584-381d67377c3d
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.news.body
-    - field.field.node.news.field_commentaries
+    - field.field.node.news.field_category
     - node.type.news
   module:
-    - comment
     - path
     - text
 id: node.news.default
@@ -31,11 +30,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_commentaries:
-    type: comment_default
+  field_category:
+    type: entity_reference_autocomplete_tags
     weight: 122
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   path:
     type: path

@@ -1,11 +1,11 @@
-uuid: e08cd582-cf35-4191-a033-5d607c02e215
+uuid: 9f7496f4-51e1-4e48-b6ed-8a785c2728c0
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.news.body
-    - field.field.node.news.field_commentaries
+    - field.field.node.news.field_category
     - node.type.news
   module:
     - text
@@ -29,4 +29,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_commentaries: true
+  field_category: true

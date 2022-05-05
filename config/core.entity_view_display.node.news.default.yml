@@ -1,13 +1,12 @@
-uuid: 8bd39e59-69f5-4ec2-85c2-cd9f3a375edc
+uuid: e18bfba9-c938-42b6-8020-8ae91e1d3dda
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.news.body
-    - field.field.node.news.field_commentaries
+    - field.field.node.news.field_category
     - node.type.news
   module:
-    - comment
     - text
     - user
 id: node.news.default
@@ -22,12 +21,11 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
-  field_commentaries:
-    type: comment_default
+  field_category:
+    type: entity_reference_label
     label: above
     settings:
-      view_mode: default
-      pager_id: 0
+      link: true
     third_party_settings: {  }
     weight: 102
     region: content

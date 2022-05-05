@@ -1,0 +1,18 @@
+uuid: 0caf6428-f4ac-40ee-a21e-5a5bdaeafa7f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Complex page'
+type: complex_page
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

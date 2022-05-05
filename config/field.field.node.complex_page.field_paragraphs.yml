@@ -1,0 +1,41 @@
+uuid: a2096ae5-d105-48bc-8180-bb4704d6793c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.complex_page
+    - paragraphs.paragraphs_type.image_with_description
+    - paragraphs.paragraphs_type.images
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+id: node.complex_page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: complex_page
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      images: images
+      image_with_description: image_with_description
+      text: text
+    negate: 0
+    target_bundles_drag_drop:
+      image_with_description:
+        weight: 5
+        enabled: true
+      images:
+        weight: 4
+        enabled: true
+      text:
+        weight: 6
+        enabled: true
+field_type: entity_reference_revisions

@@ -20,6 +20,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/admin_toolbar": "^3.1",
         "drupal/adminimal_admin_toolbar": "^1.11",
         "drupal/better_exposed_filters": "^5.0",
         "drupal/bootstrap5": "^1.0",
@@ -32,7 +33,9 @@
         "drupal/devel": "^4.1",
         "drupal/ds": "^3.13",
         "drupal/extlink": "^1.6",
+        "drupal/paragraphs": "^1.14",
         "drupal/pathauto": "^1.10",
+        "drupal/permissions_by_term": "^3.1",
         "drupal/realistic_dummy_content": "^3.1",
         "drupal/select2": "^1.13",
         "drupal/token": "^1.10",

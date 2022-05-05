@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.anon
     - filter.format.restricted_html
   module:
     - comment
     - contact
     - filter
+    - media
     - search
     - system
 _core:
@@ -22,5 +22,5 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'search content'
-  - 'use text format anon'
   - 'use text format restricted_html'
+  - 'view media'
