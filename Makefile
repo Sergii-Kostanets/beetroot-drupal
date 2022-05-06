@@ -1,7 +1,7 @@
 include .env
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 .PHONY: install up down cli build hello test start stop reup del delv fullreup zero one pull
-default: install
+default: up
 
 install: up
 	sleep 10
