@@ -1,0 +1,18 @@
+uuid: 8139e298-29bd-4385-a379-2a498d63a868
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_simple
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.bp_simple
+target_entity_type_id: paragraph
+target_bundle: bp_simple
+default_langcode: site_default
+language_alterable: false

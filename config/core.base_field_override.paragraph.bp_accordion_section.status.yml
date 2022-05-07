@@ -1,0 +1,22 @@
+uuid: 08427498-3be3-4cf4-a5c4-c5c3528153f8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_accordion_section
+id: paragraph.bp_accordion_section.status
+field_name: status
+entity_type: paragraph
+bundle: bp_accordion_section
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

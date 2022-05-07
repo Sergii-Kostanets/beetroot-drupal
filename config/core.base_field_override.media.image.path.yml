@@ -1,0 +1,20 @@
+uuid: 38b8bb3f-7ae9-4c99-a534-ab7a55475d5e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - media.type.image
+  module:
+    - path
+id: media.image.path
+field_name: path
+entity_type: media
+bundle: image
+label: 'Синоним URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

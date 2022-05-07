@@ -1,0 +1,20 @@
+uuid: ee0148fe-5e2a-40e9-a53e-1ccb488d02b7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.landing
+  module:
+    - path
+id: node.landing.path
+field_name: path
+entity_type: node
+bundle: landing
+label: 'Синоним URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,20 @@
+uuid: 4846b080-50ef-4cad-a73d-f0933464d0d3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.reusable_complex_page
+  module:
+    - path
+id: node.reusable_complex_page.path
+field_name: path
+entity_type: node
+bundle: reusable_complex_page
+label: 'Синоним URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

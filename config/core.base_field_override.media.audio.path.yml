@@ -1,0 +1,20 @@
+uuid: 3be8e6ad-da5d-421a-9c99-ab1b4d6d1fe3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - media.type.audio
+  module:
+    - path
+id: media.audio.path
+field_name: path
+entity_type: media
+bundle: audio
+label: 'Синоним URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

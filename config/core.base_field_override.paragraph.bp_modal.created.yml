@@ -1,0 +1,18 @@
+uuid: 7e7c8c74-92c2-4742-bed8-9f1d2f151d85
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_modal
+id: paragraph.bp_modal.created
+field_name: created
+entity_type: paragraph
+bundle: bp_modal
+label: 'Создан в'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,22 @@
+uuid: 8f8b5459-700c-4d19-a4fe-0b70334a5c6c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.reusable_complex_page
+id: node.reusable_complex_page.status
+field_name: status
+entity_type: node
+bundle: reusable_complex_page
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

@@ -13,10 +13,10 @@ id: paragraph.bp_columns_two_uneven.bp_background
 field_name: bp_background
 entity_type: paragraph
 bundle: bp_columns_two_uneven
-label: Background
+label: Фон
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

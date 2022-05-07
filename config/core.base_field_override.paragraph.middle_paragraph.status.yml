@@ -1,0 +1,22 @@
+uuid: e4eb45f3-03b2-4362-bd50-bda92d92259b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.middle_paragraph
+id: paragraph.middle_paragraph.status
+field_name: status
+entity_type: paragraph
+bundle: middle_paragraph
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

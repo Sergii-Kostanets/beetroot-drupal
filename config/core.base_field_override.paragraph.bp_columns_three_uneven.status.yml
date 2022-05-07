@@ -1,0 +1,22 @@
+uuid: c0cce97c-4c2e-4769-b34b-1e93c0ed5a02
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_columns_three_uneven
+id: paragraph.bp_columns_three_uneven.status
+field_name: status
+entity_type: paragraph
+bundle: bp_columns_three_uneven
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

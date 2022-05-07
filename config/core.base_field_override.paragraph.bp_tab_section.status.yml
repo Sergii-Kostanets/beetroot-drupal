@@ -1,0 +1,22 @@
+uuid: 41bc30fc-0c66-4939-a00a-26a1649f9ba8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_tab_section
+id: paragraph.bp_tab_section.status
+field_name: status
+entity_type: paragraph
+bundle: bp_tab_section
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

@@ -1,0 +1,19 @@
+uuid: ac222810-e9b8-404f-b159-3e90ac2c2624
+langcode: ru
+status: true
+dependencies:
+  module:
+    - path
+    - user
+id: user.user.path
+field_name: path
+entity_type: user
+bundle: user
+label: 'Синоним URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

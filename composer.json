@@ -22,6 +22,7 @@
         "composer/installers": "^1.9",
         "drupal/admin_toolbar": "^3.1",
         "drupal/adminimal_admin_toolbar": "^1.11",
+        "drupal/allowed_languages": "^2.0@alpha",
         "drupal/better_exposed_filters": "^5.0",
         "drupal/bootstrap5": "^1.0",
         "drupal/bootstrap_barrio": "^5.5",

@@ -1,0 +1,22 @@
+uuid: a1ee6da1-4010-4011-8b42-124d9842ad4b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.products_list
+id: paragraph.products_list.status
+field_name: status
+entity_type: paragraph
+bundle: products_list
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

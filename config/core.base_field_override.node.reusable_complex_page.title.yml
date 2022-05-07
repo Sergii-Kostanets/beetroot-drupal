@@ -1,0 +1,18 @@
+uuid: 9fb540a7-d099-4a75-a553-f9af2cb5821c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.reusable_complex_page
+id: node.reusable_complex_page.title
+field_name: title
+entity_type: node
+bundle: reusable_complex_page
+label: Заголовок
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

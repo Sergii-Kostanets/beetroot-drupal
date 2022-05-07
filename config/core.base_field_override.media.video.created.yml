@@ -1,0 +1,18 @@
+uuid: 91603ddb-2487-4f2c-9f1b-3143da0659f5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - media.type.video
+id: media.video.created
+field_name: created
+entity_type: media
+bundle: video
+label: 'Создан в'
+description: 'Время создания элемента медиа.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\media\Entity\Media::getRequestTime'
+settings: {  }
+field_type: created

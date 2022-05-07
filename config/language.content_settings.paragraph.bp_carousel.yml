@@ -1,0 +1,18 @@
+uuid: 3e3650c2-4c4f-4cab-bb4e-0e9d639a1b9e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_carousel
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.bp_carousel
+target_entity_type_id: paragraph
+target_bundle: bp_carousel
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,18 @@
+uuid: ffaa6729-a90d-4fdf-9eb2-12405e99699e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - media.type.audio
+id: media.audio.created
+field_name: created
+entity_type: media
+bundle: audio
+label: 'Создан в'
+description: 'Время создания элемента медиа.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\media\Entity\Media::getRequestTime'
+settings: {  }
+field_type: created

@@ -1,0 +1,22 @@
+uuid: 97d33fe5-8ca3-4d4d-8cbb-b012f3834c99
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_modal
+id: paragraph.bp_modal.status
+field_name: status
+entity_type: paragraph
+bundle: bp_modal
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

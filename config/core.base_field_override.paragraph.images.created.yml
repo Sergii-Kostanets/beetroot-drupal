@@ -1,0 +1,18 @@
+uuid: b935186d-b99c-4170-a22c-c2abf0e1a02b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.images
+id: paragraph.images.created
+field_name: created
+entity_type: paragraph
+bundle: images
+label: 'Создан в'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,22 @@
+uuid: a4b37aec-3d9c-49ad-b81d-d24cd4972933
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_columns_two_uneven
+id: paragraph.bp_columns_two_uneven.status
+field_name: status
+entity_type: paragraph
+bundle: bp_columns_two_uneven
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

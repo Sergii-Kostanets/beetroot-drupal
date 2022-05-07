@@ -1,0 +1,22 @@
+uuid: 71ae21d8-1f37-4490-b769-9ba7aff6a5f7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.complex_page
+id: node.complex_page.status
+field_name: status
+entity_type: node
+bundle: complex_page
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

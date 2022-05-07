@@ -1,0 +1,18 @@
+uuid: cb3356b9-00b6-4954-84ec-cf1c0e7c0e1e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_accordion
+id: paragraph.bp_accordion.created
+field_name: created
+entity_type: paragraph
+bundle: bp_accordion
+label: 'Создан в'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

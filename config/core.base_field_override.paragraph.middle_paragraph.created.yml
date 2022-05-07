@@ -1,0 +1,18 @@
+uuid: 2a87ad72-162c-4d73-8d5c-c6eba422d8ff
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.middle_paragraph
+id: paragraph.middle_paragraph.created
+field_name: created
+entity_type: paragraph
+bundle: middle_paragraph
+label: 'Создан в'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

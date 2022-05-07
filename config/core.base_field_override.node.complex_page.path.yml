@@ -1,0 +1,20 @@
+uuid: 0cb9b17c-4e1c-4f80-be7e-bfece7214065
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.complex_page
+  module:
+    - path
+id: node.complex_page.path
+field_name: path
+entity_type: node
+bundle: complex_page
+label: 'Синоним URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

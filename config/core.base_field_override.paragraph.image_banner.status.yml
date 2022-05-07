@@ -1,0 +1,22 @@
+uuid: cefb5fa2-b52d-41ec-af68-9d19fbc41393
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.image_banner
+id: paragraph.image_banner.status
+field_name: status
+entity_type: paragraph
+bundle: image_banner
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

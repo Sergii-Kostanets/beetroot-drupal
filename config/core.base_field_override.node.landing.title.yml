@@ -1,0 +1,18 @@
+uuid: 3e146c5e-8702-4cf6-8883-6265ba6bb9a5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.landing
+id: node.landing.title
+field_name: title
+entity_type: node
+bundle: landing
+label: Заголовок
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

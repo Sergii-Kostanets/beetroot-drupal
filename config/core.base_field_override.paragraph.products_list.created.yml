@@ -1,0 +1,18 @@
+uuid: 611ed3f9-1316-4357-87ec-d1c574e75f82
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.products_list
+id: paragraph.products_list.created
+field_name: created
+entity_type: paragraph
+bundle: products_list
+label: 'Создан в'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

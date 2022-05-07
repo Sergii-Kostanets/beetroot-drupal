@@ -1,0 +1,18 @@
+uuid: 706e8169-d892-47ea-8810-f8efd4958d9e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.reusable_complex_page
+id: node.reusable_complex_page.created
+field_name: created
+entity_type: node
+bundle: reusable_complex_page
+label: 'Создан в'
+description: 'Время создания материала.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

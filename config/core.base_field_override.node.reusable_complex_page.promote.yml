@@ -1,0 +1,22 @@
+uuid: a4f372e4-23b1-4b98-a4f1-a7d098f3c3cf
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.reusable_complex_page
+id: node.reusable_complex_page.promote
+field_name: promote
+entity_type: node
+bundle: reusable_complex_page
+label: 'Помещено на главную страницу'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

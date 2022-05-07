@@ -1,0 +1,18 @@
+uuid: fe100508-ce41-4df3-86c1-410bc0c6ec8c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.landing
+id: node.landing.moderation_state
+field_name: moderation_state
+entity_type: node
+bundle: landing
+label: 'Состояние модерации'
+description: 'Состояние модерации данного материала.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

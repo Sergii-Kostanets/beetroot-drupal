@@ -1,0 +1,18 @@
+uuid: 8dfb2368-f09c-4651-9247-39491900679a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+id: comment.comment.created
+field_name: created
+entity_type: comment
+bundle: comment
+label: Создано
+description: 'Время создания комментария.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

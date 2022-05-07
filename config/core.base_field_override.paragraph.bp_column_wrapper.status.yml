@@ -1,0 +1,22 @@
+uuid: ddac1293-a1d0-40c6-9573-d1c09f2ca6d9
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_column_wrapper
+id: paragraph.bp_column_wrapper.status
+field_name: status
+entity_type: paragraph
+bundle: bp_column_wrapper
+label: Опубликовано
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Вкл
+  off_label: Выкл
+field_type: boolean

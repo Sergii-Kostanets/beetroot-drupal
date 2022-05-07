@@ -1,0 +1,18 @@
+uuid: 98ff39af-72ed-457c-b737-cfee564b65ba
+langcode: ru
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.bp_tabs
+id: paragraph.bp_tabs.created
+field_name: created
+entity_type: paragraph
+bundle: bp_tabs
+label: 'Создан в'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created
