@@ -1,0 +1,20 @@
+uuid: 407c2794-9eb7-46a3-8bbb-5857ad7ffc41
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: vYxuvV69YYgdHZpLzH8rHq7Vxq0teyiU7e6at0EA8fw
+id: excellence_simple_page_title
+theme: excellence_simple
+region: content
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

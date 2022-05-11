@@ -1,11 +1,11 @@
 uuid: a79319e0-14c7-4f6c-802f-2f04a72ad165
-langcode: en
+langcode: ru
 status: true
 dependencies: {  }
 _core:
   default_config_hash: Tx54VzzCAn8dLv59wjsdRKDuJmYhZCNkjpiJDOlpQuU
 id: bp_image
-label: Image
+label: Зображення
 icon_uuid: null
 icon_default: null
 description: null

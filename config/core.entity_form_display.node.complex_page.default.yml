@@ -9,7 +9,7 @@ dependencies:
     - content_moderation
     - field_layout
     - layout_discovery
-    - paragraphs
+    - paragraphs_asymmetric_translation_widgets
     - path
 third_party_settings:
   field_layout:
@@ -28,7 +28,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_paragraphs:
-    type: entity_reference_paragraphs
+    type: paragraphs_classic_asymmetric
     weight: 1
     region: content
     settings:

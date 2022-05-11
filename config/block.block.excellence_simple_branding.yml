@@ -1,0 +1,25 @@
+uuid: 16e87dd6-3c0a-48de-9f98-bafda598b88f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: 0VV98D8LpaTsRM7kPPKxxrjrB-RZv2zUtNKzF6RjnaQ
+id: excellence_simple_branding
+theme: excellence_simple
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

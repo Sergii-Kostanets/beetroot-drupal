@@ -1,5 +1,5 @@
 uuid: 7b34dcd7-e909-42a3-9e0a-4106ecbe2ca2
-langcode: en
+langcode: ru
 status: true
 dependencies:
   config:
@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_meta
     - field.field.node.article.field_related_content
     - field.field.node.article.field_related_revision
     - field.field.node.article.field_tags
@@ -16,6 +17,7 @@ dependencies:
     - comment
     - entity_reference_revisions
     - image
+    - metatag
     - text
     - user
 _core:
@@ -54,6 +56,13 @@ content:
       image_style: large
     third_party_settings: {  }
     weight: -1
+    region: content
+  field_meta:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
     region: content
   field_related_content:
     type: entity_reference_label

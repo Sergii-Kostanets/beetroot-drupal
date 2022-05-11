@@ -1,0 +1,22 @@
+uuid: a6ef261c-ec86-46fe-b4a7-f20f97e56458
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: sA0lj8HAQBydhAaO8YVslLpuxFW8w0u5FcIwksoMDn4
+id: excellence_simple_messages
+theme: excellence_simple
+region: content
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

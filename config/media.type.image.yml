@@ -1,11 +1,11 @@
 uuid: 53d29d19-60c1-4f1f-9df7-30795114ee97
-langcode: en
+langcode: ru
 status: true
 dependencies: {  }
 _core:
   default_config_hash: 6Qope5wG7HUpV0tPOBMtDI_GZkHFcF1Xj4hgD9Cu_hM
 id: image
-label: Image
+label: Зображення
 description: 'Use local images for reusable media.'
 source: image
 queue_thumbnail_downloads: false

@@ -1,0 +1,27 @@
+uuid: bf2b55d0-cf47-40be-b6ed-5be25d45c619
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: 837bwDtLq3QbAr6R6J3NxkpbMWFRwtCmNL4ufIgDOBI
+id: excellence_simple_main_menu
+theme: excellence_simple
+region: navigation
+weight: -6
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

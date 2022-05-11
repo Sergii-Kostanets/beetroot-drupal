@@ -1,5 +1,5 @@
 uuid: b837bd02-4203-48ed-a925-237e6444eef5
-langcode: en
+langcode: ru
 status: true
 dependencies:
   config:
@@ -13,7 +13,7 @@ id: paragraph.bp_image.bp_image_field
 field_name: bp_image_field
 entity_type: paragraph
 bundle: bp_image
-label: Зображення
+label: Image
 description: ''
 required: false
 translatable: false

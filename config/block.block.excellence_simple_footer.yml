@@ -1,0 +1,27 @@
+uuid: 8646a0d0-5615-4abf-9e35-eb8e41c190b4
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: hbUgSZKuq99bRNMXGHX0S7GWSzg3kkyObZwjH0QFiOw
+id: excellence_simple_footer
+theme: excellence_simple
+region: footer
+weight: -6
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

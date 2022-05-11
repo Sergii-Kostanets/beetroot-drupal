@@ -1,0 +1,18 @@
+uuid: 1cf4bb92-83d6-49f7-9cc2-a5a83c5ae0e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.reusable_complex_page
+id: node.reusable_complex_page.metatag
+field_name: metatag
+entity_type: node
+bundle: reusable_complex_page
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

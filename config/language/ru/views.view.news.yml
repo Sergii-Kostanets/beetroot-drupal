@@ -1,0 +1,9 @@
+label: 'Новости (Label)'
+display:
+  default:
+    display_options:
+      title: 'Новости (Display title)'
+  page_1:
+    display_options:
+      menu:
+        title: Новости

@@ -1,0 +1,18 @@
+uuid: 31ad3735-31c3-484b-bffa-4997d109ca26
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.complex_page
+id: node.complex_page.metatag
+field_name: metatag
+entity_type: node
+bundle: complex_page
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

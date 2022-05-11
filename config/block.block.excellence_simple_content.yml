@@ -1,0 +1,22 @@
+uuid: 99fecd06-c001-4b5c-82a0-f8662a63fb54
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: eg3qnPa-txEb_HwBLNvXD8afEIhlUiROKGHZ0Cwbie8
+id: excellence_simple_content
+theme: excellence_simple
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

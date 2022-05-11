@@ -1,0 +1,9 @@
+uuid: b2894a04-c62b-4aef-a8a6-c47113bc5e37
+langcode: en
+status: true
+dependencies: {  }
+id: node__article
+label: 'Content: Article'
+tags:
+  og_image: '[node:field_image:medium:url]'
+  twitter_cards_image: '[node:field_image:medium:url]'

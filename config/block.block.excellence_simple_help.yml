@@ -1,0 +1,22 @@
+uuid: 0c1e14a7-8550-426e-a45b-8b62109f646e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: XOx_z4cAe5WVVNEMXKqNfARbtCoDxj0jshAmXSMIoKQ
+id: excellence_simple_help
+theme: excellence_simple
+region: content
+weight: -2
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

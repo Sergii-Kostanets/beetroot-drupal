@@ -1,5 +1,5 @@
 uuid: 8a5fc3fa-2831-4aff-a5ac-c1404ae7df94
-langcode: en
+langcode: ru
 status: true
 dependencies:
   config:
@@ -13,7 +13,7 @@ id: paragraph.bp_simple.bp_background
 field_name: bp_background
 entity_type: paragraph
 bundle: bp_simple
-label: Background
+label: Фон
 description: ''
 required: false
 translatable: false

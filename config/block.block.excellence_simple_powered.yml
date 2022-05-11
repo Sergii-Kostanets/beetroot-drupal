@@ -1,0 +1,22 @@
+uuid: 4415c68e-a2a5-4b51-8c1d-e073aa7eba27
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: EjKJj9p06HSkeLiXjTSBXWKToBH1xT8Egw1uiUE0u4g
+id: excellence_simple_powered
+theme: excellence_simple
+region: footer_first
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

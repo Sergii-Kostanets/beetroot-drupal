@@ -1,5 +1,5 @@
 uuid: 5ec39d6c-65b4-4e6a-a0e2-dc3639f415cc
-langcode: en
+langcode: ru
 status: true
 dependencies:
   config:
@@ -12,7 +12,7 @@ id: node.article.field_tags
 field_name: field_tags
 entity_type: node
 bundle: article
-label: Теги
+label: Tags
 description: 'Введите список, разделенный запятой. Например: Амстердам, Мехико, "Кливленд, Огайо"'
 required: false
 translatable: false

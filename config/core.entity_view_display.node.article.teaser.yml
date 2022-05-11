@@ -1,5 +1,5 @@
 uuid: 0a3d7e63-76ff-41f6-b10c-996ba922b2ac
-langcode: en
+langcode: ru
 status: true
 dependencies:
   config:
@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_meta
     - field.field.node.article.field_related_content
     - field.field.node.article.field_related_revision
     - field.field.node.article.field_tags
@@ -59,6 +60,7 @@ content:
 hidden:
   comment: true
   field_image: true
+  field_meta: true
   field_related_content: true
   field_related_revision: true
   field_tags: true

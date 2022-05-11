@@ -1,10 +1,10 @@
 uuid: c63399f0-9f9f-4703-8131-5e1499d68623
-langcode: en
+langcode: ru
 status: true
 dependencies: {  }
 _core:
   default_config_hash: 7yrlW5z9zdg2eBucB2GPqXKSMQfH9lSRSO4DbWF7AFc
 id: footer
-label: Footer
+label: Подвал
 description: 'Site information links'
 locked: true

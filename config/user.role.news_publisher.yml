@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.article
     - node.type.news
     - taxonomy.vocabulary.tags
     - workflows.workflow.editorial
@@ -29,6 +30,7 @@ permissions:
   - 'access toolbar'
   - 'access tour'
   - 'administer url aliases'
+  - 'create article content'
   - 'create news content'
   - 'create terms in tags'
   - 'create url aliases'

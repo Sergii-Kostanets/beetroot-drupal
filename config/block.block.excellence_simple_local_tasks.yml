@@ -1,0 +1,22 @@
+uuid: f95f6bfd-955a-4801-a5be-5c62150ec3ea
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - excellence_simple
+_core:
+  default_config_hash: vdWH2Z-UdY0pCgfXe5-VOL1HInfAnMTloEFdit5AvHY
+id: excellence_simple_local_tasks
+theme: excellence_simple
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

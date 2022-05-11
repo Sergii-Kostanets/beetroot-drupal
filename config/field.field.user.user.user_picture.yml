@@ -1,22 +1,29 @@
 uuid: 7d84cb88-dc97-4d1b-aab1-aeb2797baa19
-langcode: en
+langcode: ru
 status: true
 dependencies:
   config:
     - field.storage.user.user_picture
   module:
+    - content_translation
     - image
     - user
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 _core:
   default_config_hash: twhm-ZOwSVkUjuLI_pQsaPo_pVLcqFfDmY-ojfqw0yk
 id: user.user.user_picture
 field_name: user_picture
 entity_type: user
 bundle: user
-label: Зображення
-description: 'Ваше віртуальне обличчя або фото.'
+label: Picture
+description: 'Your virtual face or picture.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

@@ -1,0 +1,6 @@
+label: 'Новина (Label)'
+display:
+  default:
+    display_options:
+      title: 'Новина (Display title)'
+    display_title: 'Новина (Default)'

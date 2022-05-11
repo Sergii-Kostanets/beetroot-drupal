@@ -14,7 +14,7 @@ bundle: complex_page
 label: Paragraphs
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -68,11 +68,23 @@ settings:
       bp_view:
         weight: 33
         enabled: false
+      image_banner:
+        weight: 38
+        enabled: false
       image_with_description:
         weight: 5
         enabled: false
       images:
         weight: 4
+        enabled: false
+      middle_paragraph:
+        weight: 41
+        enabled: false
+      product_item:
+        weight: 42
+        enabled: false
+      products_list:
+        weight: 43
         enabled: false
       text:
         weight: 6

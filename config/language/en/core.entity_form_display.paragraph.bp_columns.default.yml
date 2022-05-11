@@ -1,0 +1,5 @@
+content:
+  bp_column_content:
+    settings:
+      title: 'Column Content'
+      title_plural: 'Column Contents'
