@@ -782,6 +782,10 @@ $settings['skip_permissions_hardening'] = TRUE;
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 
+if (file_exists(DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php')) {
+  include DRUPAL_ROOT . '/' . conf_path() . '/settings.local.php';
+}
+
 }$databases['default']['default'] = array (
   'database' => 'test',
   'username' => 'usera',
