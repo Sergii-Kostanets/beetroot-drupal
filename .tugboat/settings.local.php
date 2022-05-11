@@ -8,7 +8,7 @@ $databases = array (
       'username' => 'tugboat',
       'password' => 'tugboat',
       'host' => 'mysql',
-      'port' => '',
+      'port' => '3306',
       'driver' => 'mysql',
       'prefix' => '',
     ),
