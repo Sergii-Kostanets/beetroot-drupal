@@ -34,5 +34,5 @@ services:
       build:
         - composer install --optimize-autoloader --no-interaction
         # - vendor/bin/drush deploy -y
-        - vendor/bin/drush cim -y
+        # - vendor/bin/drush cim -y
         - vendor/bin/drush sql:query --file=../db.sql
