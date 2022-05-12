@@ -4,7 +4,7 @@ pipelines:
   default:
     - step:
         script:
-        - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+        # - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
         - composer install
         - vendor/bin/phpunit --testsuite unit,integration
         artifacts:
