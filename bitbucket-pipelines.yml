@@ -2,13 +2,13 @@ image: docker:latest
 
 pipelines:
   default:
-    # - step:
-    #     script:
-    #       - apt-get install python3-pip
-    #       - pip install docker-compose
+    - step:
+        script:
+          - apt-get install python3-pip
+          - pip install docker-compose
     - step:
         script:
           - echo "Hello"
-    # - step:
-    #     script:
-    #     - docker-compose up -d
+    - step:
+        script:
+        - docker-compose up -d
