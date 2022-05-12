@@ -12,7 +12,7 @@ pipelines:
         - echo "Hello"
     - step:
         script:
-        - docker-compose up -d --build --remove-orphans
+        - docker-compose up -d
         # - docker-compose up -d
     - step:
         script:
