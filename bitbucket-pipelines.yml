@@ -6,6 +6,7 @@ pipelines:
         name: "1"
         script:
         - apt-get update
+        - apt-get install docker-compose
         - docker compose version
     - step:
         name: "2"
