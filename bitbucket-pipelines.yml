@@ -5,15 +5,24 @@ pipelines:
     # - step:
     #     script:
     #     - cp .env.dist .env
-    - step:
-        image: php:8.1
-        caches:
-        - composer
+    # - step:
+    #     image: php:8.1
+    #     caches:
+    #     - composer
+    #     script:
+    #     - echo "Hello"
+    # - step:
+    #     script:
+    #     - docker-compose up -d
+    # - step:
+    #     script:
+    #     - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
+
+    - step: &test-docker
+        name: Build the docker container and run the tests against it
         script:
-        - echo "Hello"
-    - step:
-        script:
-        - docker-compose up -d
-    - step:
-        script:
-        - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
+        - pip install tox
+        - docker info
+        - tox -e test-docker
+        services:
+          - docker
