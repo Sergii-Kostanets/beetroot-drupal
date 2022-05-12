@@ -1,5 +1,8 @@
 image: atlassian/default-image:latest
 
+options:
+  docker: true
+
 pipelines:
   default:
     - step:
@@ -11,7 +14,4 @@ pipelines:
     - step:
         name: "2"
         script:
-        - docker build
-
-options:
-  docker: true
+        - docker build .
