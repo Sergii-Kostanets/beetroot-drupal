@@ -2,7 +2,7 @@ image: docker:latest
 
 pipelines:
   branches:
-    <BRANCH_NAME_DEV>:
+    main:
       - step:
           caches:
             - node
