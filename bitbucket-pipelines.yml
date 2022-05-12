@@ -13,12 +13,12 @@ pipelines:
     - step:
         name: "3. Docker version."
         script:
-          - docker version
-        services:
-        - docker
-        image: php:8.1
-        caches:
-        - composer
+          - docker build .
+        # services:
+        # - docker
+        # image: php:8.1
+        # caches:
+        # - composer
         # script:
         # - docker-compose up -d
     # - step:
