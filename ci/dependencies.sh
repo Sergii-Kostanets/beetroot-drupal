@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-set -eu
+# set -eu
 
 # Add python pip and bash
 apk add --no-cache py-pip bash
