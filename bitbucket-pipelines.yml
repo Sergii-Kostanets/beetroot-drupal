@@ -4,15 +4,16 @@ pipelines:
   default:
     - step:
         script:
-          - cp .env.dist .env
-          # - apt-get install python3-pip
-          # - pip install docker-compose
+        - cp .env.dist .env
+        # - apt-get install python3-pip
+        # - pip install docker-compose
     - step:
         script:
-          - echo "Hello"
+        - echo "Hello"
     - step:
         script:
-        - docker-compose up -d
+        - docker-compose up -d --build --remove-orphans
+        # - docker-compose up -d
     - step:
         script:
         - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
