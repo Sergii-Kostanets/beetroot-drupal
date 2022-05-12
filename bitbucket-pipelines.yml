@@ -7,7 +7,7 @@ pipelines:
   default:
     - step:
         script:
-          - ci/dependencies.sh
-          - docker-compose run -T client /usr/local/src/test.sh
+          # - ci/dependencies.sh
+          # - docker-compose run -T client /usr/local/src/test.sh
           - docker-compose exec -T php composer install --no-interaction
           - docker-compose down
