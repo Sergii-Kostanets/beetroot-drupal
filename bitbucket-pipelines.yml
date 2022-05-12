@@ -1,16 +1,13 @@
-image: atlassian/default-image:latest
+image: docker:stable
+
+options:
+  docker: true
 
 pipelines:
   default:
     - step:
-        name: "DC"
         script:
-        - apt-get update
-        - apt-get install docker-compose-plugin
-    - step:
-        name: "DC"
-        script:
-          - docker-compose up -d
-
-options:
-  docker: true
+          - ci/dependencies.sh
+          - docker-compose run -T client /usr/local/src/test.sh
+          - docker-compose exec -T php composer install --no-interaction
+          - docker-compose down
