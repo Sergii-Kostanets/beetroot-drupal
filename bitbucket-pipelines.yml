@@ -1,17 +1,9 @@
-image: atlassian/default-image:latest
-
 pipelines:
   default:
     - step:
-        name: "1"
+        name: Build and test
         script:
-        - apt-get update
-        - apt-get install docker-compose
-        - docker compose version
-    - step:
-        name: "2"
-        script:
-        - docker-compose up -d
-
-options:
-  docker: true
+          - npm install
+          - npm test
+        after-script:
+          - echo "after script has run!"
