@@ -3,12 +3,15 @@ image: docker:latest
 pipelines:
   default:
     - step:
+        name: "1. Copying .env file."
         script:
         - cp .env.dist .env
     - step:
+        name: "2. Saying hello."
         script:
         - echo "Hello"
     - step:
+        name: "3. Docker version."
         script:
           - docker version
         services:
