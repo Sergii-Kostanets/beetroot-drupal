@@ -2,9 +2,9 @@ image: docker:latest
 
 pipelines:
   default:
-    - step:
-        script:
-        - cp .env.dist .env
+    # - step:
+    #     script:
+    #     - cp .env.dist .env
         # - apt-get install python3-pip
         # - pip install docker-compose
     - step:
