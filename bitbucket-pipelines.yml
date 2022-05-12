@@ -1,29 +1,16 @@
-image: docker:latest
+image: atlassian/default-image:latest
 
 pipelines:
   default:
     - step:
-        name: "1. Copying .env file."
+        name: "DC"
         script:
-        - cp .env.dist .env
+        - apt-get update
+        - apt-get install docker-compose-plugin
     - step:
-        name: "2. Saying hello."
+        name: "DC"
         script:
-        - echo "Hello"
-    - step:
-        name: "3. Docker version."
-        script:
-          - docker build .
-        # services:
-        # - docker
-        # image: php:8.1
-        # caches:
-        # - composer
-        # script:
-        # - docker-compose up -d
-    # - step:
-    #     script:
-    #     - docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
+          - docker-compose up -d
 
 options:
   docker: true
