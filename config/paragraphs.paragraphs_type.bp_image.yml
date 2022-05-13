@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: Tx54VzzCAn8dLv59wjsdRKDuJmYhZCNkjpiJDOlpQuU
 id: bp_image
-label: Зображення
+label: Image
 icon_uuid: null
 icon_default: null
 description: null

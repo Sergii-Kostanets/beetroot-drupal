@@ -9,6 +9,7 @@ module:
   adminimal_admin_toolbar: 0
   allowed_languages: 0
   automated_cron: 0
+  beetroot_example: 0
   better_exposed_filters: 0
   big_pipe: 0
   block: 0
@@ -41,6 +42,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  hello_world: 0
   help: 0
   history: 0
   image: 0
