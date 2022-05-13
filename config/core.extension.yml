@@ -86,6 +86,7 @@ module:
   simple_sitemap: 0
   system: 0
   taxonomy: 0
+  test: 0
   text: 0
   token: 0
   toolbar: 0
@@ -105,7 +106,7 @@ module:
   content_translation: 10
   views: 10
   paragraphs: 11
-  minimal: 1000
+  standard: 1000
 theme:
   bartik: 0
   seven: 0
@@ -116,4 +117,4 @@ theme:
   bootstrap5: 0
   excellence_simple: 0
   bootstrap: 0
-profile: minimal
+profile: standard

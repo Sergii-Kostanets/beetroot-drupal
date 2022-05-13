@@ -15,7 +15,7 @@ class HelloController extends ControllerBase {
    * @return array
    *   Return markup array.
    */
-  public function hello() {
+  public function content() {
     return [
       '#type' => 'markup',
       '#markup' => $this->t('Hello, World!'),

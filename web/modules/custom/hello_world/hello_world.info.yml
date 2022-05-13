@@ -1,6 +1,7 @@
-name: Hello World
-type: module
-description: 'My First Custom Drupal 9 Module.'
+name: Hello World Module
+description: Creates a page showing "Hello World".
 package: Custom
-version: 1.0
+
+type: module
+core: 8.x
 core_version_requirement: ^8 || ^9

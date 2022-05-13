@@ -14,11 +14,11 @@ install: up
 	docker-compose exec -T php bash -c 'mkdir -p "drush" && echo -e "options:\n  uri: http://$(PROJECT_BASE_URL)" > drush/drush.yml'
 #	docker-compose exec -T php bash -c 'drush en beetroot_content -y'
 #	docker-compose exec -T php bash -c 'drush pmu beetroot_content default_content hal -y'
-	docker-compose exec -T php bash -c 'drush en devel'
-	docker-compose exec -T php bash -c 'drush en devel_generate'
-	docker-compose exec -T php bash -c 'drush en realistic_dummy_content -y'
-	docker-compose exec -T php bash -c 'drush en better_exposed_filters -y'
-	docker-compose exec -T php bash -c 'drush sql:query --file=../db.sql'
+#	docker-compose exec -T php bash -c 'drush en devel'
+#	docker-compose exec -T php bash -c 'drush en devel_generate'
+#	docker-compose exec -T php bash -c 'drush en realistic_dummy_content -y'
+#	docker-compose exec -T php bash -c 'drush en better_exposed_filters -y'
+#	docker-compose exec -T php bash -c 'drush sql:query --file=../db.sql'
 #	docker-compose exec -T php bash -c 'drush uli'
 
 up:
@@ -83,8 +83,7 @@ one:
 	export COMPOSE_DOCKER_CLI_BUILD=1
 
 pull:
-	@echo "Pulling php:8.1-apache:"
 	docker pull php:8.1-apache
-	@echo "________________________________________________________"
-	@echo "Pulling traefik:v2.6"
+	docker pull mariadb
+	docker pull phpmyadmin
 	docker pull traefik:v2.6
