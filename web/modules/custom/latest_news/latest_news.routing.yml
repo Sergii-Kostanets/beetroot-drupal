@@ -1,0 +1,13 @@
+latest_news.route:
+  path: '/news/latest'
+  defaults:
+   _controller: '\Drupal\latest_news\Controllers\Latest::content'
+  requirements:
+   _permission: 'view latest news page'
+
+latest_news.news_category:
+  path: '/news/category/{category_id}'
+  defaults:
+   _controller: '\Drupal\latest_news\Controllers\Latest::category'
+  requirements:
+   _permission: 'view latest news page'
