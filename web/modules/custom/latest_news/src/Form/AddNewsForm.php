@@ -9,7 +9,7 @@ use Drupal\node\Entity\Node;
 class AddNewsForm extends FormBase {
 
   public function getFormId() {
-    return 'bda_add_news_form';
+    return 'add_news_form';
   }
 
   public function buildForm(array $form, FormStateInterface $form_state) {
@@ -88,7 +88,7 @@ class AddNewsForm extends FormBase {
     $news->save();
 
     $message = \Drupal::messenger();
-    $message->addMessage('News with id ' . \Drupal::currentUser()->id() . ' was created and now waiting for publishing');
+    $message->addMessage('News with id ' . $news->id() . ' was created and now waiting for publishing');
 
     $form_state->setRedirect('<front>');
   }
