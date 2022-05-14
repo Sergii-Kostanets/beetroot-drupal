@@ -8,6 +8,6 @@ pipelines:
     - step:
         name: "Test"
         script:
-          - ci/dependencies.sh
+          - sh ci/dependencies.sh
           - docker-compose run -T client /usr/local/src/test.sh
           - docker-compose down
