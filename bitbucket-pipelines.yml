@@ -6,12 +6,12 @@ options:
 pipelines:
   default:
     - step:
-        name: "1. Prepare!"
+        name: "1. Prepare"
         script:
         - apt-get update
         - apt-get install
         - docker version
     - step:
-        name: "2. Build!"
+        name: "2. Build"
         script:
         - docker build .
