@@ -1,4 +1,4 @@
-image: atlassian/default-image:latest
+image: docker:stable
 
 options:
   docker: true
@@ -6,12 +6,7 @@ options:
 pipelines:
   default:
     - step:
-        name: "1. Prepare"
         script:
-        - apt-get update
-        - apt-get install
-        - docker version
-    - step:
-        name: "2. Build"
-        script:
-        - docker build .
+          - ci/dependencies.sh
+          - docker-compose run -T client /usr/local/src/test.sh
+          - docker-compose down

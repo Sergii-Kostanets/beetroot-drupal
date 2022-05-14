@@ -1,3 +1,5 @@
+version: "3"
+
 services:
   php:
     build: .
@@ -46,3 +48,27 @@ services:
 
 volumes:
   my-datavolume:
+
+
+
+
+
+# services:
+#   server:
+#     image: mdillon/postgis:9.6
+#     environment:
+#       - POSTGRES_DB=docker
+#       - POSTGRES_PASSWORD=sa
+#   client:
+#     image: mdillon/postgis:9.6
+#     environment:
+#       - PGDATABASE=docker
+#       - PGUSER=postgres
+#       - PGPASSWORD=sa
+#       - PGHOST=server
+#       - PGPORT=5432
+#     entrypoint: ["/bin/bash"]
+#     volumes:
+#       - ./src:/usr/local/src
+#     depends_on:
+#       - server
