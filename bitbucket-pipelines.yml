@@ -6,8 +6,18 @@ options:
 pipelines:
   default:
     - step:
-        name: "Test"
+        name: "pip"
+        script:
+          - py -3.8 -m pip install pygame
+    - step:
+        name: "dependencies"
         script:
           - sh ci/dependencies.sh
+    - step:
+        name: "docker-compose run"
+        script:
           - docker-compose run -T client /usr/local/src/test.sh
+    - step:
+        name: "docker-compose down"
+        script:
           - docker-compose down
