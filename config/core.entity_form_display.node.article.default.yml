@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.article.body
     - field.field.node.article.comment
+    - field.field.node.article.field_flag
     - field.field.node.article.field_image
     - field.field.node.article.field_meta
     - field.field.node.article.field_related_content
@@ -56,6 +57,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_flag:
+    type: boolean_checkbox
+    weight: 124
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_image:
     type: image_image

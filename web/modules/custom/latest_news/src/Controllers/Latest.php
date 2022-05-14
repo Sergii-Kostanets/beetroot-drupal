@@ -3,7 +3,6 @@
 namespace Drupal\latest_news\Controllers;
 
 use Drupal\Core\Controller\ControllerBase;
-// use Symfony\Component\HttpFoundation\JsonResponse;
 
 class Latest extends ControllerBase {
 

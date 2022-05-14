@@ -12,6 +12,7 @@ dependencies:
     - content_moderation
     - contextual
     - file
+    - latest_news
     - node
     - path
     - system
@@ -29,6 +30,7 @@ permissions:
   - 'access files overview'
   - 'access toolbar'
   - 'access tour'
+  - 'add news form'
   - 'administer url aliases'
   - 'create article content'
   - 'create news content'
