@@ -1,4 +1,4 @@
-image: docker:latest
+image: atlassian/default-image:latest
 
 options:
   docker: true
@@ -15,5 +15,3 @@ pipelines:
         name: "2. Build"
         script:
         - docker build .
-
-# Some changes
