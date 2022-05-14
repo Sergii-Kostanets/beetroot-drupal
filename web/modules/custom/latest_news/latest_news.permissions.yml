@@ -1,3 +1,7 @@
 view latest news page:
   title: 'Access view latest news page'
   description: 'Gives user access to /news/latest page.'
+
+add news form:
+  title: 'Access to add news form'
+  description: 'Gives user access to /add-news page.'

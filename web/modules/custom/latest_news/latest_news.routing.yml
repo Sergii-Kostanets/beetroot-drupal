@@ -2,6 +2,7 @@ latest_news.route:
   path: '/news/latest'
   defaults:
    _controller: '\Drupal\latest_news\Controllers\Latest::content'
+   _title: 'Latest news'
   requirements:
    _permission: 'view latest news page'
 
@@ -9,5 +10,14 @@ latest_news.news_category:
   path: '/news/category/{category_id}'
   defaults:
    _controller: '\Drupal\latest_news\Controllers\Latest::category'
+   _title: 'News Category'
   requirements:
    _permission: 'view latest news page'
+
+latest_news.news_add:
+  path: '/add-news'
+  defaults:
+    _form: '\Drupal\latest_news\Form\AddNewsForm'
+    _title: 'Add News Form'
+  requirements:
+   _permission: 'add news form'
