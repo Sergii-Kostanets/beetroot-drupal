@@ -8,7 +8,7 @@ pipelines:
     - step:
         name: "pip"
         script:
-          - py -3.8 -m pip install pygame
+          - pip install -U
     - step:
         name: "dependencies"
         script:
