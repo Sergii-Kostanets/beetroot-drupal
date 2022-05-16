@@ -5,7 +5,7 @@ pipelines:
         name: 'run tests'
         script:
           - docker-compose -v
-          - docker-compose run app npm run test
+          - docker-compose --build
           - echo 'tests done'
         services:
           - docker
