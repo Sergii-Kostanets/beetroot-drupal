@@ -2,7 +2,6 @@ image: ubuntu:20.04
 
 pipelines:
     default:
-    - parallel:
     - step:
         name: 'Build tplink_ex447'
         size: 2x
