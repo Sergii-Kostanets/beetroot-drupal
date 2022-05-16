@@ -1,5 +1,4 @@
-image: docker:latest
-
+image: docker/compose:1.25.4
 pipelines:
   default:
     - step:
@@ -10,8 +9,3 @@ pipelines:
           - echo 'tests done'
         services:
           - docker
-
-definitions:
-    services:
-        docker:
-            image: docker/compose:1.25.4
