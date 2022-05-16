@@ -3,7 +3,7 @@ image: ubuntu:20.04
 pipelines:
     default:
     - step:
-        name: 'Build tplink_ex447'
+        name: 'pyton'
         size: 2x
         script:
           - apt update
@@ -16,6 +16,13 @@ pipelines:
           # - make -j TARGET=tplink_ex447
         services:
           - docker
+    - step:
+        name: 'pip'
+        script:
+          - pip install docker
+          - pip install docker-compose
+          - docker-compose build
+          - docker push
 
 definitions:
   services:
