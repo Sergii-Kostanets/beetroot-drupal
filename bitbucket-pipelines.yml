@@ -1,23 +1,24 @@
-image: docker:stable
-
-options:
-  docker: true
+image: ubuntu:20.04
 
 pipelines:
-  default:
+    default:
+    - parallel:
     - step:
-        name: "pip"
+        name: 'Build tplink_ex447'
+        size: 2x
         script:
-          - pip install -U
-    - step:
-        name: "dependencies"
-        script:
-          - sh ci/dependencies.sh
-    - step:
-        name: "docker-compose run"
-        script:
-          - docker-compose run -T client /usr/local/src/test.sh
-    - step:
-        name: "docker-compose down"
-        script:
-          - docker-compose down
+          - apt update
+          - apt install -y git-core make curl unzip python3 python3-yaml
+          - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          - unzip awscliv2.zip
+          - ./aws/install
+          - git config --global user.email "you@example.com"
+          - git config --global user.name "Your Name"
+          - make -j TARGET=tplink_ex447
+        services:
+          - docker
+
+definitions:
+  services:
+    docker:
+      memory: 7128
