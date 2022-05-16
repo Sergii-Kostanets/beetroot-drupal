@@ -19,7 +19,7 @@ pipelines:
     - step:
         name: 'pip'
         script:
-          - pip install docker
+          - install docker
           - pip install docker-compose
           - docker-compose build
           - docker push
