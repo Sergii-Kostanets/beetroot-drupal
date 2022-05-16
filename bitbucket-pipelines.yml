@@ -8,6 +8,12 @@ pipelines:
     - step:
         name: 'docker-compose build'
         script:
-          - docker-compose up --build
+          - docker-compose build
+        services:
+          - docker
+    - step:
+        name: 'docker-compose up'
+        script:
+          - docker-compose up
         services:
           - docker
