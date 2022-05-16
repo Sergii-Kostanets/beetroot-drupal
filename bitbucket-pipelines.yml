@@ -2,10 +2,14 @@ image: docker/compose:1.25.4
 pipelines:
   default:
     - step:
-        name: 'run tests'
+        name: 'docker-compose -v'
         script:
           - docker-compose -v
           - docker-compose build
-          - echo 'tests done'
+    - step:
+        name: 'docker-compose build'
+        script:
+          - docker-compose up -d --build
+
         services:
           - docker
