@@ -8,6 +8,6 @@ pipelines:
           - docker build -t myapp .
           - docker run --entrypoint="" myapp npm run test
           - echo 'done!'
+
         services:
-          - postgres
           - docker
