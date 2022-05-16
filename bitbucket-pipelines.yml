@@ -1,30 +1,13 @@
 image: ubuntu:20.04
 
 pipelines:
-    default:
+  default:
     - step:
-        name: 'pyton'
-        size: 2x
+        name: 'install and run tests'
         script:
-          - apt update
-          - apt install -y git-core make curl unzip python3 python3-yaml
-          - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          - unzip awscliv2.zip
-          - ./aws/install
-          - git config --global user.email "sergii.kostanets@ua.nestle.com"
-          - git config --global user.name "Kostanets,Sergii,UA-Lviv"
-          # - make -j TARGET=tplink_ex447
+          - docker build -t myapp .
+          - docker run --entrypoint="" myapp npm run test
+          - echo 'done!'
         services:
+          - postgres
           - docker
-    - step:
-        name: 'pip'
-        script:
-          - install docker
-          - pip install docker-compose
-          - docker-compose build
-          - docker push
-
-definitions:
-  services:
-    docker:
-      memory: 7128
