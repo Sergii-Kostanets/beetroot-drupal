@@ -5,11 +5,9 @@ pipelines:
         name: 'docker-compose -v'
         script:
           - docker-compose -v
-          - docker-compose build
     - step:
         name: 'docker-compose build'
         script:
           - docker-compose up -d --build
-
         services:
           - docker
