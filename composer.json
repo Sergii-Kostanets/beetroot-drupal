@@ -139,6 +139,9 @@
     "scripts": {
         "phpcs": [
             "./vendor/bin/phpcs --standard=Drupal web/modules/custom/"
+        ],
+        "phpcbf": [
+            "./vendor/bin/phpcbf --standard=Drupal web/modules/custom/"
         ]
     }
 }

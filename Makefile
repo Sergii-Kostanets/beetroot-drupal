@@ -45,6 +45,8 @@ hello:
 	echo "hello world"
 
 test:
+	docker-compose exec -T php bash -c 'composer phpcbf'
+	docker-compose exec -T php bash -c 'composer phpcs'
 	docker-compose exec -T php curl 0.0.0.0:80 -H "Host: $(PROJECT_BASE_URL)"
 
 start:
