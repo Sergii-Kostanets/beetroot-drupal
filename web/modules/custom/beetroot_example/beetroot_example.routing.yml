@@ -4,3 +4,10 @@ example_route:
    _controller: '\Drupal\beetroot_example\Controllers\Example::view'
   requirements:
    _permission: 'access beetroot example package'
+
+example_route_form:
+  path: '/example/form'
+  defaults:
+   _controller: '\Drupal\beetroot_example\Controllers\Example::form'
+  requirements:
+   _permission: 'access beetroot example package'
