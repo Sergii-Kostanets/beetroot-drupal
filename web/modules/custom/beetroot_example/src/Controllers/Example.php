@@ -4,7 +4,7 @@ namespace Drupal\beetroot_example\Controllers;
 
 use Drupal\beetroot_example\Forms\ExampleForm;
 use Drupal\Core\Controller\ControllerBase;
-// use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\Core\Form\FormState;
 
 /**
  * Controller for example.
@@ -12,14 +12,18 @@ use Drupal\Core\Controller\ControllerBase;
 class Example extends ControllerBase {
 
   /**
-   * Function returns text.
+   * Function returns text. Work.
    */
-  public function view(NodeInterface $node) {
-    return $this->entityTypeManager()
-      ->getViewBuilder($node->getEntityTypeId())
-      ->viewField($node->get('body'), 'teaser');
-  }
+    public function view() {
+      $config = \Drupal::config('beetroot_example.settings');
+      return [
+        '#markup' => $config->get('text'),
+      ];
+    }
 
+  /**
+   * Form though controller. Work.
+   */
   public function form() {
     $form_state = new FormState();
     $form = \Drupal::formBuilder()->buildForm(ExampleForm::class, $form_state);

@@ -2,7 +2,7 @@ latest_news.route:
   path: '/news/latest'
   defaults:
    _controller: '\Drupal\latest_news\Controllers\Latest::content'
-   _title: 'Latest news'
+   _title: 'Sort news'
   requirements:
    _permission: 'view latest news page'
 

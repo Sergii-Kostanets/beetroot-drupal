@@ -2,8 +2,3 @@ latest_news.content:
   title: 'Latest news'
   route_name: 'latest_news.route'
   menu_name: main
-
-# latest_news.news_category:
-#   title: 'Latest news category'
-#   route_name: 'latest_news.news_category'
-#   menu_name: main

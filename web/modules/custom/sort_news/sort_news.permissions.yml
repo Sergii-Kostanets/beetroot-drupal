@@ -1,0 +1,3 @@
+view sort news page:
+  title: 'Access sort news page'
+  description: 'Gives user access to /news/sort page.'

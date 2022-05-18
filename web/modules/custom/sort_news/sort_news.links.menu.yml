@@ -1,0 +1,4 @@
+sort_news.content:
+  title: 'Sort news'
+  route_name: 'sort_news.route'
+  menu_name: main

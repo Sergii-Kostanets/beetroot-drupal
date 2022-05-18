@@ -1,0 +1,15 @@
+sort_news.route:
+  path: '/news/sort'
+  defaults:
+   _controller: '\Drupal\sort_news\Controllers\Sort::content'
+   _title: 'Sort news'
+  requirements:
+   _permission: 'view sort news page'
+
+sort_news.settings:
+  path: '/admin/config/news'
+  defaults:
+   _form: '\Drupal\sort_news\Form\SortNewsForm'
+   _title: 'Set sort type'
+  requirements:
+   _permission: 'administer site configuration'

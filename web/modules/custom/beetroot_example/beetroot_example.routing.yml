@@ -11,3 +11,10 @@ example_route_form:
    _controller: '\Drupal\beetroot_example\Controllers\Example::form'
   requirements:
    _permission: 'access beetroot example package'
+
+example_settings:
+  path: '/admin/config/example'
+  defaults:
+    _form: '\Drupal\beetroot_example\Forms\BeetrootExampleSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
