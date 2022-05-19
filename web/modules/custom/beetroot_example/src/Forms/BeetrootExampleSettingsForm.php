@@ -6,11 +6,13 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- *
+ * Comment for form.
  */
 class BeetrootExampleSettingsForm extends ConfigFormBase {
 
   /**
+   * Description for function.
+   *
    * @inheritDoc
    */
   protected function getEditableConfigNames() {
@@ -18,6 +20,8 @@ class BeetrootExampleSettingsForm extends ConfigFormBase {
   }
 
   /**
+   * Description for function.
+   *
    * @inheritDoc
    */
   public function getFormId() {
@@ -25,6 +29,8 @@ class BeetrootExampleSettingsForm extends ConfigFormBase {
   }
 
   /**
+   * Description for function.
+   *
    * @inheritDoc
    */
   public function buildForm(array $form, FormStateInterface $form_state) {

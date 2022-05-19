@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 class SortNewsForm extends ConfigFormBase {
 
   /**
-   *
+   * Description for function.
    */
   protected function getEditableConfigNames(): array {
     return ['sort_news.settings'];
@@ -57,6 +57,8 @@ class SortNewsForm extends ConfigFormBase {
   }
 
   /**
+   * Description for function.
+   *
    * Function for submit form.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {

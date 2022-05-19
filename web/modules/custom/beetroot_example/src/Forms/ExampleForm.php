@@ -101,7 +101,7 @@ class ExampleForm extends FormBase {
   }
 
   /**
-   *
+   * Comment for form.
    */
   public function submitPreview(array &$form, FormStateInterface $form_state) {
     \Drupal::messenger()->addStatus('Look at the preview.');

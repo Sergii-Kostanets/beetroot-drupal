@@ -2,6 +2,8 @@
 
 namespace Drupal\sort_news\Plugin\Block;
 
+use Drupal\Core\Block\BlockBase;
+
 /**
  * Provides a 'My Template' block.
  *
@@ -10,7 +12,7 @@ namespace Drupal\sort_news\Plugin\Block;
  *   admin_label = @Translation("My Template")
  * )
  */
-class MyTemplateBlock extends \Drupal\Core\Block\BlockBase {
+class MyTemplateBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
