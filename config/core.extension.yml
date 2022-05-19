@@ -9,6 +9,7 @@ module:
   adminimal_admin_toolbar: 0
   allowed_languages: 0
   automated_cron: 0
+  beetroot_example: 0
   better_exposed_filters: 0
   big_pipe: 0
   block: 0
@@ -86,6 +87,7 @@ module:
   serialization: 0
   shortcut: 0
   simple_sitemap: 0
+  sort_news: 0
   system: 0
   taxonomy: 0
   test: 0

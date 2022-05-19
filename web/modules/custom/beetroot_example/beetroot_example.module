@@ -1,12 +1,17 @@
 <?php
 
-use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Session\AccountInterface;
-
-function beetroot_example_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
-  if ($operation == 'view' && $entity->getEntityTypeId() == 'node') {
-    return AccessResult::forbiddenIf($account->isAnonymous());
-  }
-  return AccessResult::neutral();
+/**
+ * Implements hook theme.
+ */
+function beetroot_example_theme($existing, $type, $theme, $path) {
+  return [
+    'beetroot_example_news' => [
+      'variables' => [
+        'title' => NULL,
+        'content' => NULL,
+        'link' => NULL,
+      ],
+      'template' => 'beetroot-example-news',
+    ],
+  ];
 }

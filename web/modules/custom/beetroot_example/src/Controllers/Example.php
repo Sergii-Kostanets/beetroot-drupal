@@ -17,7 +17,10 @@ class Example extends ControllerBase {
   public function view() {
     $config = \Drupal::config('beetroot_example.settings');
     return [
-      '#markup' => $config->get('text'),
+      '#theme' => 'beetroot_example_news',
+      '#title' => 'Test title',
+      '#content' => 'Test content',
+      '#link' => 'http://example.org',
     ];
   }
 

@@ -6,6 +6,7 @@ dependencies:
     - filter.format.basic_html
     - workflows.workflow.editorial
   module:
+    - beetroot_example
     - comment
     - contact
     - content_moderation
@@ -15,6 +16,7 @@ dependencies:
     - media
     - search
     - shortcut
+    - sort_news
     - system
 _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
@@ -23,6 +25,7 @@ label: 'Authenticated user'
 weight: 1
 is_admin: false
 permissions:
+  - 'access beetroot example package'
   - 'access comments'
   - 'access content'
   - 'access shortcuts'
@@ -35,3 +38,4 @@ permissions:
   - 'use text format basic_html'
   - 'view latest news page'
   - 'view media'
+  - 'view sort news page'
