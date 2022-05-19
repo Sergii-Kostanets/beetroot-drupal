@@ -9,9 +9,14 @@ function beetroot_example_theme($existing, $type, $theme, $path) {
       'variables' => [
         'title' => NULL,
         'content' => NULL,
-        'link' => NULL,
+        'links' => NULL,
       ],
-      'template' => 'beetroot-example-news',
+    ],
+    'beetroot_example_news_link' => [
+      'variables' => [
+        'url' => NULL,
+        'title' => NULL,
+      ],
     ],
   ];
 }

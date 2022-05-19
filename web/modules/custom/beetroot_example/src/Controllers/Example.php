@@ -20,7 +20,18 @@ class Example extends ControllerBase {
       '#theme' => 'beetroot_example_news',
       '#title' => 'Test title',
       '#content' => 'Test content',
-      '#link' => 'http://example.org',
+      '#links' => [
+        [
+          '#theme' => 'beetroot_example_news_link',
+          '#url' => 'https://example.org/1',
+          '#title' => 'Link 1'
+        ],
+        [
+          '#theme' => 'beetroot_example_news_link',
+          '#url' => 'https://example.org/2',
+          '#title' => 'Link 2'
+        ],
+      ],
     ];
   }
 
