@@ -1,19 +1,12 @@
 <?php
 
-use Drupal\block\Entity\Block;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 
-function beetroot_example_block_alter(&$definitions): void {
-    foreach ($definitions as $id => $definition) {
-        $definitions[$id]['admin_label'] .= ' (test 1234)';
-    }
-}
-
-function beetroot_example_block_access(Block $block, $operation, AccountInterface $account): \Drupal\Core\Access\AccessResultForbidden|\Drupal\Core\Access\AccessResultNeutral {
-  if ($operation == 'view' && $block->id() == 'bootstrap_branding' && $account->isAnonymous()) {
-    return AccessResult::forbidden();
+function beetroot_example_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  if ($operation == 'view' && $entity->getEntityTypeId() == 'node') {
+    return AccessResult::forbiddenIf($account->isAnonymous());
   }
-
   return AccessResult::neutral();
 }

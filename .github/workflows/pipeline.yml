@@ -7,10 +7,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Prepare config
         run: cp .env.dist .env
-#      - name: Fix code
-#        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcbf --standard=Drupal web/modules/custom'
-#      - name: Check up code
-#        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcs --standard=Drupal web/modules/custom'
       - name: Build
         run: make up
       - name: Pre-Install
@@ -22,5 +18,7 @@ jobs:
 #      - name: Deploy
 #        run: |
 #          curl -s -H "Authorization: Bearer $TUGBOAT_TOKEN" -H "Content-Type: application/json" -X POST -d "{\"repo\":\"$TUGBOAT_ID\",\"ref\":\"main\",\"type\":\"branch\"}"  https://api.tugboat.qa/v3/previews
-      - name: Check up code
-        run: docker-compose exec -T --user=root php bash -c 'composer run phpcs'
+      - name: install phpcs
+        run: docker-compose exec -T --user=root php bash -c 'composer require --dev squizlabs/php_codesniffer'
+      - name: run phpcs
+        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcs --standard=Drupal web/modules/custom'
