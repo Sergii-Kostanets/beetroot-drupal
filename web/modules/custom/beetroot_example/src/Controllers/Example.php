@@ -14,12 +14,12 @@ class Example extends ControllerBase {
   /**
    * Function returns text. Work.
    */
-    public function view() {
-      $config = \Drupal::config('beetroot_example.settings');
-      return [
-        '#markup' => $config->get('text'),
-      ];
-    }
+  public function view() {
+    $config = \Drupal::config('beetroot_example.settings');
+    return [
+      '#markup' => $config->get('text'),
+    ];
+  }
 
   /**
    * Form though controller. Work.

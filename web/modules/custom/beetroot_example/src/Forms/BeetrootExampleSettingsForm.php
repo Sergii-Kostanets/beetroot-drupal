@@ -5,6 +5,9 @@ namespace Drupal\beetroot_example\Forms;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ *
+ */
 class BeetrootExampleSettingsForm extends ConfigFormBase {
 
   /**
@@ -31,7 +34,7 @@ class BeetrootExampleSettingsForm extends ConfigFormBase {
       '#title' => $this->t('Beetroot Academy Settings'),
       '#type' => 'details',
       '#open' => TRUE,
-      ];
+    ];
     $form['settings']['enabled'] = [
       '#title' => $this->t('Enable Beetroot Academy Functions'),
       '#type' => 'checkbox',
@@ -48,7 +51,7 @@ class BeetrootExampleSettingsForm extends ConfigFormBase {
         'visible' => [
           ':input[name="enabled"]' => ['checked' => TRUE],
         ],
-      'description' => 'If number is 10, need to enter text!'
+        'description' => 'If number is 10, need to enter text!',
       ],
     ];
     $form['settings']['text'] = [

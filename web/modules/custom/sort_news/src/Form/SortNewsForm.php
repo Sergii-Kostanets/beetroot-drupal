@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\sort_news\Form\SortNewsForm.
- */
 namespace Drupal\sort_news\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
@@ -14,6 +10,9 @@ use Drupal\Core\Form\FormStateInterface;
  */
 class SortNewsForm extends ConfigFormBase {
 
+  /**
+   *
+   */
   protected function getEditableConfigNames(): array {
     return ['sort_news.settings'];
   }

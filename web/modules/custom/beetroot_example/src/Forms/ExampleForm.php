@@ -76,7 +76,6 @@ class ExampleForm extends FormBase {
 
   /**
    * Validates user-submitted form data in the $form_state.
-   *
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $text = $form_state->getValue('text');
@@ -101,6 +100,9 @@ class ExampleForm extends FormBase {
     \Drupal::messenger()->addStatus('Node added.');
   }
 
+  /**
+   *
+   */
   public function submitPreview(array &$form, FormStateInterface $form_state) {
     \Drupal::messenger()->addStatus('Look at the preview.');
     $node = Node::create([
