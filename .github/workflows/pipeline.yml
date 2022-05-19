@@ -7,10 +7,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Prepare config
         run: cp .env.dist .env
-      - name: Check up code
-        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcbf --standard=Drupal web/modules/custom'
-      - name: Check up code
-        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcs --standard=Drupal web/modules/custom'
+#      - name: Fix code
+#        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcbf --standard=Drupal web/modules/custom'
+#      - name: Check up code
+#        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcs --standard=Drupal web/modules/custom'
       - name: Build
         run: make up
       - name: Pre-Install
