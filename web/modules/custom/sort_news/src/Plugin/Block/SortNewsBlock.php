@@ -1,18 +1,16 @@
 <?php
 
-use Drupal\Core\Block\BlockBase;
-
 namespace Drupal\sort_news\Plugin\Block;
 
 /**
- * Displays block.
+ * Displays block
  *
  * @Block (
  *  id = "sort_news_block",
  *  admin_label = @Translation("Sort news block"),
  * )
  */
-class SortNewsBlock extends BlockBase {
+class SortNewsBlock extends \Drupal\Core\Block\BlockBase {
 
   /**
    * @inheritDoc

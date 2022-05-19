@@ -1,7 +1,5 @@
 <?php
 
-use Drupal\Core\Block\BlockBase;
-
 namespace Drupal\sort_news\Plugin\Block;
 
 /**
@@ -12,7 +10,7 @@ namespace Drupal\sort_news\Plugin\Block;
  *   admin_label = @Translation("My Template")
  * )
  */
-class MyTemplateBlock extends BlockBase {
+class MyTemplateBlock extends \Drupal\Core\Block\BlockBase {
 
   /**
    * {@inheritdoc}
