@@ -5,7 +5,6 @@ namespace Drupal\beetroot_example\Controllers;
 use Drupal\beetroot_example\Forms\ExampleForm;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormState;
-use Drupal\node\Entity\Node;
 
 /**
  * Controller for example.
@@ -17,27 +16,42 @@ class Example extends ControllerBase {
    */
   public function view() {
     $config = \Drupal::config('beetroot_example.settings');
-    $nodes = Node::loadMultiple();
-    $output = [];
-    foreach ($nodes as $node) {
-      $links = [];
-      /** @var \Drupal\node\NodeInterface[] $related */
-      $related = $node->get('field_category')->referencedEnteties();
-      foreach ($related as $item) {
-        $links[] = [
-          '#theme' => 'beetroot_example_news_link',
-          '#url' => $item->toUrl('canonical')->toString(),
-          '#title' => $item->label(),
-        ];
-      }
-      $output[] = [
+    return [
+      [
         '#theme' => 'beetroot_example_news',
-        '#title' => $node->label(),
-        '#content' => $node->get('body')->value,
-        '#links' => $links,
-      ];
-    }
-    return $output;
+        '#title' => 'Test title',
+        '#content' => 'Test content',
+        '#links' => [
+          [
+            '#theme' => 'beetroot_example_news_link',
+            '#url' => 'https://example.org/1',
+            '#title' => 'Link 1'
+          ],
+          [
+            '#theme' => 'beetroot_example_news_link',
+            '#url' => 'https://example.org/2',
+            '#title' => 'Link 2'
+          ],
+        ],
+      ],
+      [
+        '#theme' => 'beetroot_example_news',
+        '#title' => 'Test title',
+        '#content' => 'Test content',
+        '#links' => [
+          [
+            '#theme' => 'beetroot_example_news_link',
+            '#url' => 'https://example.org/1',
+            '#title' => 'Link 1'
+          ],
+          [
+            '#theme' => 'beetroot_example_news_link',
+            '#url' => 'https://example.org/2',
+            '#title' => 'Link 2'
+          ],
+        ],
+      ],
+    ];
   }
 
   /**
