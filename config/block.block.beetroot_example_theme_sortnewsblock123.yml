@@ -1,0 +1,45 @@
+uuid: 7b4e4684-a1e2-4989-b900-7d8badbf5c3d
+langcode: en
+status: true
+dependencies:
+  module:
+    - context
+    - sort_news
+    - system
+  theme:
+    - beetroot_example_theme
+id: beetroot_example_theme_sortnewsblock123
+theme: beetroot_example_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: sort_news_block
+settings:
+  id: sort_news_block
+  label: 'Sort news block 123'
+  label_display: visible
+  provider: sort_news
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: /news/sort

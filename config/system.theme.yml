@@ -2,4 +2,4 @@ _core:
   default_config_hash: fOjer9hADYYnbCJVZMFZIIM1azTFWyg84ZkFDHfAbUg
 langcode: ru
 admin: seven
-default: bootstrap
+default: beetroot_example_theme
