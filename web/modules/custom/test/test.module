@@ -1,0 +1,16 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+function test_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    $form['#submit'][] = 'editor_login';
+  }
+}
+
+function editor_login(&$form, $form_state) {
+  $roles = \Drupal::currentUser()->getRoles();
+  if (in_array('news_publisher', $roles)) {
+    $form_state->setRedirect('system.admin_content');
+  }
+}
