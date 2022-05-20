@@ -25,12 +25,12 @@ class Example extends ControllerBase {
           [
             '#theme' => 'beetroot_example_news_link',
             '#url' => 'https://example.org/1',
-            '#title' => 'Link 1'
+            '#title' => 'Link 1',
           ],
           [
             '#theme' => 'beetroot_example_news_link',
             '#url' => 'https://example.org/2',
-            '#title' => 'Link 2'
+            '#title' => 'Link 2',
           ],
         ],
       ],
@@ -42,12 +42,12 @@ class Example extends ControllerBase {
           [
             '#theme' => 'beetroot_example_news_link',
             '#url' => 'https://example.org/1',
-            '#title' => 'Link 1'
+            '#title' => 'Link 1',
           ],
           [
             '#theme' => 'beetroot_example_news_link',
             '#url' => 'https://example.org/2',
-            '#title' => 'Link 2'
+            '#title' => 'Link 2',
           ],
         ],
       ],
