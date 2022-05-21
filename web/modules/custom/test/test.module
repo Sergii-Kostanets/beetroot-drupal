@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Form\FormStateInterface;
 
 function test_form_alter(&$form, FormStateInterface $form_state, $form_id) {
@@ -12,5 +13,14 @@ function editor_login(&$form, $form_state) {
   $roles = \Drupal::currentUser()->getRoles();
   if (in_array('news_publisher', $roles)) {
     $form_state->setRedirect('system.admin_content');
+  } else {
+    $form_state->setRedirect('<front>');
   }
+}
+
+function test_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
+  if ($field_definition->getName() == 'field_date' && $operation == 'edit') {
+    return AccessResult::forbiddenIf(!$account->hasPermission('update field date'));
+  }
+  return AccessResult::neutral();
 }

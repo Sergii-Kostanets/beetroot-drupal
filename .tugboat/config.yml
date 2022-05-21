@@ -41,3 +41,4 @@ services:
         # - vendor/bin/drush deploy -y
         # - vendor/bin/drush cim -y
         - vendor/bin/drush sql:query --file=../db.sql
+        - chmod -R 777 web/sites/default/files/
