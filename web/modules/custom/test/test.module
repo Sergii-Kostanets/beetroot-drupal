@@ -49,7 +49,6 @@ function test_entity_presave(EntityInterface $entity) {
 // */
 //function test_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
 //  if ($entity->getEntityTypeId() == 'node' && $entity->getType() == 'news' && $operation == 'view') {
-//another check---------------------
 //    if ($entity->hasField('field_date')) {
 //      $entityDate = $entity->get('field_date')->date->getTimestamp();
 //      $now = new DrupalDateTime('now');
@@ -67,3 +66,25 @@ function test_entity_presave(EntityInterface $entity) {
 //    return AccessResult::neutral();
 //  }
 //}
+
+/**
+ * Implements hook_entity_access() from Ann.
+ */
+function test_entity_access($entity, $operation, $account) {
+
+  $entity_date = $entity->field_date->date;
+
+  $now = new DrupalDateTime('now');
+  $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+
+  if ($entity->getEntityTypeId() == 'node' && $entity->getType() == 'news') {
+    if ($operation == 'view') {
+      if(!$account->hasPermission('future news release')) {
+        if ($now < $entity_date) {
+          return AccessResult::forbidden();
+        }
+      }
+    }
+  }
+  return AccessResult::allowed();
+}
