@@ -1,0 +1,10 @@
+<p>beetroot-example-news--news.html.twig</p>
+<h1>News: {{ title }}</h1>
+<p>
+  {{ content }}
+</p>
+<p>Related news:</p>
+{% for link in links %}
+  <p>{{ link }}</p>
+{% endfor %}
+<hr>

@@ -10,6 +10,7 @@ function beetroot_example_theme($existing, $type, $theme, $path) {
         'title' => NULL,
         'content' => NULL,
         'links' => NULL,
+        'type' => NULL,
       ],
     ],
     'beetroot_example_news_link' => [
@@ -19,4 +20,13 @@ function beetroot_example_theme($existing, $type, $theme, $path) {
       ],
     ],
   ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function beetroot_example_theme_suggestions_beetroot_example_news(array $variables) {
+  $suggestions = [];
+  $suggestions[] = 'beetroot_example_news__' . $variables['type'];
+  return $suggestions;
 }

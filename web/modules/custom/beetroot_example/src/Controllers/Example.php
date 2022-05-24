@@ -16,11 +16,12 @@ class Example extends ControllerBase {
    * Function returns text. Work.
    */
   public function view() {
-    xdebug_break();
     $config = \Drupal::config('beetroot_example.settings');
     $nodes = Node::loadMultiple();
     $output = [];
+    $i = 0;
     foreach ($nodes as $node) {
+      $i++;
       $links = [];
       if ($node->hasField('field_related_content')) {
         /** @var \Drupal\node\NodeInterface[] $related */
@@ -33,12 +34,21 @@ class Example extends ControllerBase {
           ];
         }
       }
+      $body = '';
+      if ($node->hasField('body')) {
+        $body = $node->get('body')->view(['label' => 'hidden']);
+      }
+//      Last don't work.
+      $theme = 'beetroot_example_news';
+      if (count($nodes) == $i) {
+        $theme  = 'beetroot_example_news__last';
+      }
       $output[] = [
         '#theme' => 'beetroot_example_news',
         '#title' => $node->label(),
-//        '#content' => $node->get('body')->value,
-        '#content' => $node->get('title')->value,
+        '#content' => $body,
         '#links' => $links,
+        '#type' => $node->bundle(),
       ];
     }
     return $output;
