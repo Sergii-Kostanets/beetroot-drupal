@@ -44,11 +44,16 @@ class Example extends ControllerBase {
         $theme  = 'beetroot_example_news__last';
       }
       $output[] = [
-        '#theme' => 'beetroot_example_news',
+        '#theme' => $theme,
         '#title' => $node->label(),
         '#content' => $body,
         '#links' => $links,
         '#type' => $node->bundle(),
+        '#attached' => [
+          'library' => [
+            'beetroot_example/custom',
+          ],
+        ],
       ];
     }
     return $output;

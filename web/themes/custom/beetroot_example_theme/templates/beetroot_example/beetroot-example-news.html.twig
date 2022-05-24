@@ -1,10 +1,32 @@
-<p>beetroot-example-news.html.twig</p>
-<h2>{{ title }}</h2>
-<p>
-  {{ content }}
-</p>
-<p>Related content</p>
-{% for link in links %}
-  <p>{{ link }}</p>
-{% endfor %}
-<hr>
+<div {{ attributes }}>
+  <p>beetroot-example-news.html.twig</p>
+  <h2>{{ title }}</h2>
+  <p>
+    {{ content }}
+  </p>
+  <p>Related content</p>
+  {% for link in links %}
+    <p>{{ link }}</p>
+  {% endfor %}
+  <hr>
+</div>
+
+{#<div {{ attributes }}>#}
+
+{#  {{ title_prefix }}#}
+{#  <h2{{ title_attributes }}>#}
+{#    {{ title }}#}
+{#  </h2>#}
+{#  {{ title_suffix }}#}
+
+{#  <p>beetroot-example-news.html.twig</p>#}
+
+{#  <div {{ content-attributes }}>#}
+{#    {{ content }}#}
+{#  </div>#}
+{#  <p>Related content</p>#}
+{#  {% for link in links %}#}
+{#    <p>{{ link }}</p>#}
+{#  {% endfor %}#}
+{#  <hr>#}
+{#</div>#}
