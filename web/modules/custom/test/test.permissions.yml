@@ -1,3 +1,7 @@
 update field date:
   title: 'Access to update publication date'
   description: 'Gives user access to update publication date.'
+
+future news release:
+  title: 'Access to future news release'
+  description: 'Permission to future news release'
