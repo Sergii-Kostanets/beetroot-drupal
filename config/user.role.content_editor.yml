@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.article
+    - node.type.news
     - node.type.page
     - taxonomy.vocabulary.tags
     - workflows.workflow.editorial
@@ -33,6 +34,7 @@ permissions:
   - 'access tour'
   - 'administer url aliases'
   - 'create article content'
+  - 'create news content'
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
@@ -40,13 +42,16 @@ permissions:
   - 'delete own article content'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'edit any news content'
   - 'edit own article content'
   - 'edit own comments'
+  - 'edit own news content'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'revert all revisions'
   - 'use editorial transition create_new_draft'
   - 'view all revisions'
+  - 'view any unpublished content'
   - 'view latest version'
   - 'view own unpublished content'
   - 'view the administration theme'

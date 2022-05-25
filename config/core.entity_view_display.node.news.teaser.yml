@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.news.body
     - field.field.node.news.field_category
+    - field.field.node.news.field_date
+    - field.field.node.news.field_favorites
     - field.field.node.news.field_image
     - node.type.news
   module:
@@ -45,4 +47,6 @@ content:
     region: content
 hidden:
   body: true
+  field_date: true
+  field_favorites: true
   langcode: true

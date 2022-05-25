@@ -2,6 +2,7 @@ _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 langcode: ru
 module:
+  action: 0
   admin_toolbar: 0
   admin_toolbar_links_access_filter: 0
   admin_toolbar_search: 0
@@ -34,6 +35,7 @@ module:
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
+  examples: 0
   extra_field: 0
   extra_field_plus: 0
   field: 0

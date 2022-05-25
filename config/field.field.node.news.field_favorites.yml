@@ -1,0 +1,23 @@
+uuid: 4bc535d8-cfd1-4461-aa6a-1f26a41e2145
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_favorites
+    - node.type.news
+id: node.news.field_favorites
+field_name: field_favorites
+entity_type: node
+bundle: news
+label: Favorites
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

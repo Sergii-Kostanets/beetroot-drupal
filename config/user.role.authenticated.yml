@@ -4,16 +4,23 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - node.type.article
+    - node.type.news
+    - node.type.page
     - workflows.workflow.editorial
   module:
     - beetroot_example
     - comment
     - contact
     - content_moderation
+    - contextual
+    - file
     - filter
     - language
     - latest_news
     - media
+    - node
+    - paragraphs
     - search
     - shortcut
     - sort_news
@@ -28,14 +35,39 @@ permissions:
   - 'access beetroot example package'
   - 'access comments'
   - 'access content'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'administer languages'
+  - 'create article content'
+  - 'create page content'
+  - 'delete article revisions'
+  - 'delete own article content'
+  - 'delete own news content'
+  - 'delete own page content'
+  - 'delete page revisions'
+  - 'edit any news content'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own news content'
+  - 'edit own page content'
   - 'post comments'
+  - 'revert all revisions'
   - 'search content'
   - 'skip comment approval'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
   - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
   - 'use text format basic_html'
+  - 'view any unpublished content'
   - 'view latest news page'
+  - 'view latest version'
   - 'view media'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
   - 'view sort news page'
+  - 'view unpublished paragraphs'
