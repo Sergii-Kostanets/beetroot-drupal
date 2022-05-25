@@ -1,1 +1,1 @@
-alert(drupalSettings.foo);
+console.log('From custom.js: ', drupalSettings.foo);

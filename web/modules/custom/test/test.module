@@ -88,10 +88,3 @@ function test_entity_access($entity, $operation, $account) {
   }
   return AccessResult::allowed();
 }
-
-/**
- * Implements hook_theme().
- */
-function test_theme($existing, $type, $theme, $path) {
-
-}
