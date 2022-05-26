@@ -20,7 +20,11 @@ use Drupal\Core\Field\FormatterBase;
 class TestListFormatter extends FormatterBase {
 
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    return ['#markup' => 'Test values for field: ' . $items->getFieldDefinition()->getName() . '.'];
+    $output = [];
+    foreach ($items as $item) {
+      $output[] = ['#markup' => $item->value];
+    }
+    return $output;
   }
 
 }
