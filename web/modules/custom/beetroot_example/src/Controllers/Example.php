@@ -38,13 +38,7 @@ class Example extends ControllerBase {
       if ($node->hasField('body')) {
         $body = $node->get('body')->view(['label' => 'hidden']);
       }
-//      Last don't work.
-//      $theme = 'beetroot_example_news';
-//      if (count($nodes) == $i) {
-//        $theme  = 'beetroot_example_news__last';
-//      }
       $output[] = [
-//        '#theme' => $theme,
         '#theme' => 'beetroot_example_news',
         '#title' => $node->label(),
         '#content' => $body,

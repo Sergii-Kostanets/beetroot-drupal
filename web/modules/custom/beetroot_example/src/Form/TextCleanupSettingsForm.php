@@ -31,7 +31,7 @@ class TextCleanupSettingsForm extends ConfigFormBase {
     $options = [];
     /** @var \Drupal\beetroot_example\TextCleanupPluginManager $manager */
     $manager = \Drupal::service('plugin.manager.text_cleanup');
-    foreach ($manager->getDefinitions() as $pluginId => $pluginDefinition){
+    foreach ($manager->getDefinitions() as $pluginId => $pluginDefinition) {
       $options[$pluginId] = $pluginDefinition['label'];
     }
     $form['plugins'] = [

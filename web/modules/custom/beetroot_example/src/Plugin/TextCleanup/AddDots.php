@@ -2,7 +2,6 @@
 
 namespace Drupal\beetroot_example\Plugin\TextCleanup;
 
-use Drupal\beetroot_example\Annotation\TextCleanup;
 use Drupal\beetroot_example\TextCleanupPluginBase;
 
 /**

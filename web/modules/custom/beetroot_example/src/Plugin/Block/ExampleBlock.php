@@ -3,12 +3,13 @@
 namespace Drupal\beetroot_example\Plugin\Block;
 
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Block\Annotation\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 
 /**
+ * Short description.
+ *
  * @Block(
  *   id = "example_block",
  *   admin_label = "Example block",
@@ -47,12 +48,17 @@ class ExampleBlock extends BlockBase {
   }
 
   /**
+   * Description.
+   *
    * @inheritDoc
    */
   public function build() {
     return ['#markup' => $this->configuration['some_config']];
   }
 
+  /**
+   * Some description.
+   */
   protected function blockAccess(AccountInterface $account) {
     return AccessResult::allowedIfHasPermission($account, 'access beetroot example package');
   }

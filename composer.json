@@ -56,7 +56,8 @@
         "drupal/webform_extra_field": "^2.0@RC",
         "drush/drush": "11.0.9",
         "npm-asset/select2": "^4.0",
-        "oomphinc/composer-installers-extender": "^2.0"
+        "oomphinc/composer-installers-extender": "^2.0",
+      "ext-xdebug": "*"
     },
     "conflict": {
         "drupal/drupal": "*"

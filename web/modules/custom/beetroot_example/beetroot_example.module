@@ -67,3 +67,8 @@ function beetroot_example_entity_presave(EntityInterface $entity) {
   $textCleanup = \Drupal::service('beetroot_example_text_cleanup');
   $entity->set('field_plain_text', $textCleanup->cleanUp($value));
 }
+
+function beetroot_example_text_cleanup_info_alter(&$definitions){
+//  xdebug_break();
+//  $a = 1;
+}

@@ -2,7 +2,6 @@
 
 namespace Drupal\beetroot_example\Plugin\TextCleanup;
 
-use Drupal\beetroot_example\Annotation\TextCleanup;
 use Drupal\beetroot_example\TextCleanupPluginBase;
 
 /**
@@ -23,5 +22,7 @@ class RemoveBadWords extends TextCleanupPluginBase {
     $words = ['bad'];
     $replace = ['good'];
     return str_replace($words, $replace, $text);
+
   }
+
 }
