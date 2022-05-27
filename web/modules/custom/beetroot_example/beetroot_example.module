@@ -2,6 +2,7 @@
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook theme.
@@ -50,10 +51,19 @@ function beetroot_example_preprocess_beetroot_example_news_link(&$variables) {
   $variables['attributes']['class'][] = 'custom-link';
 }
 
-///**
-// * Implements hook_preprocess_HOOK().
-// */
-//function beetroot_example_preprocess_HOOK(&$variables) {
-//
-//}
-
+/**
+ * Implements hook_entity_presave().
+ */
+function beetroot_example_entity_presave(EntityInterface $entity) {
+  if (!$entity instanceof NodeInterface
+    || $entity->bundle() !== 'plain_text'
+    || !$entity->hasField('field_plain_text')
+    || $entity->get('field_plain_text')->isEmpty()
+  ) {
+    return;
+  }
+  $value = $entity->get('field_plain_text')->value;
+  /** @var \Drupal\beetroot_example\Services\TextCleanupService $textCleanup */
+  $textCleanup = \Drupal::service('beetroot_example_text_cleanup');
+  $entity->set('field_plain_text', $textCleanup->cleanUp($value));
+}
