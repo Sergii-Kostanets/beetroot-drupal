@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.article.field_related_content
     - field.field.node.article.field_related_revision
     - field.field.node.article.field_tags
+    - field.field.node.article.field_type
     - image.style.medium
     - node.type.article
   module:
@@ -66,4 +67,5 @@ hidden:
   field_related_content: true
   field_related_revision: true
   field_tags: true
+  field_type: true
   langcode: true

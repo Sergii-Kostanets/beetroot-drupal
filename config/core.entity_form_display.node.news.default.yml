@@ -46,14 +46,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_category:
-    type: entity_reference_autocomplete_tags
+    type: options_buttons
     weight: 122
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_date:
     type: datetime_default

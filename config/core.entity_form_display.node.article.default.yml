@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.article.field_related_content
     - field.field.node.article.field_related_revision
     - field.field.node.article.field_tags
+    - field.field.node.article.field_type
     - image.style.thumbnail
     - node.type.article
     - workflows.workflow.editorial
@@ -110,6 +111,12 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_type:
+    type: options_buttons
+    weight: 125
+    region: content
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select

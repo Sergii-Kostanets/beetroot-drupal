@@ -1,0 +1,41 @@
+uuid: d05e19db-b1cb-4254-9f8f-464a74ab830c
+langcode: en
+status: true
+dependencies:
+  module:
+    - beetroot_example
+    - context
+  theme:
+    - beetroot_example_theme
+id: example_block
+theme: beetroot_example_theme
+region: sidebar_second
+weight: -8
+provider: null
+plugin: example_block
+settings:
+  id: example_block
+  label: 'Example block TITLE [language:langcode]'
+  label_display: visible
+  provider: beetroot_example
+  some_config: 'My text in example block!'
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''

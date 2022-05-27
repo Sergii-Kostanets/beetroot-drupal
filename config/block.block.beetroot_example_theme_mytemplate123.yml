@@ -10,7 +10,7 @@ dependencies:
 id: beetroot_example_theme_mytemplate123
 theme: beetroot_example_theme
 region: sidebar_second
-weight: 0
+weight: -6
 provider: null
 plugin: my_template_block
 settings:
