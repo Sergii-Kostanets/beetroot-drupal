@@ -2,5 +2,11 @@ services:
   beetroot_example.example_controller:
    class: Drupal\beetroot_example\Controllers\Example
    arguments: ['@database']
+
   beetroot_example_text_cleanup:
     class: Drupal\beetroot_example\Services\TextCleanupService
+    arguments: ['@plugin.manager.text_cleanup', '@config.factory']
+
+  plugin.manager.text_cleanup:
+    class: Drupal\beetroot_example\TextCleanupPluginManager
+    parent: default_plugin_manager

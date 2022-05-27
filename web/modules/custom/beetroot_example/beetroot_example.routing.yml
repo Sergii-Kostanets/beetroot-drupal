@@ -18,3 +18,11 @@ example_settings:
     _form: '\Drupal\beetroot_example\Forms\BeetrootExampleSettingsForm'
   requirements:
     _permission: 'administer site configuration'
+
+beetroot_example.text_cleanup_settings:
+  path: '/admin/config/system/text-cleanup-settings'
+  defaults:
+    _title: 'Text cleanup settings'
+    _form: 'Drupal\beetroot_example\Form\TextCleanupSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

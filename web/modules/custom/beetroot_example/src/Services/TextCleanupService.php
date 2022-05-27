@@ -2,37 +2,43 @@
 
 namespace Drupal\beetroot_example\Services;
 
+use Drupal\beetroot_example\TextCleanupPluginManager;
+use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
 class TextCleanupService {
+
+  /**
+   * @var \Drupal\beetroot_example\TextCleanupPluginManager
+   */
+  private TextCleanupPluginManager $manager;
+
+  /**
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  private ConfigFactoryInterface $config;
+
+  public function __construct(TextCleanupPluginManager $manager, ConfigFactoryInterface $config){
+    $this->manager = $manager;
+    $this->config = $config;
+  }
+
+  /**
+   * Clean up the text.
+   *
+   * @param string $text
+   *
+   * @return string
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
+   */
   public function cleanUp(string $text): string {
-    $text = $this->addDots($text);
-    $text = $this->removeBadWords($text);
-    $text = $this->ucFirst($text);
+    $pluginDefinitions = $this->manager->getDefinitions();
+    $enabledPlugins = $this->config->get('beetroot_example.text_cleanup.settings')->get('plugins');
+    foreach (array_filter($enabledPlugins) as $pluginId){
+      /** @var \Drupal\beetroot_example\TextCleanupInterface $plugin */
+      $plugin = $this->manager->createInstance($pluginId, $pluginDefinitions[$pluginId]);
+      $text = $plugin->cleanUp($text);
+    }
     return $text;
   }
-
-  public function addDots(string $text) {
-    $lines = explode("\r\n", $text);
-    foreach ($lines as &$line) {
-      $line = trim($line);
-      if (!str_ends_with($line, '.')) {
-        $line .= '.';
-      }
-    }
-    return implode("\r\n", $lines);
-  }
-
-  private function removeBadWords($text) {
-    $words = ['bad'];
-    $replace = ['good'];
-    return str_replace($words, $replace, $text);
-  }
-
-  private function ucFirst(string $text) {
-    $lines = explode("\n", $text);
-    foreach ($lines as &$line) {
-      $line = ucfirst($line);
-    }
-    return implode("\n", $lines);
-  }
-
 }
