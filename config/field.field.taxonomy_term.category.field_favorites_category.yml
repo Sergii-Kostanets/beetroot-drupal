@@ -1,0 +1,23 @@
+uuid: e6032309-3585-4061-bb13-102fa5c58dc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_favorites_category
+    - taxonomy.vocabulary.category
+id: taxonomy_term.category.field_favorites_category
+field_name: field_favorites_category
+entity_type: taxonomy_term
+bundle: category
+label: 'Favorites category'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
