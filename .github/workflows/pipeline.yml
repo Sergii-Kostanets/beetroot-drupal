@@ -17,10 +17,10 @@ jobs:
 #      - name: Test
 #        run: make test
 # it's ok. disable for now?
-      - name: install phpcs
-        run: docker-compose exec -T --user=root php bash -c 'composer require --dev squizlabs/php_codesniffer'
-      - name: run phpcs
-        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcs --standard=Drupal web/modules/custom'
+#      - name: install phpcs
+#        run: docker-compose exec -T --user=root php bash -c 'composer require --dev squizlabs/php_codesniffer'
+#      - name: run phpcs
+#        run: docker-compose exec -T --user=root php bash -c './vendor/bin/phpcs --standard=Drupal web/modules/custom'
 # something is wrong:
       - name: Deploy
         run: |

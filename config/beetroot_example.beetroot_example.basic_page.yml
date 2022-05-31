@@ -1,0 +1,11 @@
+uuid: 75dd4468-8d30-4706-8884-f43bc5c07f57
+langcode: en
+status: true
+dependencies: {  }
+id: basic_page
+label: 'Basic page'
+type: page
+plugins:
+  uc_first: uc_first
+  add_dots: add_dots
+  remove_bad_words: '0'

@@ -1,0 +1,11 @@
+uuid: 29cd9d18-4d43-4b41-8f13-b48ffe6dc114
+langcode: en
+status: true
+dependencies: {  }
+id: article
+label: Article
+type: article
+plugins:
+  remove_bad_words: remove_bad_words
+  uc_first: uc_first
+  add_dots: '0'
