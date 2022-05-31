@@ -1,0 +1,6 @@
+uuid: 00a79ec8-dbd1-462f-b13d-3db28e9ae759
+langcode: en
+status: true
+dependencies: {  }
+id: second_type
+label: 'Second type'

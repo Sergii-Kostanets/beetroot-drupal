@@ -9,7 +9,6 @@ dependencies:
     - node.type.page
     - workflows.workflow.editorial
   module:
-    - beetroot_example
     - comment
     - contact
     - content_moderation
@@ -32,7 +31,6 @@ label: 'Authenticated user'
 weight: 1
 is_admin: false
 permissions:
-  - 'access beetroot example package'
   - 'access comments'
   - 'access content'
   - 'access content overview'
