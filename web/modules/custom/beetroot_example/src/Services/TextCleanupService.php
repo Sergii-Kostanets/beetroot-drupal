@@ -56,6 +56,9 @@ class TextCleanupService {
 
   }
 
+  /**
+   * Function doc comment.
+   */
   public function cleanUpEntity(FieldableEntityInterface $entity) {
     $storage = \Drupal::entityTypeManager()->getStorage('beetroot_example');
     $configs = $storage->loadMultiple(['type' => $entity->bundle()]);
@@ -78,5 +81,7 @@ class TextCleanupService {
         $entity->set($field->getName(), $value);
       }
     }
+
   }
+
 }

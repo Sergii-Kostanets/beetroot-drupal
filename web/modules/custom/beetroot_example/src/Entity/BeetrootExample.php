@@ -4,7 +4,6 @@ namespace Drupal\beetroot_example\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 use Drupal\beetroot_example\BeetrootExampleInterface;
-use Drupal\Core\Entity\Annotation\ConfigEntityType;
 
 /**
  * Defines the beetroot example entity type.
@@ -71,12 +70,23 @@ class BeetrootExample extends ConfigEntityBase implements BeetrootExampleInterfa
    */
   protected $type;
 
+  /**
+   * The beetroot_example plugins.
+   *
+   * @var array
+   */
   protected $plugins;
 
+  /**
+   * Function comment.
+   */
   public function getPlugins(): array {
     return array_filter($this->plugins);
   }
 
+  /**
+   * Function comment.
+   */
   public function getType(): string {
     return $this->type;
   }

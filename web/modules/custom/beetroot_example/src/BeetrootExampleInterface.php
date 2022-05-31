@@ -9,8 +9,14 @@ use Drupal\Core\Config\Entity\ConfigEntityInterface;
  */
 interface BeetrootExampleInterface extends ConfigEntityInterface {
 
+  /**
+   * Function doc comment.
+   */
   public function getType(): string;
 
+  /**
+   * Function doc comment.
+   */
   public function getPlugins(): array;
 
 }
