@@ -149,3 +149,10 @@ function beetroot_example_entity_insert(\Drupal\Core\Entity\EntityInterface $ent
     \Drupal::queue('admin_notify_worker')->createItem($entity->id());
   }
 }
+
+/**
+ * Implements hook_mail().
+ */
+function beetroot_example_mail($key, &$message, $params) {
+  
+}
