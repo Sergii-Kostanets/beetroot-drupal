@@ -145,26 +145,7 @@ function beetroot_example_user_predelete(UserInterface $account) {
  * @param \Drupal\Core\Entity\EntityInterface $entity
  */
 function beetroot_example_entity_insert(\Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity instanceof \Drupal\user\Entity\User) {
-    $users = \Drupal::state()->get('registered_users', []);
-    $users[] = $entity->$id();
-    \Drupal::state()->set('registered_users', $users);
-//    $ids = \Drupal::entityQuery('user')->condition('role', 'admin')->execute();
-//    $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($ids);
+  if ($entity instanceof NodeInterface) {
+    \Drupal::queue('admin_notify_worker')->createItem($entity->id());
   }
 }
-
-///**
-// * Implements hook_cron().
-// */
-//function beetroot_example_cron() {
-//  $users = \Drupal::state()->get('registered_users', []);
-//  if (empty($users)) {
-//    return;
-//  }
-//  $id = array_shift($users);
-//  // TODO: send emails.
-//  $users = \Drupal\user\Entity\User::load($id);
-//
-//  \Drupal::state()->set('registered_users', $users);
-//}
