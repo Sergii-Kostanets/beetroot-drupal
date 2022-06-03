@@ -6,6 +6,7 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Short description.
@@ -53,7 +54,15 @@ class ExampleBlock extends BlockBase {
    * @inheritDoc
    */
   public function build() {
-    return ['#markup' => $this->configuration['some_config']];
+    $cache = \Drupal::cache()->get('homepage_last_news');
+    if ($cache) {
+      return ['#markup' => implode(', ', $cache->data)];
+    }
+    $nodes = Node::loadMultiple();
+    $labels = array_map(fn(Node $node) => $node->label(), $nodes);
+    \Drupal::cache()->set('homepage_last_news', $labels);
+    return ['#markup' => implode(', ', $labels)];
+//    return ['#markup' => $this->configuration['some_config']];
   }
 
   /**
