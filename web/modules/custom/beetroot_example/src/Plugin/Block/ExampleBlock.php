@@ -55,24 +55,35 @@ class ExampleBlock extends BlockBase {
    * @inheritDoc
    */
   public function build() {
-    $cache = \Drupal::cache()->get('homepage_last_news');
-    if ($cache) {
-      return ['#markup' => implode(', ', $cache->data)];
-    }
-    $nodes = Node::loadMultiple();
-    $labels = $tags = [];
-    foreach ($nodes as $node) {
-      $labels[] = $node->label();
-      $tags  = Cache::mergeTags($tags, $node->getCacheTags());
-    }
-//    $tags = array_map(fn(Node $node) => $node->getEntityTypeId() . ':' . $node->id(), $nodes);
-//    $tags = array_map(fn(Node $node) => $node->getCacheTags(), $nodes);
-    \Drupal::cache()->set('homepage_last_news', $labels, \Drupal::time()->getCurrentTime() + 60 + 60 + 24, $tags);
-    return ['#markup' => implode(', ', $labels)];
+//    \Drupal::request()->query->get('flag');
+//    /** @var \Drupal\Core\Path\PathMatcherInterface $path_matcher */
+//    $path_matcher = \Drupal::service('path.matcher');
+//    $type = $path_matcher->isFrontPage() ? 'page' : 'article';
+    $type = \Drupal::currentUser()->isAnonymous() ? 'page' : 'article';
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $ids = $storage->getQuery()
+      ->condition('status', 1)
+      ->condition('type', $type)
+      ->sort('changed', 'DESC')
+      ->range(0, 1)
+      ->execute();
+    $node = $storage->load(reset($ids));
+    return ['#markup' => $node->label()];
+  }
+
+  public function getCacheContexts() {
+    return [
+//      'url.path.is_front',
+      'user.roles:anonymous',
+    ];
+  }
+
+  public function getCacheTags() {
+    return ['node_list'];
   }
 
   public function getCacheMaxAge() {
-    return 0;
+    return 60 * 60 * 24;
   }
 
   /**
