@@ -55,11 +55,10 @@ class ExampleBlock extends BlockBase {
    * @inheritDoc
    */
   public function build() {
-//    \Drupal::request()->query->get('flag');
-//    /** @var \Drupal\Core\Path\PathMatcherInterface $path_matcher */
-//    $path_matcher = \Drupal::service('path.matcher');
-//    $type = $path_matcher->isFrontPage() ? 'page' : 'article';
-    $type = \Drupal::currentUser()->isAnonymous() ? 'page' : 'article';
+    \Drupal::request()->query->get('flag');
+    /** @var \Drupal\Core\Path\PathMatcherInterface $path_matcher */
+    $path_matcher = \Drupal::service('path.matcher');
+    $type = $path_matcher->isFrontPage() ? 'page' : 'article';
     $storage = \Drupal::entityTypeManager()->getStorage('node');
     $ids = $storage->getQuery()
       ->condition('status', 1)
@@ -73,8 +72,7 @@ class ExampleBlock extends BlockBase {
 
   public function getCacheContexts() {
     return [
-//      'url.path.is_front',
-      'user.roles:anonymous',
+      'url.path.is_front',
     ];
   }
 
