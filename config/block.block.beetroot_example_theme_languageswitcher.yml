@@ -10,7 +10,7 @@ dependencies:
 id: beetroot_example_theme_languageswitcher
 theme: beetroot_example_theme
 region: sidebar_second
-weight: -3
+weight: -2
 provider: null
 plugin: 'language_block:language_interface'
 settings:

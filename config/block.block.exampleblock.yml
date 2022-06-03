@@ -1,0 +1,41 @@
+uuid: ca984b23-bcbf-4adc-9426-21c83627f0c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - beetroot_example
+    - context
+  theme:
+    - beetroot_example_theme
+id: exampleblock
+theme: beetroot_example_theme
+region: sidebar_second
+weight: -7
+provider: null
+plugin: example_block
+settings:
+  id: example_block
+  label: 'Example block'
+  label_display: visible
+  provider: beetroot_example
+  some_config: ''
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''

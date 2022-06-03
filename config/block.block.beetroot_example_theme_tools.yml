@@ -13,7 +13,7 @@ _core:
 id: beetroot_example_theme_tools
 theme: beetroot_example_theme
 region: sidebar_second
-weight: -5
+weight: -4
 provider: null
 plugin: 'system_menu_block:tools'
 settings:
