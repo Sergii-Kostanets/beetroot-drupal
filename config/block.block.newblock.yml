@@ -12,7 +12,7 @@ dependencies:
 id: newblock
 theme: beetroot_example_theme
 region: sidebar_second
-weight: -9
+weight: -8
 provider: null
 plugin: 'block_content:5971c447-798e-4847-b9e5-97b3bd828a98'
 settings:

@@ -161,5 +161,6 @@ function beetroot_example_mail($key, &$message, $params) {
  * Implements hook_ENTITY_TYPE_update().
  */
 function beetroot_example_node_update(\Drupal\Core\Entity\EntityInterface $entity) {
-
+//  \Drupal::cache()->invalidate('homepage_last_news');
+  \Drupal\Core\Cache\Cache::invalidateTags(['news_labels']);
 }

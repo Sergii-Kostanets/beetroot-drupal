@@ -4,6 +4,7 @@ namespace Drupal\beetroot_example\Plugin\Block;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\node\Entity\Node;
@@ -59,10 +60,19 @@ class ExampleBlock extends BlockBase {
       return ['#markup' => implode(', ', $cache->data)];
     }
     $nodes = Node::loadMultiple();
-    $labels = array_map(fn(Node $node) => $node->label(), $nodes);
-    \Drupal::cache()->set('homepage_last_news', $labels);
+    $labels = $tags = [];
+    foreach ($nodes as $node) {
+      $labels[] = $node->label();
+      $tags  = Cache::mergeTags($tags, $node->getCacheTags());
+    }
+//    $tags = array_map(fn(Node $node) => $node->getEntityTypeId() . ':' . $node->id(), $nodes);
+//    $tags = array_map(fn(Node $node) => $node->getCacheTags(), $nodes);
+    \Drupal::cache()->set('homepage_last_news', $labels, \Drupal::time()->getCurrentTime() + 60 + 60 + 24, $tags);
     return ['#markup' => implode(', ', $labels)];
-//    return ['#markup' => $this->configuration['some_config']];
+  }
+
+  public function getCacheMaxAge() {
+    return 0;
   }
 
   /**
