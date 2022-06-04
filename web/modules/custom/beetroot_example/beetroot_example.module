@@ -27,8 +27,11 @@ function beetroot_example_theme($existing, $type, $theme, $path) {
     'example_content' => [
       'render element' => 'elements',
     ],
-    'cats_fact' => [
-      'variables' => ['rate' => NULL],
+    'bitcoin_price' => [
+      'variables' => [
+        'rate' => NULL,
+        'time' => NULL,
+      ],
     ],
   ];
 }

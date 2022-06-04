@@ -65,21 +65,27 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
   }
 
   public function cacheExample() {
-    $response = \Drupal::httpClient()
-      ->request('GET', 'https://api.coindesk.com/v1/bpi/currentprice.json');
-    //    $response = \Drupal::httpClient()->request('GET', 'http://www.boredapi.com/api/activity');
-    //    $response = \Drupal::httpClient()->request('GET', 'https://api.agify.io?name=meelad');
-    //    $response = \Drupal::httpClient()->request('GET', 'https://catfact.ninja/fact');
+    $response = \Drupal::httpClient()->request('GET', 'https://api.coindesk.com/v1/bpi/currentprice.json');
     if ($response->getStatusCode() !== 200) {
       return [];
     }
     $fact = json_decode($response->getBody());
     return [
-      '#lazy_builder' => [static::class . '::getCurrentTime', []],
-      '#create_placeholder' => TRUE,
-
-//      '#theme' => 'cats_fact',
-//      '#rate' => $fact->bpi->USD->rate_float,
+      '#cache' => [
+        'max-age' => -1,
+      ],
+      [
+      '#theme' => 'bitcoin_price',
+      '#rate' => $fact->bpi->USD->rate_float,
+      '#time' => \Drupal::time()->getCurrentTime(),
+      '#cache' => [
+        'max-age' => -1,
+      ],
+      ],
+      [
+        '#lazy_builder' => [static::class . '::getCurrentTime', []],
+        '#create_placeholder' => TRUE,
+      ],
     ];
   }
 
