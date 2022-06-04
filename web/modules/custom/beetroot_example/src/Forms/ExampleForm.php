@@ -102,11 +102,14 @@ class ExampleForm extends FormBase {
       'title' => $form_state->getValue('name'),
       'body' => $form_state->getValue('text'),
     ];
-    $operations =[];
+    $operations = [];
     foreach (range(1, $number) as $i) {
       $arg1 = $params;
       $arg1['title'] .= ' - ' . $i;
-      $operations[] = ['\Drupal\beetroot_example\Forms\ExampleForm::createNode', [$arg1]];
+      $operations[] = [
+        '\Drupal\beetroot_example\Forms\ExampleForm::createNode',
+        [$arg1],
+      ];
     }
     batch_set([
       'title' => $this->t('Node creation'),
@@ -114,6 +117,9 @@ class ExampleForm extends FormBase {
     ]);
   }
 
+  /**
+   * Comment.
+   */
   public static function createNode(array $params) {
     $node = Node::create($params);
     $node->save();
@@ -125,8 +131,7 @@ class ExampleForm extends FormBase {
    */
   public function submitPreview(array &$form, FormStateInterface $form_state) {
     \Drupal::messenger()->addStatus('Look at the preview.');
-    $node = Node::create([
-    ]);
+    $node = Node::create([]);
   }
 
 }

@@ -4,10 +4,8 @@ namespace Drupal\beetroot_example\Plugin\Block;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\node\Entity\Node;
 
 /**
  * Short description.
@@ -70,16 +68,25 @@ class ExampleBlock extends BlockBase {
     return ['#markup' => $node->label()];
   }
 
+  /**
+   * Some comment.
+   */
   public function getCacheContexts() {
     return [
       'url.path.is_front',
     ];
   }
 
+  /**
+   * Some comment.
+   */
   public function getCacheTags() {
     return ['node_list'];
   }
 
+  /**
+   * Some comment.
+   */
   public function getCacheMaxAge() {
     return 60 * 60 * 24;
   }

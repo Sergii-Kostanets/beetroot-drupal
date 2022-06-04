@@ -36,7 +36,10 @@ class ExampleContentTypeForm extends BundleEntityFormBase {
       '#default_value' => $entity_type->id(),
       '#maxlength' => EntityTypeInterface::BUNDLE_MAX_LENGTH,
       '#machine_name' => [
-        'exists' => ['Drupal\beetroot_example\Entity\ExampleContentType', 'load'],
+        'exists' => [
+          'Drupal\beetroot_example\Entity\ExampleContentType',
+          'load',
+        ],
         'source' => ['label'],
       ],
       '#description' => $this->t('A unique machine-readable name for this example content type. It must only contain lowercase letters, numbers, and underscores.'),

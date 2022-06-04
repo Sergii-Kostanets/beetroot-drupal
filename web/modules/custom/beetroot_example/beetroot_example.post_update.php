@@ -1,12 +1,20 @@
 <?php
 
+/**
+ * @file
+ * Some comment.
+ *
+ * Comment for phpcs.
+ */
+
 use Drupal\block_content\Entity\BlockContent;
+use Drupal\node\Entity\Node as NodeAlias;
 
 /**
  * Add new custom page.
  */
 function beetroot_example_post_update_create_some_page(&$sandbox) {
-  \Drupal\node\Entity\Node::create([
+  NodeAlias::create([
     'type' => 'page',
     'title' => 'Some page',
     'status' => 1,

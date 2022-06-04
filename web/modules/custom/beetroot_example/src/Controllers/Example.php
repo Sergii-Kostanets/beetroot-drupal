@@ -64,6 +64,9 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
     return $form;
   }
 
+  /**
+   * Some comment.
+   */
   public function cacheExample() {
     $response = \Drupal::httpClient()->request('GET', 'https://api.coindesk.com/v1/bpi/currentprice.json');
     if ($response->getStatusCode() !== 200) {
@@ -75,12 +78,12 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
         'max-age' => -1,
       ],
       [
-      '#theme' => 'bitcoin_price',
-      '#rate' => $fact->bpi->USD->rate_float,
-      '#time' => \Drupal::time()->getCurrentTime(),
-      '#cache' => [
-        'max-age' => -1,
-      ],
+        '#theme' => 'bitcoin_price',
+        '#rate' => $fact->bpi->USD->rate_float,
+        '#time' => \Drupal::time()->getCurrentTime(),
+        '#cache' => [
+          'max-age' => -1,
+        ],
       ],
       [
         '#lazy_builder' => [static::class . '::getCurrentTime', []],
@@ -89,6 +92,9 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
     ];
   }
 
+  /**
+   * Some comment.
+   */
   public static function getCurrentTime() {
     return [
       '#markup' => \Drupal::time()->getCurrentTime(),
@@ -98,6 +104,9 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
     ];
   }
 
+  /**
+   * Some comment.
+   */
   public static function trustedCallbacks() {
     return ['getCurrentTime'];
   }
