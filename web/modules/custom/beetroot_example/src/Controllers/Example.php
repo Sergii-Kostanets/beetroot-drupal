@@ -7,6 +7,8 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Security\TrustedCallbackInterface;
 use Drupal\node\Entity\Node;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Controller for example.
@@ -64,6 +66,33 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
     return $form;
   }
 
+  /**
+   * Provides autocomplete for nodes.
+   *
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   *   The request object.
+   *
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   *   The json response.
+   */
+  public function autocomplete(Request $request) {
+    $q = $request->query->get('q');
+    $storage = $this->entityTypeManager()->getStorage('node');
+    $ids = $storage->getQuery()
+      ->condition('title', "%{$q}%", 'LIKE')
+      ->condition('status', 1)
+      ->execute();
+    if (empty($ids)) {
+      return new JsonResponse([]);
+    }
+    $nodes = $storage->loadMultiple($ids);
+    $results = [];
+    foreach ($nodes as $node) {
+      $results[] = $node->label() . ' (' . $node->id() . ')';
+    }
+
+    return new JsonResponse($results);
+  }
   /**
    * Some comment.
    */

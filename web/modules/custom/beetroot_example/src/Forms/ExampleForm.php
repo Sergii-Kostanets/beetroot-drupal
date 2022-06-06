@@ -27,6 +27,7 @@ class ExampleForm extends FormBase {
    * @inheritDoc
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['#attributes']['id'] = 'example-form';
     $form['group1'] = [
       '#title' => $this->t('Example of form. Step 1.'),
       '#type' => 'details',
@@ -36,13 +37,14 @@ class ExampleForm extends FormBase {
     $form['group1']['name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Name'),
-      '#maxlength' => 10,
+//      '#maxlength' => 10,
       '#default_value' => (new Random())->word(10),
       '#attributes' => [
         'class' => ['first_class', 'second_class'],
         'id' => 'some_id',
         'data-foo' => 'bar',
       ],
+      '#autocomplete_route_name' => 'example_route_with_form_autocomplete',
     ];
     $form['group1']['text'] = [
       '#type' => 'textarea',
@@ -87,6 +89,10 @@ class ExampleForm extends FormBase {
         '::submitPrev',
       ],
       '#access' => $form_state->has('next_page') && $form_state->get('next_page'),
+      '#ajax' => [
+        'callback' => '::refresh',
+        'wrapper' => 'example-form',
+      ],
     ];
     $form['group3']['actions']['next'] = [
       '#type' => 'submit',
@@ -96,6 +102,10 @@ class ExampleForm extends FormBase {
         '::submitNext',
       ],
       '#access' => !($form_state->has('next_page') && $form_state->get('next_page')),
+      '#ajax' => [
+        'callback' => '::refresh',
+        'wrapper' => 'example-form',
+      ],
     ];
     $form['group3']['actions']['submit'] = [
       '#type' => 'submit',
@@ -137,6 +147,13 @@ class ExampleForm extends FormBase {
    */
   public function updateColor(array $form, FormStateInterface $form_state) {
     return $form['color_wrapper'];
+  }
+
+  /**
+   * Ajax callback for the form.
+   */
+  public function refresh(array $form, FormStateInterface $form_state) {
+    return $form;
   }
 
   /**
