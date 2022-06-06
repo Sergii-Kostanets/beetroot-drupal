@@ -31,7 +31,7 @@ example_route_with_form_autocomplete:
   defaults:
     _controller: '\Drupal\beetroot_example\Controllers\Example::autocomplete'
   requirements:
-    _permission: 'access beetroot example page'
+    _permission: 'access beetroot example package'
 
 beetroot_example.text_cleanup_settings:
   path: '/admin/config/system/text-cleanup-settings'
@@ -72,3 +72,17 @@ entity.beetroot_example.delete_form:
     _title: 'Delete a beetroot example'
   requirements:
     _permission: 'administer beetroot_example'
+
+example_route_api:
+  path: '/example/api'
+  defaults:
+    _controller: '\Drupal\beetroot_example\Controllers\Example::api'
+  requirements:
+    _permission: 'access beetroot example package'
+
+example_ajax_link:
+  path: '/example/ajax-link'
+  defaults:
+    _controller: '\Drupal\beetroot_example\Controllers\Example::ajaxLink'
+  requirements:
+    _permission: 'access beetroot example package'

@@ -3,9 +3,16 @@
 namespace Drupal\beetroot_example\Controllers;
 
 use Drupal\beetroot_example\Forms\ExampleForm;
+use Drupal\Component\Serialization\Json;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Ajax\MessageCommand;
+use Drupal\Core\Ajax\RedirectCommand;
+use Drupal\Core\Ajax\SettingsCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Security\TrustedCallbackInterface;
+use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -138,6 +145,42 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
    */
   public static function trustedCallbacks() {
     return ['getCurrentTime'];
+  }
+
+  /**
+   * Some comment.
+   */
+  public function api(Request $request) {
+    $response = new AjaxResponse();
+    $element = [
+      '#theme' => 'item_list',
+      '#items' => ['first', 'second'],
+    ];
+    $response->addCommand(new HtmlCommand('#ajax-wrapper', $element));
+//    $response->addCommand(new RedirectCommand('/'));
+    $response->addCommand(new MessageCommand('Test massage.'));
+    $response->addCommand(new SettingsCommand([
+      'foo' => 'bar',
+    ]));
+    return $response;
+  }
+
+  /**
+   * Some comment.
+   */
+  public function ajaxLink() {
+    return [
+      [
+        '#theme' => 'container',
+        '#attributes' => ['id' => 'ajax-wrapper'],
+      ],
+      [
+        '#type' => 'link',
+        '#title' => $this->t('Ajax link'),
+        '#url' => Url::fromRoute('example_route_api'),
+        '#attributes' => ['class' => ['use-ajax']],
+      ],
+    ];
   }
 
 }
