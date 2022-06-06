@@ -4,6 +4,7 @@ namespace Drupal\beetroot_example\Controllers;
 
 use Drupal\beetroot_example\Forms\ExampleForm;
 use Drupal\Component\Serialization\Json;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\MessageCommand;
@@ -155,13 +156,16 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
     $element = [
       '#theme' => 'item_list',
       '#items' => ['first', 'second'],
+      '#attributes' => ['id' => Html::getUniqueId('items-list')],
+      '#attached' => [
+        'library' => ['beetroot_example/custom'],
+        'drupalSettings' => [
+          'foo' => 'bar',
+        ],
+      ],
     ];
     $response->addCommand(new HtmlCommand('#ajax-wrapper', $element));
-//    $response->addCommand(new RedirectCommand('/'));
     $response->addCommand(new MessageCommand('Test massage.'));
-    $response->addCommand(new SettingsCommand([
-      'foo' => 'bar',
-    ]));
     return $response;
   }
 

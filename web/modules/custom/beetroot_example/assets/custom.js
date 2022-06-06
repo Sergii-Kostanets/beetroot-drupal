@@ -1,16 +1,11 @@
 (function (Drupal, $) {
   Drupal.behaviors.redColorInput = {
-    attach: function (context) {
-      $('input', context).css({backgroundColor: 'red'})
-      $('textarea', context).on('change', function () {
-        var ajaxObject = Drupal.ajax({
-          url: '/example/api',
-          base: false,
-          element: $(this),
-          progress: false
-        });
-        ajaxObject.execute();
-      });
+    attach: function (context, settings) {
+      console.log(
+        Drupal.theme('message', {
+          text: 'settings.foo'
+        })
+      )
     }
   }
 })(Drupal, jQuery)
