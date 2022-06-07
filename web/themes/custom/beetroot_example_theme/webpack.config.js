@@ -1,6 +1,6 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin")
-const {CleanWebpackPlugin} = require("clean-webpack-plugin")
-const path = require('path');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const path = require('path')
 
 module.exports = {
   entry: {
@@ -12,7 +12,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'assets/[name].js'
   },
-  mode: 'development',
   module: {
     rules: [
       {
@@ -29,6 +28,10 @@ module.exports = {
             ]
           }
         }]
+      },
+      {
+        test: /\.css$/,
+        use: "css-loader"
       }
     ]
   },

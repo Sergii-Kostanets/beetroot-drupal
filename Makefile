@@ -37,7 +37,7 @@ cli:
 	docker-compose exec php bash
 
 node-cli:
-	docker-compose run node bash
+	docker-compose exec node bash
 
 build:
 	docker-compose up -d --build php
