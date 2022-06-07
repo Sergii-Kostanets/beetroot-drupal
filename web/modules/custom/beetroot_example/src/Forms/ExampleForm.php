@@ -38,7 +38,6 @@ class ExampleForm extends FormBase {
     $form['group1']['name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Name'),
-//      '#maxlength' => 10,
       '#default_value' => (new Random())->word(10),
       '#attributes' => [
         'class' => ['first_class', 'second_class'],
