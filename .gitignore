@@ -55,3 +55,7 @@
 
 # Ignore database volume
 /mysql
+
+# Ignore forntend deps.
+web/themes/custom/beetroot_example_theme/node_modules/
+web/themes/custom/beetroot_example_theme/dist/

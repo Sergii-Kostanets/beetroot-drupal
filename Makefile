@@ -1,6 +1,6 @@
 include .env
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
-.PHONY: install up down cli build hello test start stop reup del delv fullreup zero one pull
+.PHONY: install up down cli node-cli build hello test start stop reup del delv fullreup zero one pull
 default: up
 
 install: up
@@ -35,6 +35,9 @@ down:
 
 cli:
 	docker-compose exec php bash
+
+node-cli:
+	docker-compose run node bash
 
 build:
 	docker-compose up -d --build php
