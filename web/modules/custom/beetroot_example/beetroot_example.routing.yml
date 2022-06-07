@@ -86,3 +86,10 @@ example_ajax_link:
     _controller: '\Drupal\beetroot_example\Controllers\Example::ajaxLink'
   requirements:
     _permission: 'access beetroot example package'
+
+example_route_drupal_version:
+  path: '/example/version/{node}'
+  defaults:
+    _controller: '\Drupal\beetroot_example\Controllers\Example::version'
+  requirements:
+    _permission: 'access beetroot example package'

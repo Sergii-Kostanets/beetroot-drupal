@@ -212,4 +212,8 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
     ];
   }
 
+  public function version(Node $node) {
+    return new JsonResponse($node->toArray());
+  }
+
 }
