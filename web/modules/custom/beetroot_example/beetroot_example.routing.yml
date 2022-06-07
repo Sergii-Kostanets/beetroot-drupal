@@ -87,9 +87,9 @@ example_ajax_link:
   requirements:
     _permission: 'access beetroot example package'
 
-example_route_drupal_version:
-  path: '/example/version/{node}'
+example_route_api_latest:
+  path: '/api/example/latest'
   defaults:
-    _controller: '\Drupal\beetroot_example\Controllers\Example::version'
+    _controller: '\Drupal\beetroot_example\Controllers\Example::latest'
   requirements:
     _permission: 'access beetroot example package'

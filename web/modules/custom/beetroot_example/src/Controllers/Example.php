@@ -212,8 +212,18 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
     ];
   }
 
-  public function version(Node $node) {
-    return new JsonResponse($node->toArray());
+  public function latest() {
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $ids = $storage->getQuery()->range(0, 10)->condition('status', 1)->execute();
+    $output = [];
+    $nodes = $storage->loadMultiple($ids);
+    foreach ($nodes as $node) {
+      $output[] = [
+        'title' => $node->label(),
+        'url' => $node->toUrl('canonical')->toString(),
+      ];
+    }
+    return new JsonResponse($output);
   }
 
 }

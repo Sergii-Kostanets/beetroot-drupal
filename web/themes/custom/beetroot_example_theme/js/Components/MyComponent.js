@@ -9,7 +9,7 @@ export function MyComponent() {
   // this useEffect will run once
   // similar to componentDidMount()
   useEffect(() => {
-    fetch(`${document.location.origin}/example/version/136`)
+    fetch(`${document.location.origin}/api/example/latest`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -31,6 +31,6 @@ export function MyComponent() {
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
-    return (<div><h2>Drupal: {data.title[0].value}</h2></div>);
+    return (<ul>{data.map((node) => <li><a href={node.url}>{node.title}</a></li>)}</ul>);
   }
 }
