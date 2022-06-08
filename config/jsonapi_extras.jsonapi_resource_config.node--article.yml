@@ -1,0 +1,215 @@
+uuid: 0f359a16-9e68-4c68-bd36-e74a630bcb87
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+id: node--article
+disabled: false
+path: node/article
+resourceType: node--article
+resourceFields:
+  nid:
+    disabled: false
+    fieldName: nid
+    publicName: nid
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  vid:
+    disabled: false
+    fieldName: vid
+    publicName: vid
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  revision_timestamp:
+    disabled: false
+    fieldName: revision_timestamp
+    publicName: revision_timestamp
+    enhancer:
+      id: ''
+  revision_uid:
+    disabled: false
+    fieldName: revision_uid
+    publicName: revision_uid
+    enhancer:
+      id: ''
+  revision_log:
+    disabled: false
+    fieldName: revision_log
+    publicName: revision_log
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  uid:
+    disabled: true
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+  title:
+    disabled: false
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+  created:
+    disabled: true
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  changed:
+    disabled: true
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  promote:
+    disabled: true
+    fieldName: promote
+    publicName: promote
+    enhancer:
+      id: ''
+  sticky:
+    disabled: true
+    fieldName: sticky
+    publicName: sticky
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  moderation_state:
+    disabled: false
+    fieldName: moderation_state
+    publicName: moderation_state
+    enhancer:
+      id: ''
+  ds_switch:
+    disabled: false
+    fieldName: ds_switch
+    publicName: ds_switch
+    enhancer:
+      id: ''
+  metatag:
+    disabled: false
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''
+  path:
+    disabled: false
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+  menu_link:
+    disabled: true
+    fieldName: menu_link
+    publicName: menu_link
+    enhancer:
+      id: ''
+  content_translation_source:
+    disabled: false
+    fieldName: content_translation_source
+    publicName: content_translation_source
+    enhancer:
+      id: ''
+  content_translation_outdated:
+    disabled: false
+    fieldName: content_translation_outdated
+    publicName: content_translation_outdated
+    enhancer:
+      id: ''
+  body:
+    disabled: false
+    fieldName: body
+    publicName: body
+    enhancer:
+      id: ''
+  comment:
+    disabled: false
+    fieldName: comment
+    publicName: comment
+    enhancer:
+      id: ''
+  field_flag:
+    disabled: false
+    fieldName: field_flag
+    publicName: flag
+    enhancer:
+      id: ''
+  field_image:
+    disabled: false
+    fieldName: field_image
+    publicName: image
+    enhancer:
+      id: ''
+  field_meta:
+    disabled: false
+    fieldName: field_meta
+    publicName: field_meta
+    enhancer:
+      id: ''
+  field_related_content:
+    disabled: false
+    fieldName: field_related_content
+    publicName: field_related_content
+    enhancer:
+      id: ''
+  field_related_revision:
+    disabled: false
+    fieldName: field_related_revision
+    publicName: field_related_revision
+    enhancer:
+      id: ''
+  field_tags:
+    disabled: false
+    fieldName: field_tags
+    publicName: tags
+    enhancer:
+      id: ''
+  field_type:
+    disabled: false
+    fieldName: field_type
+    publicName: subtype
+    enhancer:
+      id: ''

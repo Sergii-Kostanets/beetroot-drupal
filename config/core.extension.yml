@@ -27,6 +27,7 @@ module:
   content_moderation: 0
   context: 0
   contextual: 0
+  core_event_dispatcher: 0
   ctools: 0
   datetime: 0
   dblog: 0
@@ -50,6 +51,7 @@ module:
   hello_world: 0
   help: 0
   history: 0
+  hook_event_dispatcher: 0
   image: 0
   inline_entity_form: 0
   inline_form_errors: 0
@@ -59,6 +61,9 @@ module:
   jquery_ui_droppable: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
+  jsonapi: 0
+  jsonapi_extras: 0
+  jsonapi_include: 0
   language: 0
   latest_news: 0
   layout_discovery: 0
@@ -88,6 +93,8 @@ module:
   rdf: 0
   realistic_dummy_content: 0
   realistic_dummy_content_api: 0
+  rest: 0
+  restui: 0
   search: 0
   serialization: 0
   shortcut: 0
