@@ -10,3 +10,18 @@ services:
   plugin.manager.text_cleanup:
     class: Drupal\beetroot_example\TextCleanupPluginManager
     parent: default_plugin_manager
+
+  beetroot_example.event_subscriber:
+    class: Drupal\beetroot_example\EventSubscriber\BeetrootExampleSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  foo:
+    class: Drupal\beetroot_example\Foo
+    tags:
+      - { name: service_collector, tag: 'baz', call: addService }
+
+  bar:
+    class: Drupal\beetroot_example\Bar
+    tags:
+      - { name: baz }

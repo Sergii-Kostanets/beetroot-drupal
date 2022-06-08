@@ -148,6 +148,8 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
    * Some comment.
    */
   public function api(Request $request) {
+    $foo = \Drupal::service('foo');
+    $foo->execute();
     $response = new AjaxResponse();
     $element = [
       '#type' => 'container',
