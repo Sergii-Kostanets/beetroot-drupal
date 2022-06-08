@@ -6,8 +6,6 @@ use Drupal\beetroot_example\Forms\ExampleForm;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Security\TrustedCallbackInterface;
 use Drupal\Core\Url;

@@ -2,10 +2,15 @@
 
 namespace Drupal\beetroot_example;
 
+/**
+ * Comment.
+ */
 class Bar implements FooServiceInterface {
 
+  /**
+   * Comment.
+   */
   public function execute() {
-    // TODO: Implement execute() method.
     xdebug_break();
   }
 
