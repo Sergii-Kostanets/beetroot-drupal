@@ -6,6 +6,8 @@ use Drupal\beetroot_example\Forms\ExampleForm;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Security\TrustedCallbackInterface;
 use Drupal\Core\Url;
@@ -148,8 +150,6 @@ class Example extends ControllerBase implements TrustedCallbackInterface {
    * Some comment.
    */
   public function api(Request $request) {
-    $foo = \Drupal::service('foo');
-    $foo->execute();
     $response = new AjaxResponse();
     $element = [
       '#type' => 'container',

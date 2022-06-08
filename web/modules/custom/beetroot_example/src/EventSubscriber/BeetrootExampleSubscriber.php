@@ -2,9 +2,12 @@
 
 namespace Drupal\beetroot_example\EventSubscriber;
 
+use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Render\HtmlResponse;
 use Drupal\core_event_dispatcher\EntityHookEvents;
+use Drupal\core_event_dispatcher\Event\Entity\EntityInsertEvent;
 use Drupal\core_event_dispatcher\Event\Entity\EntityViewEvent;
+use Drupal\node\NodeInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
@@ -16,27 +19,10 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class BeetrootExampleSubscriber implements EventSubscriberInterface {
 
   /**
-   * Kernel request event handler.
-   *
-   * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
-   *   Response event.
+   * Comment.
    */
-  public function onKernelRequest(RequestEvent $event) {
-    // @todo Place code here.
-  }
-
-  /**
-   * Kernel response event handler.
-   *
-   * @param \Symfony\Component\HttpKernel\Event\ResponseEvent $event
-   *   Response event.
-   */
-  public function onKernelResponse(ResponseEvent $event) {
-    $response = $event->getResponse();
-    if ($response instanceof HtmlResponse) {
-      $response->setContent($response->getContent() . '<!-- TEST COMMENT -->');
-    }
-    // @todo Place code here.
+  public function __construct(MailManagerInterface $mailManager) {
+    $this->mailManager = $mailManager;
   }
 
   /**
@@ -44,14 +30,16 @@ class BeetrootExampleSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     return [
-      KernelEvents::REQUEST => ['onKernelRequest'],
-      KernelEvents::RESPONSE => ['onKernelResponse'],
-      EntityHookEvents::ENTITY_VIEW => ['onEntityView'],
+      EntityHookEvents::ENTITY_INSERT => ['onEntityInsert'],
     ];
   }
 
-  public function onEntityView(EntityViewEvent $event) {
+  public function onEntityInsert(EntityInsertEvent $event) {
     $entity = $event->getEntity();
+    if (!$entity instanceof NodeInterface) {
+      return;
+    }
+    $this->mailManager->mail('beetroot_example', 'node_insert', '', '', []);
   }
 
 }

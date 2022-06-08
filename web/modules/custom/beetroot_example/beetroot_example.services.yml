@@ -13,6 +13,7 @@ services:
 
   beetroot_example.event_subscriber:
     class: Drupal\beetroot_example\EventSubscriber\BeetrootExampleSubscriber
+    arguments: ['@plugin.manager.mail', '%prod_api_token%']
     tags:
       - { name: event_subscriber }
 
