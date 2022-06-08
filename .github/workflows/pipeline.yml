@@ -13,6 +13,8 @@ jobs:
         run: docker-compose exec -T --user=root php bash -c 'chown -R www-data:www-data /var/www'
       - name: Test
         run: make test
+      - name: install php-http
+        run: docker-compose exec -T --user=root php bash -c 'composer require php-http/curl-client'
       - name: install phpcs
         run: docker-compose exec -T --user=root php bash -c 'composer require --dev squizlabs/php_codesniffer'
       - name: run phpcs

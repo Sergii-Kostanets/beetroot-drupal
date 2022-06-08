@@ -23,6 +23,12 @@ RUN pecl install xdebug \
   echo "xdebug.log_level=0"; \
   } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
 
+#RUN pecl install pecl_http
+#RUN echo -e "extension=raphf.so\nextension=propro.so\nextension=iconv.so\nextension=http.so" > /usr/local/etc/php/conf.d/docker-php-ext-http.ini
+#RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-raphf.ini
+#RUN rm -rf /usr/local/etc/php/conf.d/docker-php-ext-propro.ini
+#RUN rm -rf /tmp/*
+
 RUN echo "memory_limit=512M" > /usr/local/etc/php/conf.d/docker-php-ext-custom.ini \
   && echo "upload_max_filesize=100M" > /usr/local/etc/php/conf.d/docker-php-ext-custom.ini \
   && echo "post_max_size=100M" > /usr/local/etc/php/conf.d/docker-php-ext-custom.ini
