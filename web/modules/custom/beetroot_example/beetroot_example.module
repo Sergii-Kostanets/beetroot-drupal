@@ -176,19 +176,3 @@ function beetroot_example_node_update(\Drupal\Core\Entity\EntityInterface $entit
 //  \Drupal::cache()->invalidate('homepage_last_news');
   \Drupal\Core\Cache\Cache::invalidateTags(['news_labels']);
 }
-
-/**
- * Implements hook_entity_access().
- */
-function beetroot_example_entity_access(
-  \Drupal\Core\Entity\EntityInterface $entity,
-  $operation,
-  \Drupal\Core\Session\AccountInterface $account) {
-    if ($entity->getEntityTypeId() === 'node' && $entity->bundle() === 'news' && $operation === 'edit') {
-      return \Drupal\Core\Access\AccessResult::allowedIf(user_is_moderator($account));
-    }
-}
-
-function user_is_content_editor(UserInterface $user) {
-  return in_array('content_editor', $user->getRoles()) || ($user->hasRole('user') && $user->get('field_is_content_editor')->value);
-}

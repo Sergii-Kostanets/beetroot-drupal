@@ -7,3 +7,6 @@ configure: entity.beetroot_example.collection
 
 dependencies:
   - hook_event_dispatcher:core_event_dispatcher
+  - drupal:node
+  - drupal:text
+  - drupal:rest

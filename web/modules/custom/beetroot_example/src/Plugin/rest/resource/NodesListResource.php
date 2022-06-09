@@ -34,7 +34,7 @@ class NodesListResource extends ResourceBase {
       ->condition('status', 1)
       ->range(0, 10)
       ->sort('created', 'DESC')
-//      ->accessCheck(FALSE)
+      ->accessCheck(FALSE)
       ->execute();
     $data = [];
     $cache = new CacheableMetadata();
