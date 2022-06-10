@@ -17,6 +17,7 @@ dependencies:
     - node.type.article
   module:
     - comment
+    - ds
     - entity_reference_revisions
     - image
     - metatag
@@ -35,7 +36,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 2
     region: content
   comment:
     type: comment_default
@@ -44,22 +45,12 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 110
+    weight: 9
     region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
-    region: content
-  field_flag:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 114
+    weight: 0
     region: content
   field_image:
     type: image
@@ -68,22 +59,25 @@ content:
       image_link: ''
       image_style: large
     third_party_settings: {  }
-    weight: -1
+    weight: 1
     region: content
   field_meta:
     type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 113
+    weight: 6
     region: content
   field_related_content:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 111
+      view_mode: teaser
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 4
     region: content
   field_related_revision:
     type: entity_reference_revisions_entity_view
@@ -92,27 +86,28 @@ content:
       view_mode: rss
       link: ''
     third_party_settings: {  }
-    weight: 112
+    weight: 5
     region: content
   field_tags:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 8
     region: content
   field_type:
     type: list_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 116
+    weight: 7
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 3
     region: content
 hidden:
+  field_flag: true
   langcode: true

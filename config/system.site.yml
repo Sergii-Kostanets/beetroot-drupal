@@ -2,13 +2,13 @@ _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: ru
 uuid: 64a5243c-0fba-4c71-8365-dd54b5e03a91
-name: Beetroot
+name: 'My site'
 mail: admin@example.com
-slogan: 'My site'
+slogan: 'My site slogan'
 page:
   403: ''
   404: ''
-  front: /node
+  front: /node/280
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

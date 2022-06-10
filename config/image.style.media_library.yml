@@ -8,13 +8,13 @@ dependencies:
 _core:
   default_config_hash: 7qJqToD1OQLAyeswpmg7M0LRxQlw1URQkJDWUJCnmR8
 name: media_library
-label: 'Media Library thumbnail (220×220)'
+label: Teaser
 effects:
-  75b076a8-1234-4b42-85db-bf377c4d8d5f:
-    uuid: 75b076a8-1234-4b42-85db-bf377c4d8d5f
-    id: image_scale
-    weight: 0
+  fd7df0e9-9292-49f9-a5a1-0ca23721e7c3:
+    uuid: fd7df0e9-9292-49f9-a5a1-0ca23721e7c3
+    id: image_scale_and_crop
+    weight: 2
     data:
-      width: 220
-      height: 220
-      upscale: false
+      width: 400
+      height: 150
+      anchor: center-center

@@ -43,7 +43,7 @@ function beetroot_example_theme_preprocess_page_title(&$variables) {
     } elseif ($node->bundle() == 'article') {
       $variables['title'] = 'Article: ' . $node->getTitle();
     } else {
-      $variables['title'] = 'Page: ' . $node->getTitle() . '. Just for you!';
+      $variables['title'] = 'Welcome to: ' . $node->getTitle() . ' Enjoy your time.';
     }
   }
 }

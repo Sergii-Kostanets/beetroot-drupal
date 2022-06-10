@@ -1,0 +1,44 @@
+uuid: 324d8216-bc8c-40b8-859f-ce5a5be54c7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.articles
+  module:
+    - context
+    - views
+  theme:
+    - beetroot_example_theme
+id: views_block__articles_block_1
+theme: beetroot_example_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:articles-block_1'
+settings:
+  id: 'views_block:articles-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
