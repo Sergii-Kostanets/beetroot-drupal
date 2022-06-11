@@ -1,0 +1,18 @@
+uuid: 946768d7-824f-4c0d-b043-f1b1c8ffbad4
+langcode: ru
+status: true
+dependencies:
+  config:
+    - beetroot_example.example_content_type.first_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: example_content.first_type
+target_entity_type_id: example_content
+target_bundle: first_type
+default_langcode: site_default
+language_alterable: false

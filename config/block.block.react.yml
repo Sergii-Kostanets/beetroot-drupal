@@ -12,7 +12,7 @@ dependencies:
 id: react
 theme: beetroot_example_theme
 region: sidebar_second
-weight: -10
+weight: -4
 provider: null
 plugin: 'block_content:c05ddd3e-4153-4620-9f0f-85ade2920550'
 settings:

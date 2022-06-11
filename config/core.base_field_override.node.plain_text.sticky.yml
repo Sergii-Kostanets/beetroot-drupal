@@ -1,0 +1,22 @@
+uuid: 410146ee-6db0-44bb-bd53-82605c1348e0
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.plain_text
+id: node.plain_text.sticky
+field_name: sticky
+entity_type: node
+bundle: plain_text
+label: 'Закреплять вверху списков'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

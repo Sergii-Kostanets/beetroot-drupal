@@ -1,0 +1,20 @@
+uuid: caa5802b-bf2a-4af1-8e8c-16bac79ece54
+langcode: ru
+status: true
+dependencies:
+  config:
+    - beetroot_example.example_content_type.second_type
+id: example_content.second_type.uid
+field_name: uid
+entity_type: example_content
+bundle: second_type
+label: Author
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\beetroot_example\Entity\ExampleContent::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

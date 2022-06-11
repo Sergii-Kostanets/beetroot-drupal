@@ -1,0 +1,18 @@
+uuid: 66955abb-0ea1-49cc-ad7d-3f4fdffbf86f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.plain_text
+id: node.plain_text.metatag
+field_name: metatag
+entity_type: node
+bundle: plain_text
+label: 'Мета-теги (скрытое поле для поддержки JSON)'
+description: 'Мета-теги для сущности.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

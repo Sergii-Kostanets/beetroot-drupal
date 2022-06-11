@@ -1,0 +1,18 @@
+uuid: e5fc094f-cd2c-41d8-b350-0ded949934d5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - beetroot_example.example_content_type.first_type
+id: example_content.first_type.metatag
+field_name: metatag
+entity_type: example_content
+bundle: first_type
+label: 'Мета-теги (скрытое поле для поддержки JSON)'
+description: 'Мета-теги для сущности.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

@@ -1,0 +1,10 @@
+uuid: 68265b3e-a94b-412c-8300-ed4051e75d0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.articles_block
+label: 'Articles block'
+targetEntityType: block_content
+cache: true

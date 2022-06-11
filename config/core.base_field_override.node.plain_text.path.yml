@@ -1,0 +1,20 @@
+uuid: b5370deb-b874-4ab5-bb32-84225f13b170
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.plain_text
+  module:
+    - path
+id: node.plain_text.path
+field_name: path
+entity_type: node
+bundle: plain_text
+label: 'Синоним URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

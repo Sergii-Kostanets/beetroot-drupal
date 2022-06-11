@@ -1,0 +1,20 @@
+uuid: 4c3c036d-dd7e-4dbc-b7a4-86c1ae57ff30
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.plain_text
+id: node.plain_text.uid
+field_name: uid
+entity_type: node
+bundle: plain_text
+label: Автор
+description: 'Имя пользователя автора содержимого.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

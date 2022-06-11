@@ -1,0 +1,18 @@
+uuid: 57453cfa-e883-4d50-b537-ec32d1c62d9e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - beetroot_example.example_content_type.first_type
+id: example_content.first_type.created
+field_name: created
+entity_type: example_content
+bundle: first_type
+label: 'Создан в'
+description: 'The time that the example content was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

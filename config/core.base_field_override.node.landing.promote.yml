@@ -11,7 +11,7 @@ bundle: landing
 label: 'Помещено на главную страницу'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 1

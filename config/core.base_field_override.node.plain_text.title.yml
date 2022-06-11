@@ -1,0 +1,18 @@
+uuid: fd8e27ce-26c2-46fa-808b-92d7a50f5ad9
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.plain_text
+id: node.plain_text.title
+field_name: title
+entity_type: node
+bundle: plain_text
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

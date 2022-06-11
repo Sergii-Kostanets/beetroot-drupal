@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.bp_view.bp_width
     - paragraphs.paragraphs_type.bp_view
   module:
+    - ds
     - options
     - viewsreference
 _core:
@@ -35,11 +36,17 @@ content:
     region: content
   bp_view:
     type: viewsreference_formatter
-    label: hidden
+    label: visually_hidden
     settings:
       plugin_types:
-        - block
-    third_party_settings: {  }
+        block: block
+        default: 0
+        page: 0
+        feed: 0
+        embed: 0
+    third_party_settings:
+      ds:
+        ds_limit: ''
     weight: 3
     region: content
   bp_width:

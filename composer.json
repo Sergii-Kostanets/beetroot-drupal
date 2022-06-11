@@ -57,6 +57,7 @@
         "drupal/select2": "^1.13",
         "drupal/simple_sitemap": "^4.1",
         "drupal/token": "^1.10",
+        "drupal/viewsreference": "^2.0@beta",
         "drupal/webform": "^6.1",
         "drupal/webform_extra_field": "^2.0@RC",
         "drush/drush": "^11.0",

@@ -10,12 +10,12 @@ dependencies:
 id: exampleblock
 theme: beetroot_example_theme
 region: sidebar_second
-weight: -9
+weight: -6
 provider: null
 plugin: example_block
 settings:
   id: example_block
-  label: 'Example block'
+  label: 'Last news'
   label_display: visible
   provider: beetroot_example
   some_config: ''

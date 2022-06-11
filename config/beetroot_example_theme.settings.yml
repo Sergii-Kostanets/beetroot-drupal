@@ -2,17 +2,17 @@ schemas:
   bootstrap: 8000
   beetroot_example_theme: 8000
 favicon:
-  mimetype: image/vnd.microsoft.icon
-  path: ''
+  mimetype: image/png
+  path: 'public://angk.png'
   url: 'http://drupal.localhost/themes/contrib/bootstrap/favicon.ico'
-  use_default: 1
+  use_default: 0
 features:
   comment_user_picture: 1
   comment_user_verification: 1
   favicon: 1
   node_user_picture: 1
 logo:
-  path: ''
+  path: 'public://anclogo.png'
   url: ''
   use_default: 0
 table_responsive: '-1'

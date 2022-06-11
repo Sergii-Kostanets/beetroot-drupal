@@ -1,0 +1,9 @@
+label: Статьи
+display:
+  default:
+    display_options:
+      title: Статьи
+  page_1:
+    display_options:
+      menu:
+        title: Статьи

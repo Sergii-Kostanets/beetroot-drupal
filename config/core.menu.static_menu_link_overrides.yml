@@ -9,8 +9,26 @@ definitions:
     expanded: false
     enabled: true
   standard__front_page:
-    enabled: false
+    weight: -46
     menu_name: main
     parent: ''
     expanded: false
-    weight: 0
+    enabled: false
+  example_page:
+    weight: -45
+    menu_name: main
+    parent: ''
+    expanded: false
+    enabled: true
+  latest_news__content:
+    weight: -48
+    parent: ''
+    menu_name: main
+    enabled: true
+    expanded: false
+  sort_news__content:
+    weight: -44
+    menu_name: main
+    parent: ''
+    expanded: false
+    enabled: true
