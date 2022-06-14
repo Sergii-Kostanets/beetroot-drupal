@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.news.field_date
     - field.field.node.news.field_favorites
     - field.field.node.news.field_image
+    - image.style.large
     - node.type.news
   module:
     - datetime
@@ -40,8 +41,8 @@ content:
     type: image
     label: hidden
     settings:
-      image_link: ''
-      image_style: ''
+      image_link: content
+      image_style: large
     third_party_settings: {  }
     weight: 1
     region: content

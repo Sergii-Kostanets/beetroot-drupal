@@ -16,7 +16,7 @@ provider: null
 plugin: sort_news_block
 settings:
   id: sort_news_block
-  label: 'Sort news block 123'
+  label: 'Sort news'
   label_display: visible
   provider: sort_news
 visibility:

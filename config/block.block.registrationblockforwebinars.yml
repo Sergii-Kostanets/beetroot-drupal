@@ -1,23 +1,24 @@
-uuid: b92e5e40-4a0c-41ff-a82b-6d4090386366
+uuid: 7ecde3df-f37f-412f-ae47-451a2f1b61d2
 langcode: en
 status: true
 dependencies:
   module:
+    - beetroot_example
     - context
-    - language
+    - user
   theme:
     - beetroot_example_theme
-id: beetroot_example_theme_languageswitcher
+id: registrationblockforwebinars
 theme: beetroot_example_theme
 region: sidebar_second
-weight: -8
+weight: -2
 provider: null
-plugin: 'language_block:language_interface'
+plugin: registration_for_events_form_block
 settings:
-  id: 'language_block:language_interface'
-  label: Language
+  id: registration_for_events_form_block
+  label: 'Registration block for webinars'
   label_display: visible
-  provider: language
+  provider: beetroot_example
 visibility:
   user_status:
     id: user_status
@@ -38,3 +39,10 @@ visibility:
     id: context
     negate: null
     values: ''
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

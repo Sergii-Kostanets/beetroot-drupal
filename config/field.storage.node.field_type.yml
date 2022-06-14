@@ -20,6 +20,12 @@ settings:
     -
       value: 'Test type 3'
       label: 'Test type 3'
+    -
+      value: Cats
+      label: Cats
+    -
+      value: Dogs
+      label: Dogs
   allowed_values_function: ''
 module: options
 locked: false

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.article
+    - node.type.landing
     - node.type.news
     - node.type.page
     - taxonomy.vocabulary.tags
@@ -34,11 +35,13 @@ permissions:
   - 'access tour'
   - 'add news form'
   - 'administer url aliases'
-  - 'create article content'
   - 'create news content'
   - 'create terms in tags'
   - 'create url aliases'
+  - 'delete any news content'
   - 'delete own news content'
+  - 'edit any article content'
+  - 'edit any landing content'
   - 'edit any news content'
   - 'edit own article content'
   - 'edit own comments'
@@ -47,6 +50,7 @@ permissions:
   - 'edit terms in tags'
   - 'future news release'
   - 'publication date selection'
+  - 'revert news revisions'
   - 'update field date'
   - 'use editorial transition archive'
   - 'use editorial transition archived_draft'
@@ -54,5 +58,6 @@ permissions:
   - 'use editorial transition publish'
   - 'view any unpublished content'
   - 'view latest version'
+  - 'view news revisions'
   - 'view own unpublished content'
   - 'view the administration theme'

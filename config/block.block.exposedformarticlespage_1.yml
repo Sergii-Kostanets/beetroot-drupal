@@ -1,23 +1,26 @@
-uuid: b92e5e40-4a0c-41ff-a82b-6d4090386366
+uuid: b4c9e482-c2eb-4632-8bab-dca035518a11
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.articles
   module:
     - context
-    - language
+    - views
   theme:
     - beetroot_example_theme
-id: beetroot_example_theme_languageswitcher
+id: exposedformarticlespage_1
 theme: beetroot_example_theme
 region: sidebar_second
-weight: -8
+weight: -7
 provider: null
-plugin: 'language_block:language_interface'
+plugin: 'views_exposed_filter_block:articles-page_1'
 settings:
-  id: 'language_block:language_interface'
-  label: Language
+  id: 'views_exposed_filter_block:articles-page_1'
+  label: ''
   label_display: visible
-  provider: language
+  provider: views
+  views_label: ''
 visibility:
   user_status:
     id: user_status
@@ -38,3 +41,7 @@ visibility:
     id: context
     negate: null
     values: ''
+  request_path_exclusion:
+    id: request_path_exclusion
+    negate: true
+    pages: '<front>'
