@@ -38,7 +38,7 @@ export function MyComponent() {
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
-    return (<ul ref={listRef}>{data.map((node) => <li><a className='use-ajax' href={`/node/${node.drupal_internal__nid}`}>{node.title}</a>. {node.tags.length>0?node.tags?.map(tag => tag.name).join(', '):''}</li>)}<li>
-    <a href="/node/add/article" className='use-ajax' data-dialog-type='modal' data-dialog-options="{&quot;width&quot;:900}">{Drupal.t('Add article')}</a></li></ul>);
+    return (<div><h2>Nodes list</h2><ul ref={listRef}>{data.map((node) => <li><a className='use-ajax' href={`/node/${node.drupal_internal__nid}`}>{node.title}</a>. {node.tags.length>0?node.tags?.map(tag => tag.name).join(', '):''}</li>)}<li>
+    <a href="/node/add/article" className='use-ajax' data-dialog-type='modal' data-dialog-options="{&quot;width&quot;:900}">{Drupal.t('Add article')}</a></li></ul></div>);
   }
 }

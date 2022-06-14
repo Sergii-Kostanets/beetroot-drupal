@@ -55,7 +55,6 @@
 
 # Ignore database volume
 /mysql
-/db.sql
 /db2.sql
 
 # Ignore forntend deps.
