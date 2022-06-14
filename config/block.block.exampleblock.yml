@@ -15,7 +15,7 @@ provider: null
 plugin: example_block
 settings:
   id: example_block
-  label: 'Last news'
+  label: 'Last news upd'
   label_display: visible
   provider: beetroot_example
   some_config: ''

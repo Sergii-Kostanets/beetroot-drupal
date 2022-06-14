@@ -6,6 +6,7 @@ dependencies:
     - views.view.articles
   module:
     - context
+    - system
     - views
   theme:
     - beetroot_example_theme
@@ -45,3 +46,7 @@ visibility:
     id: request_path_exclusion
     negate: true
     pages: '<front>'
+  request_path:
+    id: request_path
+    negate: false
+    pages: /articles
