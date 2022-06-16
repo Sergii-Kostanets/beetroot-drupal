@@ -30,6 +30,25 @@ function beetroot_example_theme_preprocess_node(&$variables) {
     $variables['attributes']['class'][] = 'old-content';
     $variables['title_prefix'] = t('Old content: ');
   }
+
+//  $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+//  $ids = $termStorage->getQuery()
+//    ->condition('vid', 'glossary')
+//    ->execute();
+//
+//  $vocabulary = [];
+//  foreach ($termStorage->loadMultiple($ids) as $item) {
+//    $vocabulary[$item->id()] = ["name" => $item->label(), "body" => $item->get("description")->value];
+//  }
+//
+//  $description = $variables['content']['body'][0]['#text'];
+//  foreach ($vocabulary as $taxonomy) {
+//    $name=$taxonomy["name"];
+//    $body=$taxonomy["body"];
+//    $description = str_replace($name, "<a href='' title='ascascasca'>$name</a>", $description);
+//  }
+//  $variables['content']['body'][0]['#text'] = $description;
+//  $variables['content']['body'][0]['#format'] = 'full_html';
 }
 
 /**

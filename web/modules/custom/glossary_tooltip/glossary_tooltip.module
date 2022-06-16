@@ -3,72 +3,49 @@
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\NodeInterface;
-use Drupal\taxonomy\Entity\Term;
 
-//$vid = "glossary_tooltip_vocabulary";
-//$name = "Glossary Tooltip";
-//$vocabularies = \Drupal\taxonomy\Entity\Vocabulary::loadMultiple();
-//if (!isset($vocabularies[$vid])) {
-//  $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::create([
-//    'name' => $name,
-//    'vid' => $vid,
-//    'description' => 'The words correspondent / identical to the items included in the glossary vocabulary are highlighted.',
-//  ]);
-//  $vocabulary->save();
-//}
-//else {
-//  // Vocabulary Already exist
-//  $query = \Drupal::entityQuery('taxonomy_term');
-//  $query->condition('vid', $vid);
-//  $tids = $query->execute();
-//}
-
-//$term = Term::create([
-//  'vid' => 'glossary_tooltip_vocabulary',
-//  'name' => 'Test',
-//  'description' => [
-//    'value' => '<p>Testing.</p>',
-//  ],
-//]);
-//$term->save();
-
-/**
- * Implements hook_ENTITY_TYPE_view().
- */
-function glossary_tooltip_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+function glossary_tooltip_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   if (!$entity instanceof NodeInterface
-    || $entity->bundle() !== 'news'
     || !$entity->hasField('body')
     || $entity->get('body')->isEmpty()
-    || $view_mode !== 'full'
   ) {
     return;
   }
-  // Access field data.
-  $body = $entity->get('body')->getString();
 
-  //  $lines = explode("\n", $body);
-  //
-  //  foreach ($lines as &$line) {
-  //    $words = explode("\r", $line);
-  //    foreach ($words as &$word) {
-  //      $word = ucfirst($word);
-  //    }
-  //    $line = implode("\r", $words);
-  //  }
-  //
-  //  $body = implode("\n", $lines);
+  $body = $entity->get('body')->value;
+  $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
 
-  $find = 'cat';
-  $replace = '*****';
+  $ids = $termStorage->getQuery()
+    ->condition('vid', 'glossary')
+    ->execute();
 
-  $body = str_replace($find, $replace, $body);
+  $vocabulary = [];
+  foreach ($termStorage->loadMultiple($ids) as $item) {
+    $vocabulary[$item->id()] = [
+      "name" => $item->label(),
+      "body" => $item->get("description")->value
+    ];
+  }
 
-  $build['body'][0]['#text'] = $body;
+  foreach ($vocabulary as $taxonomy) {
+    $description = strip_tags($taxonomy["body"], $allowed_tags = null);
+    $term = $taxonomy["name"];
+    $body = str_replace($taxonomy, "<ins title=\"$description\">$term</ins>", $body);
+  }
 
-  //  $build['#post_render'][] = function ($html, array $elements) {
-  //    return str_replace($term, '*******', $html);
-  //  };
-
-
+  if ($build['#view_mode'] == 'full' && isset($build['body'])) {
+    $build['body'] = [
+      '#type' => 'container',
+      '#weight' => 5,
+      '#attributes' => [
+        'class' => ['body_glossary_tooltip'],
+      ],
+    ];
+    $build['body']['p'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'p',
+      '#value' => $body,
+    ];
+  }
+  return $build;
 }
