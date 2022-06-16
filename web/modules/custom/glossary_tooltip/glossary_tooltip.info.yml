@@ -1,0 +1,6 @@
+name: Glossary Tooltip
+description: The words correspondent / identical to the items included in the glossary vocabulary are highlighted.
+
+type: module
+package: Custom
+core_version_requirement: ^8 || ^9

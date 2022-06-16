@@ -1,0 +1,8 @@
+uuid: 1dc7ff61-62b0-4051-8946-df7928fe5742
+langcode: en
+status: true
+dependencies: {  }
+name: Glossary
+vid: glossary
+description: 'The words correspondent / identical to the items included in the glossary vocabulary are highlighted.'
+weight: 0

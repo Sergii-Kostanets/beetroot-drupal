@@ -1,0 +1,8 @@
+uuid: 40adb898-e4c3-4e40-8139-26546af86a30
+langcode: en
+status: true
+dependencies: {  }
+name: 'Glossary Tooltip'
+vid: glossary_tooltip_vocabulary
+description: 'The words correspondent / identical to the items included in the glossary vocabulary are highlighted.'
+weight: 0

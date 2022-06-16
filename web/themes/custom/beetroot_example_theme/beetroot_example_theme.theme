@@ -26,7 +26,7 @@ function beetroot_example_theme_theme_suggestions_node_alter(array &$suggestions
 function beetroot_example_theme_preprocess_node(&$variables) {
   /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
-  if ($node->getCreatedTime() < (\Drupal::time()->getCurrentTime() - 24 * 60 * 60)) {
+  if ($node->getCreatedTime() < (\Drupal::time()->getCurrentTime() - 7 * 24 * 60 * 60)) {
     $variables['attributes']['class'][] = 'old-content';
     $variables['title_prefix'] = t('Old content: ');
   }

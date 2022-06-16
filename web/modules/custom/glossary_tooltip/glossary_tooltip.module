@@ -1,0 +1,74 @@
+<?php
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+use Drupal\taxonomy\Entity\Term;
+
+//$vid = "glossary_tooltip_vocabulary";
+//$name = "Glossary Tooltip";
+//$vocabularies = \Drupal\taxonomy\Entity\Vocabulary::loadMultiple();
+//if (!isset($vocabularies[$vid])) {
+//  $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::create([
+//    'name' => $name,
+//    'vid' => $vid,
+//    'description' => 'The words correspondent / identical to the items included in the glossary vocabulary are highlighted.',
+//  ]);
+//  $vocabulary->save();
+//}
+//else {
+//  // Vocabulary Already exist
+//  $query = \Drupal::entityQuery('taxonomy_term');
+//  $query->condition('vid', $vid);
+//  $tids = $query->execute();
+//}
+
+//$term = Term::create([
+//  'vid' => 'glossary_tooltip_vocabulary',
+//  'name' => 'Test',
+//  'description' => [
+//    'value' => '<p>Testing.</p>',
+//  ],
+//]);
+//$term->save();
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function glossary_tooltip_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if (!$entity instanceof NodeInterface
+    || $entity->bundle() !== 'news'
+    || !$entity->hasField('body')
+    || $entity->get('body')->isEmpty()
+    || $view_mode !== 'full'
+  ) {
+    return;
+  }
+  // Access field data.
+  $body = $entity->get('body')->getString();
+
+  //  $lines = explode("\n", $body);
+  //
+  //  foreach ($lines as &$line) {
+  //    $words = explode("\r", $line);
+  //    foreach ($words as &$word) {
+  //      $word = ucfirst($word);
+  //    }
+  //    $line = implode("\r", $words);
+  //  }
+  //
+  //  $body = implode("\n", $lines);
+
+  $find = 'cat';
+  $replace = '*****';
+
+  $body = str_replace($find, $replace, $body);
+
+  $build['body'][0]['#text'] = $body;
+
+  //  $build['#post_render'][] = function ($html, array $elements) {
+  //    return str_replace($term, '*******', $html);
+  //  };
+
+
+}

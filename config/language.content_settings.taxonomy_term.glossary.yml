@@ -1,0 +1,11 @@
+uuid: 87f39935-5db4-4774-82e8-340a98ce848c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.glossary
+id: taxonomy_term.glossary
+target_entity_type_id: taxonomy_term
+target_bundle: glossary
+default_langcode: site_default
+language_alterable: false
