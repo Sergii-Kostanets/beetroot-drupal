@@ -25,15 +25,22 @@ function glossary_tooltip_entity_view_alter(array &$build, EntityInterface $enti
   $vocabulary = [];
   foreach ($termStorage->loadMultiple($ids) as $item) {
     $vocabulary[$item->id()] = [
+      "id" => $item->id(),
       "name" => $item->label(),
       "body" => $item->get("description")->value,
     ];
   }
 
   foreach ($vocabulary as $taxonomy) {
-    $description = strip_tags($taxonomy["body"], $allowed_tags = null);
+    $description = strip_tags($taxonomy["body"], $allowed_tags = NULL);
     $term = $taxonomy["name"];
-    $body = str_replace($term, "<ins title=\"$description\">$term</ins>", $body);
+
+    if (strlen($description) >= 100) {
+      $description = substr($description, 0, 100);
+      $description .= '... Read more!';
+    }
+
+    $body = str_replace($term, "<a title=\"$description\" href=\"/taxonomy/term/{$taxonomy["id"]}\">$term</a>", $body);
   }
 
   if ($build['#view_mode'] == 'full' && isset($build['body'])) {
