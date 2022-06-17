@@ -4,6 +4,9 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\NodeInterface;
 
+/**
+ * Implements hook_ENTITY_TYPE_view_alter().
+ */
 function glossary_tooltip_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   if (!$entity instanceof NodeInterface
     || !$entity->hasField('body')
@@ -23,14 +26,14 @@ function glossary_tooltip_entity_view_alter(array &$build, EntityInterface $enti
   foreach ($termStorage->loadMultiple($ids) as $item) {
     $vocabulary[$item->id()] = [
       "name" => $item->label(),
-      "body" => $item->get("description")->value
+      "body" => $item->get("description")->value,
     ];
   }
 
   foreach ($vocabulary as $taxonomy) {
     $description = strip_tags($taxonomy["body"], $allowed_tags = null);
     $term = $taxonomy["name"];
-    $body = str_replace($taxonomy, "<ins title=\"$description\">$term</ins>", $body);
+    $body = str_replace($term, "<ins title=\"$description\">$term</ins>", $body);
   }
 
   if ($build['#view_mode'] == 'full' && isset($build['body'])) {

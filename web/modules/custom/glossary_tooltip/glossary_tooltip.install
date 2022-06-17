@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function glossary_tooltip_install($is_syncing) {
+
+  $vid = "glossary";
+  $name = "Glossary";
+  $description = "The words correspondent / identical to the items included in the glossary vocabulary are highlighted";
+
+  $vocabularies = \Drupal\taxonomy\Entity\Vocabulary::loadMultiple();
+
+  if (!isset($vocabularies[$vid])) {
+    $vocabulary = \Drupal\taxonomy\Entity\Vocabulary::create([
+      'vid' => $vid,
+      'name' => $name,
+      'description' => $description,
+    ])->save();
+
+    $categories = [
+      0 => [
+        'name' => 'Bat',
+        'description' => 'The second largest order of mammals after rodents, bats comprise about 20% of all classified mammal species worldwide, with over 1,400 species. These were traditionally divided into two suborders: the largely fruit-eating megabats, and the echolocating microbats. But more recent evidence has supported dividing the order into Yinpterochiroptera and Yangochiroptera, with megabats as members of the former along with several species of microbats. Many bats are insectivores, and most of the rest are frugivores (fruit-eaters) or nectarivores (nectar-eaters).',
+      ],
+      1 => [
+        'name' => 'Cat',
+        'description' => 'Female domestic cats can have kittens from spring to late autumn, with litter sizes often ranging from two to five kittens. Domestic cats are bred and shown at events as registered pedigreed cats, a hobby known as cat fancy. Population control of cats may be effected by spaying and neutering, but their proliferation and the abandonment of pets has resulted in large numbers of feral cats worldwide, contributing to the extinction of entire bird, mammal, and reptile species.',
+      ],
+      2 => [
+        'name' => 'dog',
+        'description' => 'Dog description about dogs.',
+      ],
+    ];
+
+    foreach ($categories as $category) {
+      $term = \Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->create([
+          'vid' => $vid,
+          'name' => $category['name'],
+          'description' => $category['description'],
+        ])
+        ->save();
+    }
+  }
+}
