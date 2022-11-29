@@ -3,7 +3,7 @@ schemas:
   beetroot_example_theme: 8000
 favicon:
   mimetype: image/png
-  path: 'public://angk.png'
+  path: 'public://pet_3.png'
   url: 'http://drupal.localhost/themes/contrib/bootstrap/favicon.ico'
   use_default: 0
 features:
@@ -12,7 +12,7 @@ features:
   favicon: 1
   node_user_picture: 1
 logo:
-  path: 'public://anclogo.png'
+  path: 'public://pet_1.png'
   url: ''
   use_default: 0
 table_responsive: '-1'
@@ -23,3 +23,4 @@ cdn_cache_ttl_assets: '0'
 cdn_cache_ttl_library: '0'
 reset_http_request_cache: ''
 table: ''
+apply: Apply
