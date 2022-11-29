@@ -4,6 +4,20 @@ An example project for Beetroot.Academy Drupal course.
 
 ## Setup
 
+### New:
+
+```bash
+cp .env.dist .env
+chmod ug+w web/sites/default
+docker-compose up -d
+composer update --ignore-platform-reqs
+make install
+```
+
+Ready.
+
+### Old:
+
 ```bash
 cp .env.dist .env
 docker-compose up -d

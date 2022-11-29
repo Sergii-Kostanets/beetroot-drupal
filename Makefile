@@ -18,7 +18,7 @@ install: up
 #	docker-compose exec -T php bash -c 'drush en devel_generate'
 #	docker-compose exec -T php bash -c 'drush en realistic_dummy_content -y'
 #	docker-compose exec -T php bash -c 'drush en better_exposed_filters -y'
-#	docker-compose exec -T php bash -c 'drush sql:query --file=../db.sql'
+	docker-compose exec -T php bash -c 'drush sql:query --file=../db.sql'
 #	docker-compose exec -T php bash -c 'drush uli'
 
 up:
