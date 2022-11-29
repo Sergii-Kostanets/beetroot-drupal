@@ -28,7 +28,7 @@ up:
 
 down:
 	@echo "Down $(PROJECT_NAME)."
-	docker-compose exec -T php bash -c 'drush updb -y'
+# docker-compose exec -T php bash -c 'drush updb -y'
 	docker-compose exec -T php bash -c 'drush cex -y'
 	docker-compose exec -T php bash -c 'drush sql:dump --result-file=../db.sql'
 	docker-compose down
