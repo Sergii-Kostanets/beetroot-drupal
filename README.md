@@ -10,10 +10,12 @@ An example project for Beetroot.Academy Drupal course.
 cp .env.dist .env
 chmod ug+w web/sites/default
 docker-compose up -d
-make cli
 # composer update --ignore-platform-reqs
+make cli
 # COMPOSER_PROCESS_TIMEOUT=2000 composer install
+# chown 777 ./
 composer install
+# composer update
 make install
 ```
 
