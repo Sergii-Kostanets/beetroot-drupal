@@ -17,6 +17,8 @@
 /web/sites/default/default.services.yml
 /web/sites/default/default.settings.php
 /web/sites/default/settings.local.php
+/web/sites/default/files/languages
+/web/sites/default/files/php/twig
 /web/sites/README.txt
 /web/themes/README.txt
 /web/.csslintrc
