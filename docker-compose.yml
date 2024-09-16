@@ -15,8 +15,11 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.php.rule=Host(\"${PROJECT_BASE_URL}\")"
       - "traefik.http.services.php.loadbalancer.server.port=80"
-      - "traefik.http.routers.php.entrypoints=websecure"
-      - "traefik.http.routers.php.tls.certresolver=myresolver"
+      - "traefik.http.routers.php.entrypoints=web"
+      - "traefik.http.routers.php.middlewares=redirect-to-https"  # Redirect HTTP to HTTPS
+      - "traefik.http.routers.php-secure.rule=Host(\"${PROJECT_BASE_URL}\")"
+      - "traefik.http.routers.php-secure.entrypoints=websecure"
+      - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
 
   database:
     image: mariadb
@@ -40,8 +43,11 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.phpmyadmin.rule=Host(\"phpmyadmin.${PROJECT_BASE_URL}\")"
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=myresolver"
+      - "traefik.http.routers.phpmyadmin.entrypoints=web"
+      - "traefik.http.routers.phpmyadmin.middlewares=redirect-to-https"
+      - "traefik.http.routers.phpmyadmin-secure.rule=Host(\"phpmyadmin.${PROJECT_BASE_URL}\")"
+      - "traefik.http.routers.phpmyadmin-secure.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin-secure.tls.certresolver=myresolver"
 
   traefik:
     image: "traefik:v2.6"
