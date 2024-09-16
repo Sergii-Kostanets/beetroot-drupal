@@ -15,6 +15,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.php.rule=Host(`${PROJECT_BASE_URL}`)"
       - "traefik.http.services.php.loadbalancer.server.port=80"
+      - "traefik.http.routers.php.entrypoints=websecure"
+      - "traefik.http.routers.php.tls.certresolver=myresolver"
 
   database:
     image: mariadb
@@ -35,8 +37,11 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASS}
     labels:
+      - "traefik.enable=true"
       - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.${PROJECT_BASE_URL}`)"
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=myresolver"
 
   traefik:
     image: "traefik:v2.6"
