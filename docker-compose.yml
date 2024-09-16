@@ -53,6 +53,8 @@ services:
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
       - "--certificatesresolvers.myresolver.acme.email=sergiikostanets@gmail.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--entrypoints.web.http.middlewares=redirect-to-https"
+      - "--entrypoints.websecure.http.middlewares=redirect-to-https@docker"
     ports:
       - "80:80"
       - "443:443"
@@ -60,6 +62,8 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./letsencrypt:/letsencrypt"
+    labels:
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
 
   node:
     image: node:slim
