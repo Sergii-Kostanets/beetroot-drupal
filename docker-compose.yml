@@ -13,7 +13,7 @@ services:
     hostname: ${PROJECT_BASE_URL}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.php.rule=Host(`${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.php.rule=Host(\"${PROJECT_BASE_URL}\")"
       - "traefik.http.services.php.loadbalancer.server.port=80"
       - "traefik.http.routers.php.entrypoints=websecure"
       - "traefik.http.routers.php.tls.certresolver=myresolver"
@@ -38,7 +38,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASS}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.phpmyadmin.rule=Host(\"phpmyadmin.${PROJECT_BASE_URL}\")"
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
       - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
       - "traefik.http.routers.phpmyadmin.tls.certresolver=myresolver"
@@ -60,15 +60,6 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./letsencrypt:/letsencrypt"
-    labels:
-      - "traefik.http.routers.php.rule=Host(`${PROJECT_BASE_URL}`)"
-      - "traefik.http.routers.php.entrypoints=websecure"
-      - "traefik.http.routers.php.tls=true"
-      - "traefik.http.routers.php.tls.certresolver=myresolver"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.${PROJECT_BASE_URL}`)"
-      - "traefik.http.routers.phpmyadmin.entrypoints=websecure"
-      - "traefik.http.routers.phpmyadmin.tls=true"
-      - "traefik.http.routers.phpmyadmin.tls.certresolver=myresolver"
 
   node:
     image: node:slim
@@ -80,6 +71,10 @@ services:
       - .:/home/node/app
     working_dir: /home/node/app/web/themes/custom/beetroot_example_theme
     command: sh -c "npm ci && npm run build"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.node.rule=Host(\"node.${PROJECT_BASE_URL}\")"
+      - "traefik.http.services.node.loadbalancer.server.port=3000"
 
 volumes:
   my-datavolume:
