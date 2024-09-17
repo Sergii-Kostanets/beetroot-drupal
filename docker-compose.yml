@@ -73,20 +73,21 @@ services:
       - "traefik.http.middlewares.redirect-to-www.redirectregex.replacement=https://www.$${1}"
       # Middleware to force HTTPS
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      # Router for HTTP redirection
-      - "traefik.http.routers.redirect-web.rule=HostRegexp(`{host:.+}`)"
-      - "traefik.http.routers.redirect-web.entrypoints=web"
-      - "traefik.http.routers.redirect-web.middlewares=redirect-to-www,redirect-to-https"
-      # Router for HTTPS with certificate resolver
+      # Router for HTTP to HTTPS redirection
+      - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.http-catchall.entrypoints=web"
+      - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
+      # Router for HTTPS redirection to www
+      - "traefik.http.routers.https-catchall.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.https-catchall.entrypoints=websecure"
+      - "traefik.http.routers.https-catchall.middlewares=redirect-to-www"
+      - "traefik.http.routers.https-catchall.tls=true"
+      - "traefik.http.routers.https-catchall.tls.certresolver=myresolver"
+      # Router for the actual service
       - "traefik.http.routers.php.rule=Host(`www.${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php.entrypoints=websecure"
       - "traefik.http.routers.php.tls=true"
       - "traefik.http.routers.php.tls.certresolver=myresolver"
-      # Router for HTTPS for root domain
-      - "traefik.http.routers.root.rule=Host(`${PROJECT_BASE_URL}`)"
-      - "traefik.http.routers.root.entrypoints=websecure"
-      - "traefik.http.routers.root.tls=true"
-      - "traefik.http.routers.root.tls.certresolver=myresolver"
 
   node:
     image: node:slim
