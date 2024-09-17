@@ -63,3 +63,6 @@
 # Ignore forntend deps.
 web/themes/custom/beetroot_example_theme/node_modules/
 web/themes/custom/beetroot_example_theme/dist/
+
+# Ignore SSL
+letsencrypt/acme.json
