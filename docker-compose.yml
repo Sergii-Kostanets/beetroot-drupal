@@ -84,7 +84,7 @@ services:
       - "traefik.http.routers.https-catchall.tls=true"
       - "traefik.http.routers.https-catchall.tls.certresolver=myresolver"
       # Router for the actual service
-      - "traefik.http.routers.php.rule=Host(`www.${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.php.rule=Host(`www.${PROJECT_BASE_URL}`, `${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php.entrypoints=websecure"
       - "traefik.http.routers.php.tls=true"
       - "traefik.http.routers.php.tls.certresolver=myresolver"
