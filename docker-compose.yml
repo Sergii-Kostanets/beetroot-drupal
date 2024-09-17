@@ -10,7 +10,7 @@ services:
       - ./.env
     environment:
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/www/vendor/bin
-    hostname: ${PROJECT_BASE_URL}
+    hostname: php
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.php.rule=Host(`${PROJECT_BASE_URL}`, `www.${PROJECT_BASE_URL}`)"
