@@ -13,8 +13,13 @@ services:
     hostname: ${PROJECT_BASE_URL}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.php.rule=Host(`${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.php.rule=Host(\"${PROJECT_BASE_URL}\")"
       - "traefik.http.services.php.loadbalancer.server.port=80"
+      - "traefik.http.routers.php.entrypoints=web"
+      - "traefik.http.routers.php.middlewares=redirect-to-https"  # Redirect HTTP to HTTPS
+      - "traefik.http.routers.php-secure.rule=Host(\"${PROJECT_BASE_URL}\")"
+      - "traefik.http.routers.php-secure.entrypoints=websecure"
+      - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
 
   database:
     image: mariadb
@@ -35,17 +40,37 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASS}
     labels:
-      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.${PROJECT_BASE_URL}`)"
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(\"phpmyadmin.${PROJECT_BASE_URL}\")"
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+      - "traefik.http.routers.phpmyadmin.entrypoints=web"
+      - "traefik.http.routers.phpmyadmin.middlewares=redirect-to-https"
+      - "traefik.http.routers.phpmyadmin-secure.rule=Host(\"phpmyadmin.${PROJECT_BASE_URL}\")"
+      - "traefik.http.routers.phpmyadmin-secure.entrypoints=websecure"
+      - "traefik.http.routers.phpmyadmin-secure.tls.certresolver=myresolver"
 
   traefik:
     image: "traefik:v2.6"
-    command: --api.insecure=true --providers.docker
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=sergiikostanets@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     ports:
       - "80:80"
+      - "443:443"
       - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./letsencrypt:/letsencrypt"
+    labels:
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.redirect-web.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.redirect-web.entrypoints=web"
+      - "traefik.http.routers.redirect-web.middlewares=redirect-to-https"
 
   node:
     image: node:slim
@@ -57,6 +82,11 @@ services:
       - .:/home/node/app
     working_dir: /home/node/app/web/themes/custom/beetroot_example_theme
     command: sh -c "npm ci && npm run build"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.node.rule=Host(\"node.${PROJECT_BASE_URL}\")"
+      - "traefik.http.services.node.loadbalancer.server.port=3000"
 
 volumes:
   my-datavolume:
+  letsencrypt:

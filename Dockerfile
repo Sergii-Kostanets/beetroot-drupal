@@ -37,3 +37,4 @@ RUN mkdir /home/www-data \
 USER www-data
 
 EXPOSE 80
+EXPOSE 443
