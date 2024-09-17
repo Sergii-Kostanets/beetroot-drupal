@@ -776,14 +776,13 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 
-$base_url = getenv('PROJECT_BASE_URL');
-// Trust both the base URL and the www version
-$settings['trusted_host_patterns'][] = '^' . preg_quote($base_url) . '$';
-$settings['trusted_host_patterns'][] = '^www\.' . preg_quote($base_url) . '$';
+// $base_url = getenv('PROJECT_BASE_URL');
+// $settings['trusted_host_patterns'][] = '^' . preg_quote($base_url) . '$';
+// $settings['trusted_host_patterns'][] = '^www\.' . preg_quote($base_url) . '$';
 
 $settings['hash_salt'] = getenv('HASH_SALT');
 $settings['config_sync_directory'] = '../config';
-// $settings['trusted_host_patterns'][] = getenv('PROJECT_BASE_URL');
+$settings['trusted_host_patterns'][] = getenv('PROJECT_BASE_URL');
 $settings['skip_permissions_hardening'] = TRUE;
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {

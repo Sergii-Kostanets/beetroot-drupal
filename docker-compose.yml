@@ -10,14 +10,14 @@ services:
       - ./.env
     environment:
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/www/vendor/bin
-    hostname: www.${PROJECT_BASE_URL}
+    hostname: ${PROJECT_BASE_URL}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.php.rule=Host(`${PROJECT_BASE_URL}`, `www.${PROJECT_BASE_URL}`)"
       - "traefik.http.services.php.loadbalancer.server.port=80"
       - "traefik.http.routers.php.entrypoints=web"
       - "traefik.http.routers.php.middlewares=redirect-to-https"  # Redirect HTTP to HTTPS
-      - "traefik.http.routers.php-secure.rule=Host(\"www.${PROJECT_BASE_URL}\")"
+      - "traefik.http.routers.php-secure.rule=Host(\"www.${PROJECT_BASE_URL}\", `${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php-secure.entrypoints=websecure"
       - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
 
@@ -45,7 +45,7 @@ services:
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
       - "traefik.http.routers.phpmyadmin.entrypoints=web"
       - "traefik.http.routers.phpmyadmin.middlewares=redirect-to-https"
-      - "traefik.http.routers.phpmyadmin-secure.rule=Host(\"phpmyadmin.www.${PROJECT_BASE_URL}\")"
+      - "traefik.http.routers.phpmyadmin-secure.rule=Host(\"phpmyadmin.www.${PROJECT_BASE_URL}\", \"phpmyadmin.${PROJECT_BASE_URL}\")"
       - "traefik.http.routers.phpmyadmin-secure.entrypoints=websecure"
       - "traefik.http.routers.phpmyadmin-secure.tls.certresolver=myresolver"
 
