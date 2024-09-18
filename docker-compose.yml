@@ -13,10 +13,8 @@ services:
     hostname: php
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.php.rule=Host(`${PROJECT_BASE_URL}`, `www.${PROJECT_BASE_URL}`)"
-      - "traefik.http.routers.php.entrypoints=web"
-      - "traefik.http.routers.php.middlewares=redirect-to-www,redirect-to-https"
-      - "traefik.http.routers.php-secure.rule=Host(`www.${PROJECT_BASE_URL}`, `${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.php-secure.middlewares=redirect-to-www,redirect-to-https"
+      - "traefik.http.routers.php-secure.rule=Host(`www.${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php-secure.entrypoints=websecure"
       - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
 
@@ -66,27 +64,22 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./letsencrypt:/letsencrypt"
     labels:
-      # Middleware to redirect non-www to www
+      # Middleware to redirect HTTP to HTTPS first
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      # Middleware to redirect non-www to www (applied after HTTPS)
       - "traefik.http.middlewares.redirect-to-www.redirectregex.permanent=true"
       - "traefik.http.middlewares.redirect-to-www.redirectregex.regex=^https?://(?:www\\.)?(.*)"
       - "traefik.http.middlewares.redirect-to-www.redirectregex.replacement=https://www.$${1}"
-      # Middleware to force HTTPS
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       # Router for HTTP to HTTPS redirection
       - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.http-catchall.entrypoints=web"
       - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
-      # Router for HTTPS redirection to www
+      # Router for HTTPS to WWW redirection
       - "traefik.http.routers.https-catchall.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.https-catchall.entrypoints=websecure"
       - "traefik.http.routers.https-catchall.middlewares=redirect-to-www"
       - "traefik.http.routers.https-catchall.tls=true"
       - "traefik.http.routers.https-catchall.tls.certresolver=myresolver"
-      # Router for the actual service to support both www and non-www
-      - "traefik.http.routers.php.rule=Host(`www.${PROJECT_BASE_URL}`, `${PROJECT_BASE_URL}`)"
-      - "traefik.http.routers.php.entrypoints=websecure"
-      - "traefik.http.routers.php.tls=true"
-      - "traefik.http.routers.php.tls.certresolver=myresolver"
 
   node:
     image: node:slim
