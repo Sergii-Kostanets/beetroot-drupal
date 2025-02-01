@@ -6,6 +6,7 @@ RUN docker-php-ext-configure gd --with-jpeg --with-freetype
 
 RUN docker-php-ext-install pdo_mysql gd opcache
 
+RUN apt-get update && apt-get install -y sudo
 RUN apt-get update && apt-get install -y certbot
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
