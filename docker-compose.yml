@@ -15,6 +15,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.php-secure.middlewares=redirect-to-www,redirect-to-https"
       - "traefik.http.routers.php-secure.rule=Host(`www.${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.php-secure.rule=Host(`${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php-secure.entrypoints=websecure"
       - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
 
