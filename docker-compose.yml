@@ -16,7 +16,7 @@ services:
       - "traefik.http.routers.php-secure.rule=Host(`www.${PROJECT_BASE_URL}`, `${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php-secure.entrypoints=websecure"
       - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
-      - "traefik.http.routers.php-secure.middlewares=redirect-to-https"
+      - "traefik.http.routers.php-secure.middlewares=redirect-to-www@docker"
 
   database:
     image: mariadb
@@ -66,13 +66,17 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./letsencrypt:/letsencrypt"
     labels:
+      # Middleware to redirect HTTP to HTTPS
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      # Middleware to redirect non-www to www
       - "traefik.http.middlewares.redirect-to-www.redirectregex.permanent=true"
-      - "traefik.http.middlewares.redirect-to-www.redirectregex.regex=^https?://(?:www\\.)?(.*)"
-      - "traefik.http.middlewares.redirect-to-www.redirectregex.replacement=https://www.$${1}"
+      - "traefik.http.middlewares.redirect-to-www.redirectregex.regex=^https?://(?:www\\.)?(${PROJECT_BASE_URL})(/.*)?$$"
+      - "traefik.http.middlewares.redirect-to-www.redirectregex.replacement=https://www.$${1}$${2}"
+      # Router for HTTP to HTTPS redirection
       - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.http-catchall.entrypoints=web"
       - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
+      # Router for HTTPS to WWW redirection
       - "traefik.http.routers.https-catchall.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.https-catchall.entrypoints=websecure"
       - "traefik.http.routers.https-catchall.middlewares=redirect-to-www"
