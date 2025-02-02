@@ -63,7 +63,6 @@ services:
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
       - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
       - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
-      - "--certificatesresolvers.myresolver.acme.domains=${PROJECT_BASE_URL},www.${PROJECT_BASE_URL}"
     ports:
       - "80:80"
       - "443:443"
