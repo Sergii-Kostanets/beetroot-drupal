@@ -13,13 +13,10 @@ services:
     hostname: php
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.php-secure.middlewares=redirect-to-www,redirect-to-https"
-      - "traefik.http.routers.php-secure.rule=Host(`${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.php-secure.rule=Host(`www.${PROJECT_BASE_URL}`, `${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php-secure.entrypoints=websecure"
       - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
-      - "traefik.http.routers.php-secure.rule=Host(`www.${PROJECT_BASE_URL}`)"
-      - "traefik.http.routers.php-secure.entrypoints=websecure"
-      - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
+      - "traefik.http.routers.php-secure.middlewares=redirect-to-https"
 
   database:
     image: mariadb
@@ -42,11 +39,9 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.${PROJECT_BASE_URL}`)"
-      - "traefik.http.routers.phpmyadmin-secure.rule=Host(`phpmyadmin.www.${PROJECT_BASE_URL}`)"
-      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
       - "traefik.http.routers.phpmyadmin.entrypoints=web"
       - "traefik.http.routers.phpmyadmin.middlewares=redirect-to-https"
-      - "traefik.http.routers.phpmyadmin-secure.rule=Host(\"phpmyadmin.www.${PROJECT_BASE_URL}\", \"phpmyadmin.${PROJECT_BASE_URL}\")"
+      - "traefik.http.routers.phpmyadmin-secure.rule=Host(`phpmyadmin.${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.phpmyadmin-secure.entrypoints=websecure"
       - "traefik.http.routers.phpmyadmin-secure.tls.certresolver=myresolver"
 
@@ -71,19 +66,13 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./letsencrypt:/letsencrypt"
     labels:
-      # Middleware to redirect HTTP to HTTPS first
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      # Middleware to redirect non-www to www (applied after HTTPS)
       - "traefik.http.middlewares.redirect-to-www.redirectregex.permanent=true"
       - "traefik.http.middlewares.redirect-to-www.redirectregex.regex=^https?://(?:www\\.)?(.*)"
       - "traefik.http.middlewares.redirect-to-www.redirectregex.replacement=https://www.$${1}"
-      - "traefik.http.middlewares.redirect-to-www.redirectregex.regex=^https?://drupalpet\\.it(/?.*)"
-      - "traefik.http.middlewares.redirect-to-www.redirectregex.replacement=https://www.drupalpet.it$${1}"
-      # Router for HTTP to HTTPS redirection
       - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.http-catchall.entrypoints=web"
       - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
-      # Router for HTTPS to WWW redirection
       - "traefik.http.routers.https-catchall.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.https-catchall.entrypoints=websecure"
       - "traefik.http.routers.https-catchall.middlewares=redirect-to-www"
@@ -102,7 +91,7 @@ services:
     command: sh -c "npm ci && npm run build"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.node.rule=Host(\"node.www.${PROJECT_BASE_URL}\", \"node.${PROJECT_BASE_URL}\")"
+      - "traefik.http.routers.node.rule=Host(`node.${PROJECT_BASE_URL}`)"
       - "traefik.http.services.node.loadbalancer.server.port=3000"
 
 volumes:
