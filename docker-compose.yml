@@ -14,8 +14,10 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.php-secure.middlewares=redirect-to-www,redirect-to-https"
-      - "traefik.http.routers.php-secure.rule=Host(`www.${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php-secure.rule=Host(`${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.php-secure.entrypoints=websecure"
+      - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
+      - "traefik.http.routers.php-secure.rule=Host(`www.${PROJECT_BASE_URL}`)"
       - "traefik.http.routers.php-secure.entrypoints=websecure"
       - "traefik.http.routers.php-secure.tls.certresolver=myresolver"
 
@@ -50,6 +52,7 @@ services:
 
   traefik:
     image: "traefik:v2.6"
+    restart: always
     command:
       - "--api.insecure=true"
       - "--providers.docker"
@@ -58,6 +61,8 @@ services:
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
       - "--certificatesresolvers.myresolver.acme.email=sergiikostanets@gmail.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
       - "--certificatesresolvers.myresolver.acme.domains=${PROJECT_BASE_URL},www.${PROJECT_BASE_URL}"
     ports:
       - "80:80"
